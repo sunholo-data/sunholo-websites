@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanne Harder | Game Design & Educational Consultancy</title>
     <meta name="description" content="Expert game designer and educational consultant specializing in narrative-driven learning and interactive storytelling.">
+    <title>Sanne Harder | Game Design & Educational Consultancy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
@@ -15,63 +15,69 @@
             --accent: #E1C340;
             --background: #F9F7F2;
             --text: #1A1A1A;
-            --white: #ffffff;
+            --white: #FFFFFF;
+            --glass: rgba(249, 247, 242, 0.85);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --radius: 12px;
             --shadow: 0 10px 30px rgba(0,0,0,0.08);
-            --header-bg: rgba(249, 247, 242, 0.85);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: var(--font-body);
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .philosophy-quote blockquote {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
             font-weight: 700;
-            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header & Navigation */
+        /* Navigation */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--header-bg);
+            background: var(--glass);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 0;
         }
 
-        nav {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
@@ -80,6 +86,7 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+            list-style: none;
         }
 
         .nav-links a {
@@ -87,14 +94,15 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
+            color: var(--secondary);
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        /* Mobile Menu */
-        #menu-toggle {
+        /* Mobile Menu Toggle */
+        .menu-toggle {
             display: none;
         }
 
@@ -102,119 +110,122 @@
             display: none;
             cursor: pointer;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .hamburger span {
             width: 25px;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: 0.3s;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
         }
 
         /* Hero Split Section */
         .hero-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             min-height: 80vh;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
             gap: 4rem;
-            padding: 4rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: #444;
+            font-size: 3.5rem;
+            color: var(--secondary);
             margin-bottom: 2rem;
-            max-width: 500px;
         }
 
-        .hero-image-container {
+        .hero-image {
+            flex: 1;
             position: relative;
         }
 
-        .hero-image-container img {
+        .hero-image img {
             width: 100%;
             height: auto;
-            border-radius: 20px 80px 20px 20px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
             display: block;
-        }
-
-        .hero-image-container::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent);
-            border-radius: 20px 80px 20px 20px;
-            z-index: -1;
         }
 
         /* Philosophy Quote */
         .philosophy-quote {
             background-color: var(--secondary);
             color: var(--white);
-            padding: 6rem 0;
+            padding: 8rem 2rem;
             text-align: center;
-            margin: 4rem 0;
             position: relative;
+            overflow: hidden;
         }
 
-        .philosophy-quote blockquote {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-style: italic;
-            max-width: 900px;
+        .philosophy-quote::before {
+            content: '“';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .quote-container {
+            max-width: 800px;
             margin: 0 auto;
-            color: var(--background);
             position: relative;
             z-index: 1;
         }
 
-        .philosophy-quote blockquote::before {
-            content: '“';
-            font-size: 8rem;
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0.1;
+        .philosophy-quote h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-quote p {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-style: italic;
+            line-height: 1.4;
         }
 
         /* Capabilities Grid */
-        .capabilities-grid {
-            padding: 6rem 0;
+        .capabilities {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .section-intro {
+        .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
-        .section-intro h2 {
+        .section-header h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
-        .grid-wrapper {
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
         }
 
         .capability-card {
             background: var(--white);
             padding: 3rem 2rem;
-            border-radius: 15px;
+            border-radius: var(--radius);
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-bottom: 4px solid transparent;
@@ -223,96 +234,75 @@
         .capability-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow);
-            border-bottom: 4px solid var(--primary);
+            border-bottom-color: var(--accent);
         }
 
         .capability-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
             color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
-            background: #eeeae3;
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            background: #f0ede6;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: var(--primary);
-            color: var(--white);
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary);
-            transform: scale(1.05);
+        .footer-copy {
+            font-size: 0.9rem;
+            color: #666;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 992px) {
             .hero-split {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+                flex-direction: column-reverse;
                 text-align: center;
+                padding: 4rem 2rem;
             }
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
-            .hero-image-container {
-                max-width: 600px;
-                margin: 0 auto;
+            .grid-container {
+                grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 80px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--background);
+                background: var(--white);
                 flex-direction: column;
                 padding: 2rem;
-                text-align: center;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                gap: 1.5rem;
+                box-shadow: var(--shadow);
             }
-
-            #menu-toggle:checked ~ .nav-links {
+            .hamburger {
                 display: flex;
             }
-
-            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 6px);
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
             }
+        }
 
-            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
-                opacity: 0;
+        @media (max-width: 600px) {
+            .philosophy-quote p {
+                font-size: 1.5rem;
             }
-
-            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -6px);
+            .hero-content h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -320,86 +310,74 @@
 <body>
 
     <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Sanne Harder</a>
-                
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Sanne Harder</a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Hero Split Section -->
-        <section class="container">
-            <div class="hero-split">
-                <div class="hero-content">
-                    <h1>Turning Passive Recipients into Active Learners</h1>
-                    <p>Sanne Harder designs learning games and interactive stories that put education into a narrative context. With over 10 years of experience, she bridges the gap between pedagogical theory and immersive play.</p>
-                    <a href="services.html" class="btn">Explore My Approach</a>
-                </div>
-                <div class="hero-image-container">
-                    <img src="Sanne Harder - foto Mikkel Bækgaard-11.jpeg" alt="Sanne Harder - Professional Portrait">
-                </div>
+        <section class="hero-split">
+            <div class="hero-content">
+                <h1>Turning Passive Recipients into Active Learners</h1>
+                <p>Sanne Harder designs learning games and interactive stories that put education into a narrative context. With over 10 years of experience, she bridges the gap between pedagogical theory and immersive play.</p>
+                <a href="services.html" style="display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; margin-top: 1rem;">Discover My Approach</a>
+            </div>
+            <div class="hero-image">
+                <img src="Sanne Harder - foto Mikkel Bækgaard-11.jpeg" alt="Sanne Harder - Expert Game Designer and Educational Consultant">
             </div>
         </section>
 
-        <!-- Philosophy Quote -->
         <section class="philosophy-quote">
-            <div class="container">
-                <blockquote>
-                    "My games put learning into a narrative context, turning the learning process into an adventure where the student is the protagonist."
-                </blockquote>
+            <div class="quote-container">
+                <h2>The Power of Narrative</h2>
+                <p>"My games put learning into a narrative context, turning the learning process into an adventure where the student is the protagonist."</p>
             </div>
         </section>
 
-        <!-- Capabilities Grid -->
-        <section class="container capabilities-grid">
-            <div class="section-intro">
+        <section class="capabilities">
+            <div class="section-header">
                 <h2>Expertise & Passion</h2>
-                <p>Combining a solid insight into the practice and theory of teaching with a deep passion for game mechanics.</p>
+                <p>Combining a solid insight into the practice and theory of teaching with a deep passion for advanced learning games that foster curiosity and genuine interest in knowledge.</p>
             </div>
-            <div class="grid-wrapper">
+            
+            <div class="grid-container">
                 <div class="capability-card">
                     <h3>Game Design</h3>
-                    <p>Professional game development for education and entertainment, focusing on engagement and retention.</p>
+                    <p>Professional game development for education and entertainment, focusing on engagement and flow.</p>
                 </div>
+                
                 <div class="capability-card">
                     <h3>Interactive Stories</h3>
-                    <p>Writing branching narratives that engage and challenge, making every choice meaningful for the learner.</p>
+                    <p>Writing branching narratives that engage and challenge, creating meaningful choices for every player.</p>
                 </div>
+
                 <div class="capability-card">
                     <h3>Educational Consulting</h3>
-                    <p>Applying pedagogical theory to modern gamification strategies to ensure real-world learning outcomes.</p>
+                    <p>Applying pedagogical theory to subtle, advanced learning games that foster intrinsic motivation.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2023 Sanne Harder. All rights reserved.</p>
-                <div class="nav-links" style="display: flex; gap: 1.5rem; font-size: 0.8rem;">
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
+        <span class="footer-logo">Sanne Harder</span>
+        <p>Game Design & Educational Consultancy</p>
+        <p class="footer-copy">&copy; 2023 Sanne Harder. All rights reserved.</p>
     </footer>
 
 <meta name="wb-site" content="sanne-harder-game-design-educational-consultancy"><script data-wb-form>
