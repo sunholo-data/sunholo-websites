@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert game designer and educational consultant specializing in narrative-driven learning and interactive storytelling.">
+    <title>Portfolio | Sanne Harder - Game Design & Educational Consultancy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B85C38;
+            --secondary: #2D4263;
+            --accent: #E1C340;
+            --background: #F9F7F2;
+            --text: #1A1A1A;
+            --white: #ffffff;
+            --glass: rgba(249, 247, 242, 0.85);
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Masonry Gallery */
+        .masonry-container {
+            columns: 1;
+            column-gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-container {
+                columns: 2;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            border-radius: 12px;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Project Highlight */
+        .project-highlight {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .project-highlight h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .project-highlight h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .project-highlight p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            color: #444;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: var(--white);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--background);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: 0.4s ease;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                left: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-highlight {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Storybook details */
+        .accent-line {
+            width: 80px;
+            height: 1px;
+            background: var(--primary);
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Sanne Harder</a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="masonry-gallery">
+            <div class="section-header">
+                <h1>Selected Works</h1>
+                <p>A showcase of business simulations, role-playing events, and gamified learning projects.</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="masonry-container">
+                <div class="gallery-item">
+                    <img src="Sanne Harder - foto Mikkel Bækgaard-11.jpeg" alt="Sanne Harder working on a game design project">
+                </div>
+                <!-- Additional portfolio placeholders for visual balance in a real scenario -->
+                <div class="gallery-item" style="background: #eee; min-height: 400px; display: flex; align-items: center; justify-content: center; color: #aaa; font-style: italic; border: 1px dashed #ccc;">
+                    <p>Interactive Narrative Showcase</p>
+                </div>
+                <div class="gallery-item" style="background: #eee; min-height: 300px; display: flex; align-items: center; justify-content: center; color: #aaa; font-style: italic; border: 1px dashed #ccc;">
+                    <p>Educational Roleplay Event</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-highlight">
+            <div class="project-highlight">
+                <h2>Business Simulations</h2>
+                <p>Custom-built simulations designed to facilitate complex organizational learning through play and decision-making. These projects involve deep mechanics that mirror real-world challenges, allowing teams to experiment with strategy in a safe, narrative-driven environment.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Sanne Harder</span>
+        <p>Game Design & Educational Consultancy</p>
+        <div class="accent-line" style="opacity: 0.3;"></div>
+        <p class="copyright">&copy; 2023 Sanne Harder. All rights reserved.</p>
+    </footer>
+
+<meta name="wb-site" content="sanne-harder-game-design-educational-consultancy"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='sanne-harder-game-design-educational-consultancy';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
