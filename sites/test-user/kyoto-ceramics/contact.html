@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Kyoto Ceramics Studio — enquire about classes, commissions, or handmade tableware.">
+    <title>Contact | Kyoto Ceramics Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --clay: #7a6552;
+            --clay-light: #b8a48a;
+            --ink: #2a2824;
+            --ink-light: #5a5650;
+            --parchment: #f5f2ec;
+            --cream: #ede8e0;
+            --surface: #fafaf8;
+            --ash: #d4d0ca;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--parchment);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 242, 236, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--ash);
+            padding: 1.25rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--ink);
+        }
+
+        .logo span {
+            color: var(--clay);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--clay);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: var(--transition);
+        }
+
+        /* Page header */
+        .page-intro {
+            padding: 6rem 2rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--clay);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-intro h1 em {
+            font-style: italic;
+            color: var(--clay);
+        }
+
+        .page-intro p {
+            font-size: 1rem;
+            color: var(--ink-light);
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        .page-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--ash);
+            margin: 3rem 0;
+        }
+
+        /* Contact layout */
+        .contact-section {
+            padding: 0 2rem 8rem;
+        }
+
+        .contact-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        /* Form */
+        .form-wrap {
+            background: var(--surface);
+            padding: 3.5rem;
+            border: 1px solid var(--ash);
+        }
+
+        .form-wrap h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-bottom: 0.6rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--ash);
+            border-radius: 0;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background: var(--parchment);
+            color: var(--ink);
+            transition: border-color 0.3s;
+            appearance: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--clay);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background: var(--clay);
+            color: var(--surface);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: var(--ink);
+        }
+
+        /* Sidebar */
+        .contact-aside {
+            padding-top: 0.5rem;
+        }
+
+        .aside-block {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--ash);
+        }
+
+        .aside-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .aside-block h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .aside-block p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            line-height: 1.8;
+        }
+
+        .aside-block a {
+            color: var(--clay);
+            border-bottom: 1px solid var(--clay-light);
+            padding-bottom: 1px;
+        }
+
+        .aside-block a:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .class-list {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .class-list li {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--ash);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .class-list li:last-child {
+            border-bottom: none;
+        }
+
+        .class-list .duration {
+            color: var(--clay);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--cream);
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--ash);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .footer-brand span {
+            color: var(--clay);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .footer-nav a:hover {
+            color: var(--clay);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--ink-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: var(--parchment);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--ash);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .form-wrap {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Kyoto <span>Ceramics</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#classes">Classes</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-intro">
+            <span class="section-label">Get in touch</span>
+            <h1>Begin your<br><em>practice</em></h1>
+            <p>Whether you'd like to join a workshop, commission a piece, or simply ask a question — we'd love to hear from you.</p>
+            <div class="page-divider"></div>
+        </div>
+
+        <div class="contact-section">
+            <div class="contact-inner">
+
+                <div class="form-wrap">
+                    <h2>Send us a message</h2>
+                    <form action="#" method="POST">
+                        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" placeholder="Full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">I am interested in</label>
+                            <select id="interest" name="interest">
+                                <option value="">— Please select —</option>
+                                <option value="wheel-throwing">Wheel Throwing (Beginner, 2h)</option>
+                                <option value="raku-firing">Raku Firing Workshop (4h)</option>
+                                <option value="kintsugi">Kintsugi Repair Class (3h)</option>
+                                <option value="tableware">Handmade Tableware</option>
+                                <option value="commission">Custom Commission</option>
+                                <option value="other">Other enquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us a little about what you're looking for…" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send message</button>
+                    </form>
+                </div>
+
+                <aside class="contact-aside">
+                    <div class="aside-block">
+                        <h3>Workshop classes</h3>
+                        <ul class="class-list">
+                            <li>
+                                <span>Wheel Throwing</span>
+                                <span class="duration">Beginner · 2h</span>
+                            </li>
+                            <li>
+                                <span>Raku Firing</span>
+                                <span class="duration">All levels · 4h</span>
+                            </li>
+                            <li>
+                                <span>Kintsugi Repair</span>
+                                <span class="duration">All levels · 3h</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="aside-block">
+                        <h3>Visit us</h3>
+                        <p>Our studio is located in the Higashiyama district of Kyoto, a short walk from Kiyomizudera. Classes are held in small groups — typically three to six participants.</p>
+                    </div>
+
+                    <div class="aside-block">
+                        <h3>About the studio</h3>
+                        <p>Founded by master potter Kenji Tanaka. Each piece made here is unique — shaped by hand, fired by flame, finished in silence.</p>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Kyoto <span>Ceramics</span> Studio</span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#classes">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Kyoto Ceramics Studio</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="kyoto-ceramics"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='kyoto-ceramics';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#f0ede8';el.style.color='#5a5038';el.style.border='1px solid #d4c8b4';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
