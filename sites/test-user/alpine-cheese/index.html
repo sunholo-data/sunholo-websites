@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alpine Cheese Collective — Handcrafted raw milk cheeses from 2000m altitude in the Swiss Alps, Grindelwald.">
+    <title>Alpine Cheese Collective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --alpine: #4d6e44;
+            --alpine-light: #7a9e6e;
+            --alpine-pale: #d4e2ce;
+            --wood: #8b6e4e;
+            --wood-light: #b8966e;
+            --ink: #2c2820;
+            --ink-light: #5a5448;
+            --cream: #faf8f3;
+            --warm-cream: #ede8dc;
+            --surface: #f5f2eb;
+            --border: #d4cfc4;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 248, 243, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+        }
+
+        .logo span {
+            color: var(--alpine);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--alpine);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        /* Mountain silhouette decoration */
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 220px;
+            background: var(--warm-cream);
+            clip-path: polygon(0 100%, 0 60%, 8% 45%, 15% 55%, 22% 30%, 30% 50%, 38% 20%, 46% 42%, 53% 15%, 62% 40%, 68% 25%, 75% 45%, 83% 28%, 90% 48%, 100% 35%, 100% 100%);
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            background: var(--cream);
+            clip-path: polygon(0 100%, 0 70%, 10% 55%, 18% 70%, 28% 45%, 38% 65%, 48% 40%, 58% 60%, 68% 42%, 78% 58%, 88% 44%, 100% 60%, 100% 100%);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-text h1 em {
+            font-style: italic;
+            color: var(--alpine);
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: var(--ink-light);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--alpine);
+            font-weight: 700;
+            border-bottom: 1px solid var(--alpine-pale);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        .hero-badge:hover {
+            color: var(--ink);
+            border-color: var(--border);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Cheese wheel decorative element */
+        .cheese-wheel {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #f5e8c8 0%, #e8d5a0 30%, #d4b870 60%, #c4a855 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 24px 64px rgba(44, 40, 32, 0.12), inset 0 2px 12px rgba(255,255,255,0.3);
+        }
+
+        .cheese-wheel::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .cheese-wheel::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .wheel-text {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(44,40,32,0.5);
+            z-index: 1;
+            letter-spacing: 0.04em;
+            text-align: center;
+        }
+
+        .hero-detail {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--wood-light);
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--cream);
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-label {
+            position: sticky;
+            top: 120px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--alpine);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .about-label h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+
+        .about-label h2 em {
+            font-style: italic;
+            color: var(--alpine);
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--ink-light);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-content p strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .about-attr {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 3rem;
+        }
+
+        .about-attr-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .attr-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--alpine);
+        }
+
+        .attr-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            font-weight: 700;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 8rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .products-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .products-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .products-header h2 em {
+            font-style: italic;
+            color: var(--alpine);
+        }
+
+        .products-header p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            letter-spacing: 0.05em;
+            font-weight: 300;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+
+        .product-card {
+            background: var(--cream);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--border);
+            transition: var(--transition);
+        }
+
+        .product-card:hover::before {
+            background: var(--alpine);
+        }
+
+        .product-card:hover {
+            background: var(--surface);
+        }
+
+        .product-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--border);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-number {
+            color: var(--alpine-pale);
+        }
+
+        .product-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--alpine);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Altitude quote section */
+        .altitude {
+            padding: 7rem 2rem;
+            background: var(--alpine);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .altitude::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(77,110,68,0.0) 0%, rgba(44,40,32,0.25) 100%);
+            pointer-events: none;
+        }
+
+        /* Subtle mountain silhouette overlay */
+        .altitude::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: var(--warm-cream);
+            clip-path: polygon(0 100%, 0 80%, 12% 55%, 22% 75%, 32% 48%, 42% 68%, 52% 42%, 64% 62%, 72% 46%, 82% 62%, 92% 50%, 100% 65%, 100% 100%);
+            opacity: 0.15;
+        }
+
+        .altitude-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .altitude-inner .section-label {
+            color: var(--alpine-pale);
+        }
+
+        .altitude-inner blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 400;
+            color: #faf8f3;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .altitude-inner cite {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--alpine-pale);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--warm-cream);
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .footer-brand span {
+            color: var(--alpine);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            font-weight: 700;
+        }
+
+        .footer-nav a:hover {
+            color: var(--alpine);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--ink-light);
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .cheese-wheel {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-label {
+                position: static;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about-attr {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero::before,
+            .hero::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Alpine <span>Cheese</span> Collective</a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products">Cheeses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <h1>Handcrafted raw milk cheeses<br><em>from 2000m altitude</em></h1>
+                    <p>Alpine Cheese Collective — five farming families in Grindelwald, united by the belief that the finest cheeses begin with exceptional milk, mountain air, and time-honoured craft.</p>
+                    <a href="index.html#products" class="hero-badge">Discover our cheeses</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="cheese-wheel">
+                        <span class="wheel-text">Grindelwald<br>2000m</span>
+                    </div>
+                    <span class="hero-detail">Raw milk · Swiss Alps</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-label">
+                    <span class="section-label">Our Story</span>
+                    <h2>Five families,<br><em>one vision</em></h2>
+                </div>
+                <div class="about-content">
+                    <p><strong>Five farming families in Grindelwald</strong> have pooled their herds to create exceptional Gruyère and Raclette using traditional copper vat methods. What began as neighbourly cooperation has become a celebrated cooperative, recognised for cheeses of extraordinary depth and character.</p>
+                    <p>Our animals graze on the rich alpine meadows above 2000 metres, where the diversity of mountain herbs and flowers gives the raw milk its distinctive complexity. No shortcuts, no pasteurisation — only the honest transformation of remarkable milk into cheese worth waiting for.</p>
+                    <p>Every wheel that leaves our cellar has been turned, washed, and tasted by the hands that made it. We age with patience, because great cheese cannot be hurried.</p>
+                    <div class="about-attr">
+                        <div class="about-attr-item">
+                            <span class="attr-value">5</span>
+                            <span class="attr-label">Farming families</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">2000m</span>
+                            <span class="attr-label">Altitude</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">Raw</span>
+                            <span class="attr-label">Milk tradition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="products" id="products">
+            <div class="products-inner">
+                <div class="products-header">
+                    <span class="section-label">From our cellar</span>
+                    <h2>Cheeses made with<br><em>mountain patience</em></h2>
+                    <p>Each variety reflects the season, the pasture, and the craft of its makers.</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-number">01</div>
+                        <h3 class="product-name">Alpine Gruyère</h3>
+                        <span class="product-tag">12-month aged</span>
+                        <p class="product-desc">Our flagship. Aged for a full year in our stone cellar, this Gruyère develops a complex, nutty flavour with sweet caramel notes and a smooth, supple paste. Made in copper vats from the morning's first milking.</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-number">02</div>
+                        <h3 class="product-name">Raclette Wheel</h3>
+                        <span class="product-tag">Semi-hard · Melting cheese</span>
+                        <p class="product-desc">A full wheel of traditional Raclette, washed in brine and aged to perfection. Creamy, slightly pungent, and irresistibly meltable — made for long winter evenings around the fire.</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-number">03</div>
+                        <h3 class="product-name">Fresh Tomme</h3>
+                        <span class="product-tag">Young · Mild</span>
+                        <p class="product-desc">A young, gentle cheese with a thin natural rind and milky, lactic interior. Ready within weeks of making, the Fresh Tomme captures the pure taste of alpine milk at its most delicate.</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-number">04</div>
+                        <h3 class="product-name">Herb-Crusted Mutschli</h3>
+                        <span class="product-tag">Seasonal · Hand-rolled</span>
+                        <p class="product-desc">A small, round alpine cheese hand-rolled in a blend of wild mountain herbs — thyme, rosemary, and dried meadow flowers. A seasonal speciality that brings the mountain pasture directly to the table.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Altitude quote -->
+        <section class="altitude">
+            <div class="altitude-inner">
+                <span class="section-label">The Alpine Difference</span>
+                <blockquote>"Above the clouds, the grass is sweeter, the air is cleaner, and the milk remembers everything."</blockquote>
+                <cite>A Grindelwald cheesemaker's maxim</cite>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Alpine <span>Cheese</span> Collective</span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products">Cheeses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Alpine Cheese Collective</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="alpine-cheese"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='alpine-cheese';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#eef4eb';el.style.color='#3a5434';el.style.border='1px solid #b8d4b0';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
