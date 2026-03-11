@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lisbon Tile Studio — Paint your own hand-crafted azulejo in the heart of Alfama. Workshops, masterclasses & custom tile commissions with third-generation artist Maria.">
+    <title>Lisbon Tile Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cobalt: #1a4fa0;
+            --cobalt-deep: #0d3070;
+            --cobalt-mid: #2563c0;
+            --cobalt-light: #5a8fd4;
+            --cobalt-pale: #d0e0f5;
+            --cobalt-wash: #eaf1fb;
+            --yellow: #f5c518;
+            --yellow-deep: #d4a010;
+            --yellow-pale: #fef9e6;
+            --yellow-wash: #fffcf0;
+            --ceramic: #f8f6f2;
+            --ceramic-warm: #f2ede5;
+            --ink: #1a1a2e;
+            --ink-mid: #3a3a52;
+            --ink-light: #6a6a8a;
+            --white: #ffffff;
+            --border: #dcd8f0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.35s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--ceramic);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 79, 160, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.25rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Tile pattern utility */
+        .tile-border {
+            height: 12px;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    var(--cobalt) 0px, var(--cobalt) 12px,
+                    var(--yellow) 12px, var(--yellow) 24px,
+                    var(--cobalt-mid) 24px, var(--cobalt-mid) 36px,
+                    var(--yellow) 36px, var(--yellow) 48px
+                );
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--cobalt);
+        }
+
+        /* Azulejo tile pattern background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 25px 25px, rgba(255,255,255,0.06) 2px, transparent 2px),
+                radial-gradient(circle at 75px 75px, rgba(255,255,255,0.06) 2px, transparent 2px),
+                linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%);
+            background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--ceramic);
+            clip-path: polygon(0 100%, 0 40%, 5% 70%, 10% 40%, 15% 70%, 20% 40%, 25% 70%, 30% 40%, 35% 70%, 40% 40%, 45% 70%, 50% 40%, 55% 70%, 60% 40%, 65% 70%, 70% 40%, 75% 70%, 80% 40%, 85% 70%, 90% 40%, 95% 70%, 100% 40%, 100% 100%);
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-text h1 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.85;
+            margin-bottom: 2.5rem;
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow);
+            color: var(--cobalt-deep);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            transition: var(--transition);
+        }
+
+        .hero-cta:hover {
+            background: var(--white);
+            color: var(--cobalt);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Azulejo tile decorative element */
+        .tile-motif {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            padding: 4px;
+            background: rgba(255,255,255,0.12);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .tile-motif-cell {
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tile-motif-cell:nth-child(1) { background: var(--cobalt-deep); }
+        .tile-motif-cell:nth-child(2) { background: var(--yellow); }
+        .tile-motif-cell:nth-child(3) { background: var(--yellow); }
+        .tile-motif-cell:nth-child(4) { background: var(--cobalt-deep); }
+
+        .tile-motif-cell::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 2px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+        }
+
+        .tile-motif-cell::after {
+            content: '';
+            position: absolute;
+            inset: 22px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .tile-motif-cell:nth-child(2)::before,
+        .tile-motif-cell:nth-child(3)::before {
+            border-color: rgba(26, 79, 160, 0.3);
+        }
+
+        .tile-motif-cell:nth-child(2)::after,
+        .tile-motif-cell:nth-child(3)::after {
+            border-color: rgba(26, 79, 160, 0.2);
+        }
+
+        .hero-detail {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            padding: 9rem 2rem;
+            background: var(--ceramic);
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 7rem;
+            align-items: start;
+        }
+
+        .about-label {
+            position: sticky;
+            top: 120px;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--cobalt);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .about-label h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+
+        .about-label h2 em {
+            font-style: italic;
+            color: var(--cobalt);
+        }
+
+        /* Decorative tile stack */
+        .tile-stack {
+            margin-top: 2rem;
+            display: flex;
+            gap: 6px;
+        }
+
+        .tile-sq {
+            width: 28px;
+            height: 28px;
+            position: relative;
+        }
+
+        .tile-sq:nth-child(1) { background: var(--cobalt); }
+        .tile-sq:nth-child(2) { background: var(--yellow); }
+        .tile-sq:nth-child(3) { background: var(--cobalt-mid); }
+        .tile-sq:nth-child(4) { background: var(--cobalt-pale); }
+
+        .tile-sq::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .tile-sq:nth-child(2)::after {
+            border-color: rgba(26, 79, 160, 0.25);
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--ink-mid);
+            line-height: 1.95;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-content p strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .about-attr {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--cobalt-pale);
+            display: flex;
+            gap: 3rem;
+        }
+
+        .about-attr-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .attr-value {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--cobalt);
+        }
+
+        .attr-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            font-weight: 600;
+        }
+
+        /* Classes Section */
+        .classes {
+            padding: 9rem 2rem;
+            background: var(--cobalt-wash);
+        }
+
+        .classes-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .classes-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .classes-header h2 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .classes-header h2 em {
+            font-style: italic;
+            color: var(--cobalt);
+        }
+
+        .classes-header p {
+            font-size: 0.92rem;
+            color: var(--ink-light);
+            letter-spacing: 0.04em;
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3px;
+        }
+
+        .class-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: var(--transition);
+            cursor: default;
+            border-left: 4px solid transparent;
+        }
+
+        .class-card:hover {
+            border-left-color: var(--cobalt);
+            transform: translateX(4px);
+        }
+
+        .class-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cobalt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .class-icon::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .class-icon.yellow {
+            background: var(--yellow);
+        }
+
+        .class-icon-inner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 50%;
+        }
+
+        .class-icon.yellow .class-icon-inner {
+            border-color: rgba(26, 79, 160, 0.4);
+        }
+
+        .class-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--cobalt-pale);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .class-card:hover .class-number {
+            color: var(--cobalt-wash);
+        }
+
+        .class-name {
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .class-tag {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--cobalt);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .class-desc {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        /* Quote / highlight band */
+        .azulejo-band {
+            padding: 7rem 2rem;
+            background: var(--cobalt-deep);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .azulejo-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 49px,
+                    rgba(255,255,255,0.04) 49px,
+                    rgba(255,255,255,0.04) 50px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 49px,
+                    rgba(255,255,255,0.04) 49px,
+                    rgba(255,255,255,0.04) 50px
+                );
+            pointer-events: none;
+        }
+
+        .azulejo-band-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .azulejo-band .section-label {
+            color: var(--yellow);
+        }
+
+        .azulejo-band blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .azulejo-band cite {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--cobalt);
+            padding: 4rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .footer-brand span {
+            color: var(--yellow);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+        }
+
+        .footer-nav a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .tile-motif {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .about-label {
+                position: static;
+            }
+
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: var(--cobalt-deep);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid var(--yellow);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about-attr {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tile-border"></div>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Lisbon <span>Tile</span> Studio</a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#classes">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <span class="hero-eyebrow">Alfama · Lisbon</span>
+                    <h1>Paint your own<br><em>azulejo</em> in the heart<br>of Alfama</h1>
+                    <p>Step into a sun-drenched atelier in Lisbon's oldest neighbourhood and learn the centuries-old art of hand-painted Portuguese ceramic tiles — no experience required.</p>
+                    <a href="index.html#classes" class="hero-cta">Explore our workshops</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="tile-motif">
+                        <div class="tile-motif-cell"></div>
+                        <div class="tile-motif-cell"></div>
+                        <div class="tile-motif-cell"></div>
+                        <div class="tile-motif-cell"></div>
+                    </div>
+                    <span class="hero-detail">Handmade · Hand-painted · Alfama</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-label">
+                    <span class="section-label">Our Story</span>
+                    <h2>Three generations,<br><em>one art</em></h2>
+                    <div class="tile-stack">
+                        <div class="tile-sq"></div>
+                        <div class="tile-sq"></div>
+                        <div class="tile-sq"></div>
+                        <div class="tile-sq"></div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p><strong>Maria is a third-generation tile artist</strong> whose family has painted azulejos in Alfama for over seventy years. What began as her grandmother's small workshop has grown into a beloved atelier where visitors from around the world discover the joy of hand-painted Portuguese ceramics.</p>
+                    <p>The tradition of azulejo — from the Arabic <em>al-zulayj</em>, meaning "polished stone" — has shaped Portugal's soul for five centuries. Every blue-and-white panel that adorns Lisbon's facades tells a story. In Maria's sun-drenched studio, you become part of that living tradition.</p>
+                    <p>Whether you join a two-hour introduction or spend a full day mastering the craft, you'll leave with a tile that is entirely and uniquely yours — a piece of Lisbon to carry home.</p>
+                    <div class="about-attr">
+                        <div class="about-attr-item">
+                            <span class="attr-value">3rd</span>
+                            <span class="attr-label">Generation artist</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">500+</span>
+                            <span class="attr-label">Years of tradition</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">Alfama</span>
+                            <span class="attr-label">Lisbon's heart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classes -->
+        <section class="classes" id="classes">
+            <div class="classes-inner">
+                <div class="classes-header">
+                    <span class="section-label">Workshops &amp; Classes</span>
+                    <h2>Every tile tells<br><em>your story</em></h2>
+                    <p>Choose the experience that fits your time and curiosity — from a first brush stroke to a complete commissioned piece.</p>
+                </div>
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <div class="class-number">01</div>
+                        <h3 class="class-name">Intro Workshop</h3>
+                        <span class="class-tag">2 hours · All levels welcome</span>
+                        <p class="class-desc">The perfect introduction to azulejo painting. Learn the fundamentals of tile preparation, cobalt pigment mixing, and the classic geometric motifs that define Portuguese ceramic art. You'll leave with a finished tile ready to hang.</p>
+                    </div>
+                    <div class="class-card">
+                        <div class="class-number">02</div>
+                        <h3 class="class-name">Full-Day Masterclass</h3>
+                        <span class="class-tag">Full day · Intermediate &amp; above</span>
+                        <p class="class-desc">A deep immersion into the art of azulejo. Explore historic pattern libraries, practice the traditional wet-on-wet cobalt technique, and complete a multi-tile composition under Maria's personal guidance. Small groups of six maximum.</p>
+                    </div>
+                    <div class="class-card">
+                        <div class="class-number">03</div>
+                        <h3 class="class-name">Private Group Sessions</h3>
+                        <span class="class-tag">Flexible · Groups of 4–16</span>
+                        <p class="class-desc">A joyful, creative experience for hen parties, birthday celebrations, team building, or simply a group of curious travellers. Fully tailored to your group's pace and interests — Maria brings warmth, storytelling, and very good Lisbon wine.</p>
+                    </div>
+                    <div class="class-card">
+                        <div class="class-number">04</div>
+                        <h3 class="class-name">Custom Tile Commissions</h3>
+                        <span class="class-tag">Bespoke · 2–6 week turnaround</span>
+                        <p class="class-desc">Commission a bespoke panel for your home, restaurant, or as a treasured gift. Maria works with you to design and hand-paint tiles that honour the azulejo tradition while reflecting your personal vision — each piece signed and unique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote band -->
+        <section class="azulejo-band">
+            <div class="azulejo-band-inner">
+                <span class="section-label">The Azulejo Spirit</span>
+                <blockquote>"Every tile is a window — a little story painted in blue, fired in fire, lasting forever."</blockquote>
+                <cite>Maria, Lisbon Tile Studio</cite>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="tile-border" style="margin-bottom: 0; opacity: 0.4;"></div>
+        <div class="footer-inner">
+            <span class="footer-brand">Lisbon <span>Tile</span> Studio</span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#classes">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Lisbon Tile Studio</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="lisbon-tiles"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='lisbon-tiles';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#eaf1fb';el.style.color='#1a4fa0';el.style.border='1px solid #b0caf0';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
