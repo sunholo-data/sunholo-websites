@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Swedish flower arranging business — bespoke floral designs for weddings, events, and everyday life. Rooted in Scandinavian simplicity and seasonal beauty.">
+    <title>Blomster — Swedish Flower Arranging</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #7d8c5c;
+            --sage-light: #b8c49a;
+            --sage-pale: #dfe8d0;
+            --blush: #c9938d;
+            --blush-light: #e0bab6;
+            --blush-pale: #f5e8e6;
+            --petal: #f8f5f0;
+            --cream: #f0ebe2;
+            --bark: #3d3529;
+            --bark-mid: #6b5e50;
+            --mist: #e6e2da;
+            --surface: #fdfcfa;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--petal);
+            color: var(--bark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248, 245, 240, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--mist);
+            padding: 1.25rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: var(--bark);
+        }
+
+        .logo span {
+            color: var(--sage);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--bark-mid);
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--bark);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 92vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-content {
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 5rem 6rem 4.5rem;
+            position: relative;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 3rem;
+            left: 4.5rem;
+            width: 1px;
+            height: 60px;
+            background: var(--sage-light);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 400;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.6rem, 4vw, 4rem);
+            font-weight: 300;
+            color: var(--bark);
+            line-height: 1.15;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .hero-content p {
+            font-size: 0.95rem;
+            color: var(--bark-mid);
+            line-height: 1.85;
+            margin-bottom: 3rem;
+            max-width: 400px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage);
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 3px;
+            width: fit-content;
+            transition: var(--transition);
+        }
+
+        .hero-cta:hover {
+            color: var(--bark);
+            border-color: var(--bark);
+        }
+
+        .hero-cta::after {
+            content: '→';
+            font-size: 0.85rem;
+        }
+
+        /* About */
+        .about {
+            padding: 9rem 2rem;
+            background: var(--surface);
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 7rem;
+            align-items: start;
+        }
+
+        .about-label {
+            position: sticky;
+            top: 120px;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 400;
+        }
+
+        .about-label h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--bark);
+            line-height: 1.15;
+        }
+
+        .about-label h2 em {
+            font-style: italic;
+            color: var(--blush);
+        }
+
+        .floral-divider {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .floral-divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--sage-pale);
+        }
+
+        .floral-divider-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--sage-light);
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--bark-mid);
+            line-height: 1.95;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-content p strong {
+            color: var(--bark);
+            font-weight: 500;
+        }
+
+        .about-attr {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--mist);
+            display: flex;
+            gap: 3rem;
+        }
+
+        .about-attr-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .attr-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--sage);
+            line-height: 1;
+        }
+
+        .attr-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bark-mid);
+            font-weight: 400;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 0 0 9rem;
+            background: var(--surface);
+        }
+
+        .gallery-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-header h2 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            color: var(--bark);
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header h2 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .gallery-header p {
+            font-size: 0.9rem;
+            color: var(--bark-mid);
+            font-weight: 300;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .gallery-item:first-child img {
+            height: 100%;
+        }
+
+        .gallery-item:not(:first-child) {
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Videos */
+        .videos {
+            padding: 9rem 2rem;
+            background: var(--cream);
+        }
+
+        .videos-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .videos-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .videos-header h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--bark);
+            margin-bottom: 1rem;
+        }
+
+        .videos-header h2 em {
+            font-style: italic;
+            color: var(--blush);
+        }
+
+        .videos-header p {
+            font-size: 0.9rem;
+            color: var(--bark-mid);
+            font-weight: 300;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-item video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Services */
+        .services {
+            padding: 9rem 2rem;
+            background: var(--petal);
+        }
+
+        .services-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .services-header h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--bark);
+            margin-bottom: 1rem;
+        }
+
+        .services-header h2 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .services-header p {
+            font-size: 0.9rem;
+            color: var(--bark-mid);
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: var(--transition);
+            cursor: default;
+            border-top: 2px solid var(--mist);
+        }
+
+        .service-card:hover {
+            background: var(--blush-pale);
+            border-top-color: var(--blush);
+        }
+
+        .service-number {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--mist);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-number {
+            color: var(--blush-light);
+        }
+
+        .service-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--bark);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .service-desc {
+            font-size: 0.88rem;
+            color: var(--bark-mid);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        /* Quote / philosophy */
+        .philosophy {
+            padding: 8rem 2rem;
+            background: var(--sage);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy::before {
+            content: '❋';
+            position: absolute;
+            font-size: 22rem;
+            color: rgba(255,255,255,0.04);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            font-family: serif;
+        }
+
+        .philosophy-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .philosophy-inner .section-label {
+            color: var(--sage-pale);
+        }
+
+        .philosophy-inner blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .philosophy-inner cite {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage-pale);
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bark);
+            padding: 4.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--petal);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-brand span {
+            color: var(--sage-light);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            font-weight: 300;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sage-light);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.04em;
+            font-weight: 300;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-image {
+                height: 55vw;
+                max-height: 480px;
+            }
+
+            .hero-content {
+                padding: 4rem 2.5rem 5rem;
+            }
+
+            .hero-content::before {
+                left: 2.5rem;
+                top: 2rem;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-label {
+                position: static;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 16/9;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+                aspect-ratio: 3/4;
+            }
+
+            .gallery-item:not(:first-child) {
+                aspect-ratio: 4/3;
+            }
+
+            .about-attr {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: var(--petal);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--mist);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Blomster <span>Studio</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-image">
+                <img
+                    src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661883-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg"
+                    alt="A beautiful floral arrangement in the Swedish style"
+                    width="1500"
+                    height="2000"
+                    loading="eager"
+                >
+            </div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">Sweden · Blomsterkonst</span>
+                <h1>Flowers arranged<br>with <em>Scandinavian</em><br>simplicity</h1>
+                <p>Bespoke floral designs rooted in Sweden's natural beauty — for weddings, special events, and the everyday moments that deserve something beautiful.</p>
+                <a href="index.html#gallery" class="hero-cta">See our work</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-label">
+                    <span class="section-label">Our philosophy</span>
+                    <h2>Rooted in<br>nature's <em>rhythm</em></h2>
+                    <div class="floral-divider">
+                        <div class="floral-divider-line"></div>
+                        <div class="floral-divider-dot"></div>
+                        <div class="floral-divider-line"></div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p>We are a <strong>Swedish flower arranging studio</strong> inspired by the quiet elegance of Scandinavian nature. Every arrangement we create honours the season — the pale blossoms of spring, the abundant colours of summer, the amber tones of autumn, and the spare, graphic beauty of winter.</p>
+                    <p>Our approach is rooted in <em>lagom</em> — the Swedish art of just the right amount. Not too much, not too little. Each stem chosen with intention, each composition balanced and alive. We work with locally-sourced and seasonal flowers wherever possible, letting nature guide the palette.</p>
+                    <p>Whether you are planning a wedding, marking a milestone, or simply bringing beauty into your home, we create arrangements that feel personal, considered, and entirely your own.</p>
+                    <div class="about-attr">
+                        <div class="about-attr-item">
+                            <span class="attr-value">Säsong</span>
+                            <span class="attr-label">Seasonal flowers</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">Lagom</span>
+                            <span class="attr-label">Our philosophy</span>
+                        </div>
+                        <div class="about-attr-item">
+                            <span class="attr-value">Sverige</span>
+                            <span class="attr-label">Based in Sweden</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-inner">
+                <div class="gallery-header">
+                    <span class="section-label">Recent work</span>
+                    <h2>A selection of our<br><em>arrangements</em></h2>
+                    <p>Each composition is unique, made for the occasion and the person.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661883-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg"
+                            alt="Floral arrangement — tall portrait composition"
+                            width="1500"
+                            height="2000"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661896-WhatsApp_Image_2026-02-05_at_20.35.04__1_.jpeg"
+                            alt="Floral arrangement — landscape composition"
+                            width="2000"
+                            height="1500"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661915-WhatsApp_Image_2026-02-05_at_20.35.04.jpeg"
+                            alt="Floral arrangement — seasonal flowers"
+                            width="2000"
+                            height="1500"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos -->
+        <section class="videos" id="videos">
+            <div class="videos-inner">
+                <div class="videos-header">
+                    <span class="section-label">In the studio</span>
+                    <h2>Watch us<br><em>at work</em></h2>
+                    <p>A glimpse into the craft and care that goes into every arrangement.</p>
+                </div>
+                <div class="videos-grid">
+                    <div class="video-item">
+                        <video
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661923-WhatsApp_Video_2026-02-05_at_20.35.04.mp4"
+                            width="848"
+                            height="480"
+                            controls
+                            preload="metadata"
+                            playsinline
+                            muted
+                            loop
+                        ></video>
+                    </div>
+                    <div class="video-item">
+                        <video
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sweden/media/1773324661932-WhatsApp_Video_2026-02-05_at_20.35.13.mp4"
+                            width="848"
+                            height="480"
+                            controls
+                            preload="metadata"
+                            playsinline
+                            muted
+                            loop
+                        ></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <div class="services-inner">
+                <div class="services-header">
+                    <span class="section-label">What we offer</span>
+                    <h2>Created for<br><em>every occasion</em></h2>
+                    <p>From intimate bouquets to full venue styling — we bring floral beauty to every moment that matters.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-number">01</div>
+                        <h3 class="service-name">Weddings &amp; Ceremonies</h3>
+                        <p class="service-desc">Bridal bouquets, table centrepieces, ceremony arches, and full venue florals. We work closely with you to capture your vision and the spirit of your day — from intimate garden weddings to grand celebrations.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-number">02</div>
+                        <h3 class="service-name">Events &amp; Occasions</h3>
+                        <p class="service-desc">Birthdays, anniversaries, corporate gatherings, dinner parties. Whether you need a single statement arrangement or flowers throughout a venue, we bring thoughtful floral design to every kind of gathering.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-number">03</div>
+                        <h3 class="service-name">Bespoke Bouquets</h3>
+                        <p class="service-desc">Handcrafted seasonal bouquets made to order. The perfect gift, or a quiet treat for yourself. Each one designed around the season, your colour preferences, and the story you want to tell with flowers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy quote -->
+        <section class="philosophy">
+            <div class="philosophy-inner">
+                <span class="section-label">Our approach</span>
+                <blockquote>"Every arrangement is a conversation between the flower, the season, and the person it is made for."</blockquote>
+                <cite>Blomster Studio, Sweden</cite>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Blomster <span>Studio</span></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Blomster Studio, Sweden</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-flower-arranging-business-in-sweden"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-flower-arranging-business-in-sweden';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#dfe8d0';el.style.color='#4a5c30';el.style.border='1px solid #b8c49a';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
