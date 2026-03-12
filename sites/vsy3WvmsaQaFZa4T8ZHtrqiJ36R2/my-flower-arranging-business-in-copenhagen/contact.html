@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Blomst Studio — enquire about bespoke arrangements, weddings, events, and subscriptions in Copenhagen.">
+    <title>Contact | Blomst Studio Copenhagen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #7c9b6d;
+            --sage-light: #a8c49a;
+            --sage-pale: #eaf2e6;
+            --blush: #c9a89e;
+            --blush-light: #e8d5d0;
+            --ink: #2a2826;
+            --ink-light: #6b6762;
+            --cream: #fdfcfb;
+            --warm-white: #f8f5f1;
+            --light-grey: #e8e3dd;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s ease;
+            --max-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* ─── Navigation ─────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 252, 251, 0.93);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--light-grey);
+            padding: 1.2rem 0;
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+        }
+
+        .logo span {
+            color: var(--sage);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--sage);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: var(--transition);
+        }
+
+        /* ─── Page intro ─────────────────────────────────── */
+        .page-intro {
+            padding: 6rem 2rem 4rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.73rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+        }
+
+        .page-intro h1 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .page-intro p {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            max-width: 460px;
+            line-height: 1.85;
+        }
+
+        .page-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--light-grey);
+            margin: 3rem 0;
+        }
+
+        /* ─── Contact section ────────────────────────────── */
+        .contact-section {
+            padding: 0 2rem 8rem;
+        }
+
+        .contact-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        /* ─── Form ───────────────────────────────────────── */
+        .form-wrap {
+            background: var(--warm-white);
+            padding: 3.5rem;
+            border: 1px solid var(--light-grey);
+        }
+
+        .form-wrap h2 {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.73rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-bottom: 0.55rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--light-grey);
+            border-radius: 0;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            background: var(--cream);
+            color: var(--ink);
+            transition: border-color 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--sage);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background: var(--sage);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: var(--ink);
+        }
+
+        /* ─── Aside ──────────────────────────────────────── */
+        .contact-aside {
+            padding-top: 0.25rem;
+        }
+
+        .aside-block {
+            margin-bottom: 2.75rem;
+            padding-bottom: 2.75rem;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .aside-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .aside-block h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.85rem;
+        }
+
+        .aside-block p {
+            font-size: 0.88rem;
+            color: var(--ink-light);
+            line-height: 1.85;
+        }
+
+        .aside-block a {
+            color: var(--sage);
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 1px;
+        }
+
+        .aside-block a:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .service-list li {
+            font-size: 0.88rem;
+            color: var(--ink-light);
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--light-grey);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--sage-light);
+            flex-shrink: 0;
+        }
+
+        /* ─── Footer ─────────────────────────────────────── */
+        footer {
+            background: var(--ink);
+            padding: 4rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--warm-white);
+        }
+
+        .footer-brand span {
+            color: var(--sage-light);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(248, 245, 241, 0.5);
+        }
+
+        .footer-nav a:hover {
+            color: var(--warm-white);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(248, 245, 241, 0.35);
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── Responsive ─────────────────────────────────── */
+        @media (max-width: 900px) {
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--light-grey);
+                z-index: 99;
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .form-wrap {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Blomst <span>Studio</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-intro">
+            <span class="section-label">Get in touch</span>
+            <h1>Let's arrange something<br><em>together</em></h1>
+            <p>Whether you have a specific occasion in mind or simply want flowers in your life — reach out and we'll find the right arrangement for you.</p>
+            <div class="page-divider"></div>
+        </div>
+
+        <div class="contact-section">
+            <div class="contact-inner">
+
+                <div class="form-wrap">
+                    <h2>Send us a message</h2>
+                    <form action="#" method="POST">
+                        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your name</label>
+                                <input type="text" id="name" name="name" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone (optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+45 00 00 00 00">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date or occasion (if applicable)</label>
+                                <input type="text" id="date" name="date" placeholder="e.g. 12 June — wedding">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">I am interested in</label>
+                            <select id="service" name="service">
+                                <option value="">— Please select —</option>
+                                <option value="wedding">Wedding &amp; Event florals</option>
+                                <option value="bouquet">Bespoke bouquet</option>
+                                <option value="subscription">Weekly subscription</option>
+                                <option value="corporate">Corporate / office flowers</option>
+                                <option value="workshop">Flower arranging workshop</option>
+                                <option value="sympathy">Sympathy &amp; ceremony</option>
+                                <option value="other">Other enquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your vision</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Describe your occasion, colour palette, style preferences, or anything else that will help us understand what you're looking for…" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send message</button>
+                    </form>
+                </div>
+
+                <aside class="contact-aside">
+                    <div class="aside-block">
+                        <h3>Our services</h3>
+                        <ul class="service-list">
+                            <li>Weddings &amp; Events</li>
+                            <li>Bespoke Bouquets</li>
+                            <li>Weekly Subscriptions</li>
+                            <li>Corporate &amp; Offices</li>
+                            <li>Flower Workshops</li>
+                            <li>Sympathy &amp; Ceremony</li>
+                        </ul>
+                    </div>
+
+                    <div class="aside-block">
+                        <h3>Based in Copenhagen</h3>
+                        <p>We are based in Copenhagen and work with clients across the city and surrounding area. Delivery is available for most orders — get in touch to discuss your location.</p>
+                    </div>
+
+                    <div class="aside-block">
+                        <h3>Working with us</h3>
+                        <p>Every arrangement begins with a conversation. We'll discuss your vision, your occasion, and your budget — and work together to create something beautiful from there.</p>
+                    </div>
+
+                    <div class="aside-block">
+                        <h3>Response time</h3>
+                        <p>We respond to all enquiries within one to two business days. For urgent orders, please mention the date in your message and we'll do our best to accommodate you.</p>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Blomst <span>Studio</span></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Blomst Studio, Copenhagen</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-flower-arranging-business-in-copenhagen"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-flower-arranging-business-in-copenhagen';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:2px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#eaf2e6';el.style.color='#3d5c32';el.style.border='1px solid #a8c49a';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2f0';el.style.color='#7a3828';el.style.border='1px solid #e8b4a8';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:2px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2f0;color:#7a3828;border:1px solid #e8b4a8;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

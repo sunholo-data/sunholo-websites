@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blomst Studio — handcrafted flower arrangements for events, weddings, and everyday moments in Copenhagen.">
+    <title>Blomst Studio | Flower Arranging Copenhagen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #7c9b6d;
+            --sage-light: #a8c49a;
+            --sage-pale: #eaf2e6;
+            --blush: #c9a89e;
+            --blush-light: #e8d5d0;
+            --ink: #2a2826;
+            --ink-light: #6b6762;
+            --cream: #fdfcfb;
+            --warm-white: #f8f5f1;
+            --light-grey: #e8e3dd;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s ease;
+            --max-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ─── Navigation ─────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 252, 251, 0.93);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--light-grey);
+            padding: 1.2rem 0;
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+        }
+
+        .logo span {
+            color: var(--sage);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--sage);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: var(--transition);
+        }
+
+        /* ─── Hero ───────────────────────────────────────── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 92vh;
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 4rem 5rem 5rem;
+            background: var(--warm-white);
+        }
+
+        .section-label {
+            font-size: 0.73rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 4.5vw, 4rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .hero-content p {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            line-height: 1.85;
+            margin-bottom: 3rem;
+            max-width: 380px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--sage);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            font-size: 0.78rem;
+            font-family: var(--font-body);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--ink);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            color: var(--sage);
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .hero-meta {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-grey);
+            display: flex;
+            gap: 3rem;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .meta-value {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .meta-label {
+            font-size: 0.73rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        /* ─── Gallery ────────────────────────────────────── */
+        .gallery {
+            padding: 7rem 2rem;
+            background: var(--cream);
+        }
+
+        .gallery-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .gallery-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--ink);
+        }
+
+        .gallery-header h2 em {
+            font-style: italic;
+            color: var(--blush);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background: var(--light-grey);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-item.featured {
+            grid-row: span 2;
+            aspect-ratio: unset;
+        }
+
+        /* ─── Video ──────────────────────────────────────── */
+        .video-section {
+            padding: 7rem 2rem;
+            background: var(--ink);
+        }
+
+        .video-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .video-text .section-label {
+            color: var(--sage-light);
+        }
+
+        .video-text h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 300;
+            color: var(--warm-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .video-text h2 em {
+            font-style: italic;
+            color: var(--sage-light);
+        }
+
+        .video-text p {
+            font-size: 0.9rem;
+            color: rgba(248, 245, 241, 0.65);
+            line-height: 1.9;
+        }
+
+        .video-wrap {
+            position: relative;
+            border-radius: 0;
+            overflow: hidden;
+            background: #1a1816;
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-wrap video {
+            max-height: 520px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* ─── About ──────────────────────────────────────── */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .about-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: -16px;
+            width: 50%;
+            height: 50%;
+            border: 1px solid var(--sage-light);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .about-content .section-label {
+            color: var(--sage);
+        }
+
+        .about-content h2 {
+            font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .about-content p {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* ─── Services ───────────────────────────────────── */
+        .services {
+            padding: 8rem 2rem;
+            background: var(--cream);
+        }
+
+        .services-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .services-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .services-header h2 em {
+            font-style: italic;
+            color: var(--blush);
+        }
+
+        .services-header p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            max-width: 460px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--light-grey);
+        }
+
+        .service-card {
+            background: var(--cream);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--light-grey);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            background: var(--sage);
+        }
+
+        .service-card:hover {
+            background: var(--sage-pale);
+        }
+
+        .service-num {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--light-grey);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-num {
+            color: var(--sage-light);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+        }
+
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--ink-light);
+            line-height: 1.75;
+        }
+
+        /* ─── Quote ──────────────────────────────────────── */
+        .quote-section {
+            padding: 7rem 2rem;
+            background: var(--blush-light);
+            text-align: center;
+        }
+
+        .quote-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .quote-inner blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .quote-inner cite {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--blush);
+            font-style: normal;
+        }
+
+        /* ─── Contact CTA ────────────────────────────────── */
+        .cta-section {
+            padding: 7rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .cta-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .cta-text h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-text h2 em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .cta-text p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            max-width: 400px;
+            line-height: 1.8;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* ─── Footer ─────────────────────────────────────── */
+        footer {
+            background: var(--ink);
+            padding: 4rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--warm-white);
+        }
+
+        .footer-brand span {
+            color: var(--sage-light);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(248, 245, 241, 0.5);
+        }
+
+        .footer-nav a:hover {
+            color: var(--warm-white);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(248, 245, 241, 0.35);
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── Responsive ─────────────────────────────────── */
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-image {
+                height: 55vw;
+                min-height: 300px;
+            }
+
+            .hero-content {
+                padding: 4rem 2rem;
+            }
+
+            .hero-content p {
+                max-width: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item.featured {
+                grid-row: auto;
+                aspect-ratio: 3/4;
+            }
+
+            .video-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                aspect-ratio: 4/3;
+            }
+
+            .about-image::after {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-actions {
+                justify-content: center;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--light-grey);
+                z-index: 99;
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
+            }
+
+            .hero-meta {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Blomst <span>Studio</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-image">
+                <img
+                    src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602830-WhatsApp_Image_2026-03-04_at_11.29.47.jpeg"
+                    alt="Handcrafted flower arrangement — Blomst Studio Copenhagen"
+                >
+            </div>
+            <div class="hero-content">
+                <span class="section-label">Copenhagen</span>
+                <h1>Flowers arranged<br>with <em>intention</em></h1>
+                <p>Blomst Studio creates botanical compositions for the moments that matter — from intimate dinner tables to grand celebrations. Each arrangement is shaped by hand, guided by season, and made with care.</p>
+                <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn-primary">Enquire now</a>
+                    <a href="index.html#gallery" class="btn-outline">See our work</a>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <span class="meta-value">Seasonal</span>
+                        <span class="meta-label">Locally sourced</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="meta-value">Bespoke</span>
+                        <span class="meta-label">Every arrangement</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="meta-value">CPH</span>
+                        <span class="meta-label">Based in Copenhagen</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-inner">
+                <div class="gallery-header">
+                    <div>
+                        <span class="section-label">Portfolio</span>
+                        <h2>Arrangements in<br><em>full bloom</em></h2>
+                    </div>
+                    <a href="contact.html" class="btn-outline">Order your arrangement</a>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602830-WhatsApp_Image_2026-03-04_at_11.29.47.jpeg"
+                            alt="Flower arrangement 1"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602837-WhatsApp_Image_2026-03-04_at_11.29.47__3_.jpeg"
+                            alt="Flower arrangement 2"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602843-WhatsApp_Image_2026-03-04_at_11.29.47__2_.jpeg"
+                            alt="Flower arrangement 3"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602850-WhatsApp_Image_2026-03-04_at_11.29.47__1_.jpeg"
+                            alt="Flower arrangement 4"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video -->
+        <section class="video-section">
+            <div class="video-inner">
+                <div class="video-text">
+                    <span class="section-label">Watch</span>
+                    <h2>The art of<br><em>arrangement</em></h2>
+                    <p>Watch the process — from the first stem to the finished composition. Every Blomst Studio arrangement is shaped in the moment, guided by the flowers themselves.</p>
+                </div>
+                <div class="video-wrap">
+                    <video
+                        controls
+                        preload="metadata"
+                        playsinline
+                        poster="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602830-WhatsApp_Image_2026-03-04_at_11.29.47.jpeg"
+                    >
+                        <source
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602857-WhatsApp_Video_2026-02-11_at_17.37.21.mp4"
+                            type="video/mp4"
+                        >
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-image">
+                    <img
+                        src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-copenhagen/media/1773321602843-WhatsApp_Image_2026-03-04_at_11.29.47__2_.jpeg"
+                        alt="The studio at work"
+                    >
+                </div>
+                <div class="about-content">
+                    <span class="section-label">The Studio</span>
+                    <h2>Rooted in<br><em>Copenhagen</em></h2>
+                    <p>Blomst Studio was born from a deep love of flowers and a belief that a thoughtfully arranged bouquet can change the feeling of a space — and a moment.</p>
+                    <p>We work with <strong>seasonal, locally sourced flowers</strong> and foliage, letting the natural textures and colours of each stem guide the composition. No two arrangements are alike.</p>
+                    <p>From a single statement vase for your home to full floral styling for a wedding or event — we bring the same care and attention to every order.</p>
+                    <div style="margin-top: 2.5rem;">
+                        <a href="contact.html" class="btn-primary">Work with us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <div class="services-inner">
+                <div class="services-header">
+                    <span class="section-label">What we offer</span>
+                    <h2>Flowers for every<br><em>occasion</em></h2>
+                    <p>Whether you are planning a wedding, a dinner party, or simply want flowers in your home every week — we have something for you.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-num">01</div>
+                        <h3>Weddings &amp; Events</h3>
+                        <p>Full floral styling for your wedding, dinner, or celebration. We work closely with you from concept to creation, designing arrangements that reflect the mood and spirit of your event.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">02</div>
+                        <h3>Bespoke Bouquets</h3>
+                        <p>A one-of-a-kind arrangement made to order. Perfect as a gift or for your own home. Tell us your colours, mood, or occasion — and we'll do the rest.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">03</div>
+                        <h3>Weekly Subscriptions</h3>
+                        <p>Fresh flowers delivered to your door each week. Choose your size and colour palette, and enjoy a seasonal arrangement that changes with the market.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">04</div>
+                        <h3>Corporate &amp; Offices</h3>
+                        <p>Regular floral installations for workplaces, restaurants, and retail spaces. We handle everything — delivery, setup, and weekly refresh.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">05</div>
+                        <h3>Workshops</h3>
+                        <p>Learn the fundamentals of flower arranging in an intimate group session. A wonderful afternoon with friends, colleagues, or as a solo creative experience.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">06</div>
+                        <h3>Sympathy &amp; Ceremony</h3>
+                        <p>Respectful, beautiful arrangements for funerals and memorial services. We approach each commission with care, sensitivity, and an eye for quiet beauty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote -->
+        <section class="quote-section">
+            <div class="quote-inner">
+                <span class="section-label" style="color: var(--blush);">Our approach</span>
+                <blockquote>"Flowers do not arrange themselves into meaning — that is the arranger's work. We shape them into something felt."</blockquote>
+                <cite>Blomst Studio, Copenhagen</cite>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-inner">
+                <div class="cta-text">
+                    <span class="section-label">Get in touch</span>
+                    <h2>Let's create something<br><em>beautiful</em></h2>
+                    <p>Tell us about your occasion, your space, or simply what you love — and we will take care of the rest.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn-primary">Start a conversation</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Blomst <span>Studio</span></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Blomst Studio, Copenhagen</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-flower-arranging-business-in-copenhagen"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-flower-arranging-business-in-copenhagen';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:2px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#eaf2e6';el.style.color='#3d5c32';el.style.border='1px solid #a8c49a';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2f0';el.style.color='#7a3828';el.style.border='1px solid #e8b4a8';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:2px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2f0;color:#7a3828;border:1px solid #e8b4a8;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
