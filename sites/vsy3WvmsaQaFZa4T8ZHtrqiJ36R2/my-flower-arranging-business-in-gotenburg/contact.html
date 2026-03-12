@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch to order custom flower arrangements in Gothenburg. Bouquets, events, weddings, and more.">
+    <title>Contact | Blooms &amp; Joy — Gothenburg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink:    #FF6B9D;
+            --pink-light: #FFB3D1;
+            --yellow:  #FFD93D;
+            --green:   #6BCB77;
+            --green-dark: #4aab56;
+            --blue:    #4D96FF;
+            --coral:   #FF6B6B;
+            --peach:   #FFB347;
+            --bg:      #FFFBF4;
+            --white:   #FFFFFF;
+            --text:    #2D2D2D;
+            --muted:   #666;
+            --font-heading: 'Fredoka One', cursive;
+            --font-body: 'Nunito', sans-serif;
+            --radius: 24px;
+            --radius-sm: 14px;
+            --shadow: 0 8px 32px rgba(0,0,0,0.09);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.15; }
+        a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
+        img { display: block; max-width: 100%; height: auto; }
+
+        /* ===== NAV ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(255, 251, 244, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--pink-light);
+            padding: 0.9rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--pink);
+        }
+
+        .logo span { color: var(--green); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--pink);
+            color: #fff;
+        }
+
+        .menu-toggle { display: none; }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: var(--pink);
+            border-radius: 3px;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -40px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #fff;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 5rem 2rem 6rem;
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* ===== FORM ===== */
+        .form-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-card h2 {
+            font-size: 2rem;
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-card .form-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border: 2px solid #EEE;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: var(--bg);
+            color: var(--text);
+            transition: border-color 0.25s, box-shadow 0.25s;
+            appearance: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background: var(--pink);
+            color: #fff;
+            font-family: var(--font-body);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(255, 107, 157, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 157, 0.45);
+        }
+
+        /* ===== SIDEBAR ===== */
+        .contact-aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: var(--green);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 600;
+            line-height: 1.65;
+        }
+
+        .offer-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .offer-list li {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 600;
+            padding: 0.6rem 0;
+            border-bottom: 2px dashed #EEE;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .offer-list li:last-child { border-bottom: none; }
+
+        .offer-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--pink);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .fun-badge {
+            background: var(--yellow);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .fun-badge p {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--text);
+            padding: 3.5rem 2rem;
+            color: #fff;
+        }
+
+        .footer-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--pink);
+        }
+
+        .footer-brand span { color: var(--green); }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover { color: var(--pink); }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 0.75rem;
+                border-bottom: 3px solid var(--pink-light);
+                z-index: 199;
+            }
+
+            .menu-toggle:checked ~ .nav-links { display: flex; }
+
+            .hamburger { display: flex; }
+
+            .form-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Blooms <span>&amp; Joy</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Let's make something beautiful!</h1>
+            <p>Tell me what you need and I'll create the perfect arrangement for you.</p>
+        </div>
+
+        <div class="contact-section">
+
+            <div class="form-card">
+                <h2>Send me a message</h2>
+                <p class="form-subtitle">I'd love to hear from you — fill in the form and I'll get back to you soon!</p>
+
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="form-group">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" name="name" placeholder="What's your name?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occasion">What's the occasion?</label>
+                        <select id="occasion" name="occasion">
+                            <option value="">— Pick an option —</option>
+                            <option value="bouquet">Custom Bouquet</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="event">Party / Event</option>
+                            <option value="home">Home Styling</option>
+                            <option value="gift">Gift</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell me more!</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Colours you love, flowers you like, the vibe you're going for — anything helps!" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send my message!</button>
+                </form>
+            </div>
+
+            <aside class="contact-aside">
+                <div class="info-card">
+                    <h3>Based in Gothenburg</h3>
+                    <p>I create flower arrangements for customers across Gothenburg and surrounding areas. Local delivery available!</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>What I offer</h3>
+                    <ul class="offer-list">
+                        <li><span class="offer-dot"></span>Custom hand-tied bouquets</li>
+                        <li><span class="offer-dot"></span>Wedding &amp; event florals</li>
+                        <li><span class="offer-dot"></span>Birthday arrangements</li>
+                        <li><span class="offer-dot"></span>Home &amp; office flowers</li>
+                        <li><span class="offer-dot"></span>Seasonal gift bouquets</li>
+                    </ul>
+                </div>
+
+                <div class="fun-badge">
+                    <p>Every arrangement is made just for you — with fresh, seasonal flowers and loads of love!</p>
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Blooms <span>&amp; Joy</span></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Blooms &amp; Joy &mdash; Gothenburg</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-flower-arranging-business-in-gotenburg"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-flower-arranging-business-in-gotenburg';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:14px;text-align:center;font-weight:700;font-size:0.95rem;';
+if(d.ok){el.style.background='#F0FFF4';el.style.color='#276749';el.style.border='2px solid #9AE6B4';
+el.textContent=d.message||'Yay! Message sent — I will get back to you soon!';f.reset();}
+else{el.style.background='#FFF5F5';el.style.color='#C53030';el.style.border='2px solid #FEB2B2';
+el.textContent=d.message||'Oops, something went wrong. Please try again!';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:14px;text-align:center;font-weight:700;font-size:0.95rem;background:#FFF5F5;color:#C53030;border:2px solid #FEB2B2;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not send message. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
