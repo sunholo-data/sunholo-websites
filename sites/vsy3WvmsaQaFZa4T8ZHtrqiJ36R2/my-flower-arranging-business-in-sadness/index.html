@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bloom Studio — bold, beautiful flower arranging in Sadness. Bespoke floral design for weddings, events, and every occasion.">
+    <title>Bloom Studio &mdash; Flower Arranging, Sadness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fuchsia: #E91E8C;
+            --fuchsia-dark: #C0156F;
+            --yellow: #F5E642;
+            --green: #1B4332;
+            --black: #0A0A0A;
+            --off-black: #141414;
+            --white: #FAFAFA;
+            --grey: #E5E5E5;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+
+        /* ── Navigation ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            border-bottom: 3px solid var(--fuchsia);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+        }
+
+        .logo span { color: var(--fuchsia); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--fuchsia); }
+
+        .nav-cta {
+            background: var(--fuchsia) !important;
+            color: var(--white) !important;
+            padding: 0.55rem 1.2rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.15em !important;
+        }
+
+        .nav-cta:hover { background: var(--fuchsia-dark) !important; color: var(--white) !important; }
+
+        .menu-toggle { display: none; }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 95vh;
+            background: var(--black);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 4rem 5rem 5%;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--fuchsia);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: var(--fuchsia);
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(4.5rem, 7.5vw, 7.5rem);
+            line-height: 0.92;
+            color: var(--white);
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 .accent {
+            color: var(--yellow);
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #999;
+            max-width: 420px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--fuchsia);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1.1rem 2.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover { background: var(--fuchsia-dark); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1.1rem 2.5rem;
+            border: 2px solid rgba(255,255,255,0.25);
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover { border-color: var(--fuchsia); color: var(--fuchsia); }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ── Marquee band ── */
+        .impact-band {
+            background: var(--fuchsia);
+            overflow: hidden;
+            padding: 1.25rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            animation: marquee 22s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-track span {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .marquee-track span.dot {
+            color: var(--yellow);
+            font-size: 0.85rem;
+        }
+
+        /* ── About ── */
+        .about {
+            padding: 9rem 2rem;
+            background: var(--white);
+        }
+
+        .about-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            padding-bottom: 4rem;
+        }
+
+        .about-images .img-main {
+            width: 82%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .about-images .img-inset {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 52%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            outline: 3px solid var(--fuchsia);
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+            line-height: 0.97;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h2 .hl { color: var(--fuchsia); }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: #555;
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+
+        .about-text p strong { color: var(--black); font-weight: 600; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            border: 3px solid var(--black);
+        }
+
+        .stat {
+            padding: 1.5rem 1rem;
+            border-right: 3px solid var(--black);
+            text-align: center;
+        }
+
+        .stat:last-child { border-right: none; }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            letter-spacing: 0.02em;
+            color: var(--fuchsia);
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #888;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        /* ── Gallery ── */
+        .gallery {
+            padding: 9rem 2rem;
+            background: var(--off-black);
+        }
+
+        .gallery-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .gallery-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5.5vw, 5.5rem);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--white);
+        }
+
+        .gallery-header h2 .hl { color: var(--fuchsia); }
+
+        .gallery-header p {
+            font-size: 0.9rem;
+            color: #777;
+            max-width: 260px;
+            line-height: 1.65;
+            font-weight: 300;
+            text-align: right;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            background: #1a1a1a;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img { transform: scale(1.04); }
+
+        .gallery-item.tall { grid-row: span 2; }
+        .gallery-item.tall img { aspect-ratio: 2/3; }
+        .gallery-item:not(.tall) img { aspect-ratio: 4/5; }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+            padding: 2.5rem 1.25rem 1.25rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+
+        .gallery-caption span {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        /* ── Quote strip ── */
+        .quote-strip {
+            background: var(--green);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-strip::before {
+            content: '\201C';
+            font-family: var(--font-display);
+            font-size: 30rem;
+            color: rgba(255,255,255,0.04);
+            position: absolute;
+            top: -8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .quote-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-strip blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.5vw, 4rem);
+            line-height: 1.12;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .quote-strip blockquote .hl { color: var(--yellow); }
+
+        .quote-strip cite {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            font-style: normal;
+        }
+
+        /* ── Services ── */
+        .services {
+            padding: 9rem 2rem;
+            background: var(--white);
+        }
+
+        .services-inner { max-width: 1200px; margin: 0 auto; }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .services-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5.5vw, 5.5rem);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .services-header h2 .hl { color: var(--fuchsia); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 3px solid var(--black);
+        }
+
+        .service-card {
+            padding: 3rem 2.5rem;
+            border-right: 3px solid var(--black);
+        }
+
+        .service-card:last-child { border-right: none; }
+
+        .service-num {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            line-height: 1;
+            color: var(--grey);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .service-card::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background: var(--fuchsia);
+            margin-top: 2rem;
+        }
+
+        /* ── CTA ── */
+        .cta {
+            padding: 9rem 2rem;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(233,30,140,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 5.5vw, 6rem);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--white);
+            margin-bottom: 1.75rem;
+        }
+
+        .cta-text h2 .hl { color: var(--fuchsia); }
+
+        .cta-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #888;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 460px;
+        }
+
+        .cta-aside {
+            background: var(--off-black);
+            border: 3px solid rgba(255,255,255,0.07);
+            padding: 3.5rem;
+        }
+
+        .cta-aside h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 2rem;
+        }
+
+        .cta-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .cta-list li {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: 300;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            line-height: 1.55;
+        }
+
+        .cta-list li::before {
+            content: '✦';
+            color: var(--fuchsia);
+            flex-shrink: 0;
+            font-size: 0.6rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--off-black);
+            border-top: 3px solid var(--fuchsia);
+            padding: 3.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+        }
+
+        .footer-brand span { color: var(--fuchsia); }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .footer-nav a:hover { color: var(--fuchsia); }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: #444;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 960px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-text { padding: 5rem 2rem 3rem; }
+            .hero-image { min-height: 65vw; }
+            .about-inner { grid-template-columns: 1fr; gap: 4rem; }
+            .about-images { padding-bottom: 3rem; }
+            .about-images .img-inset { position: static; width: 100%; border: none; outline: none; border-left: 5px solid var(--fuchsia); margin-top: 1rem; }
+            .about-images .img-main { width: 100%; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item.tall { grid-row: span 1; }
+            .gallery-item.tall img { aspect-ratio: 3/4; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { border-right: none; border-bottom: 3px solid var(--black); }
+            .service-card:last-child { border-bottom: none; }
+            .cta-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 73px;
+                left: 0;
+                width: 100%;
+                background: var(--black);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 3px solid var(--fuchsia);
+                z-index: 99;
+            }
+            .menu-toggle:checked ~ .nav-links { display: flex; }
+            .hamburger { display: flex; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+            .stat { border-right: none; border-bottom: 3px solid var(--black); }
+            .stat:last-child { border-bottom: none; }
+            .footer-nav { flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Bloom<span>Studio</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Occasions</a></li>
+                <li><a href="contact.html" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="hero-eyebrow">Flower Studio &mdash; Sadness</p>
+                <h1>Bold<br>Flowers.<br><span class="accent">Pure Joy.</span></h1>
+                <p class="hero-desc">Bespoke flower arrangements that make a statement. From intimate gatherings to grand celebrations &mdash; we bring colour, drama, and beauty to every occasion in Sadness.</p>
+                <div class="hero-buttons">
+                    <a href="index.html#gallery" class="btn-primary">See Our Work</a>
+                    <a href="contact.html" class="btn-outline">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img
+                    src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331006979-WhatsApp_Image_2026-02-05_at_20.25.31.jpeg"
+                    alt="Bold, vibrant floral arrangement by Bloom Studio"
+                    loading="eager"
+                >
+                <div class="hero-badge">Made to Order</div>
+            </div>
+        </section>
+
+        <!-- Marquee band -->
+        <div class="impact-band" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Weddings</span><span class="dot">✦</span>
+                <span>Events</span><span class="dot">✦</span>
+                <span>Birthdays</span><span class="dot">✦</span>
+                <span>Funerals</span><span class="dot">✦</span>
+                <span>Corporate</span><span class="dot">✦</span>
+                <span>Bespoke Gifts</span><span class="dot">✦</span>
+                <span>Weddings</span><span class="dot">✦</span>
+                <span>Events</span><span class="dot">✦</span>
+                <span>Birthdays</span><span class="dot">✦</span>
+                <span>Funerals</span><span class="dot">✦</span>
+                <span>Corporate</span><span class="dot">✦</span>
+                <span>Bespoke Gifts</span><span class="dot">✦</span>
+            </div>
+        </div>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-images">
+                    <img
+                        class="img-main"
+                        src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331007012-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg"
+                        alt="Floral arrangement close-up"
+                        loading="lazy"
+                    >
+                    <img
+                        class="img-inset"
+                        src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331007019-WhatsApp_Image_2026-02-05_at_20.33.09__1_.jpeg"
+                        alt="Flower arrangement detail"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">About Us</span>
+                    <h2>Flowers<br>that speak<br><span class="hl">louder.</span></h2>
+                    <p><strong>We believe flowers should be felt, not just seen.</strong> Based in Sadness, our studio creates bold, expressive arrangements that transform spaces and elevate every occasion.</p>
+                    <p>Every bouquet is hand-crafted with the finest seasonal blooms, chosen for their colour, texture, and impact. No two arrangements are alike &mdash; and that&rsquo;s exactly the point.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Handmade</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">Fresh</span>
+                            <span class="stat-label">Every order</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">Bespoke</span>
+                            <span class="stat-label">Always</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-inner">
+                <div class="gallery-header">
+                    <h2>Our<br><span class="hl">Work</span></h2>
+                    <p>Every arrangement is unique &mdash; designed, sourced, and crafted by hand in our Sadness studio.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item tall">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331007026-WhatsApp_Image_2026-02-05_at_20.33.09.jpeg"
+                            alt="Bespoke floral arrangement"
+                            loading="lazy"
+                        >
+                        <div class="gallery-caption"><span>Bespoke Arrangement</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331007037-WhatsApp_Image_2026-02-05_at_20.33.27__3_.jpeg"
+                            alt="Vibrant event florals"
+                            loading="lazy"
+                        >
+                        <div class="gallery-caption"><span>Event Florals</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331006979-WhatsApp_Image_2026-02-05_at_20.25.31.jpeg"
+                            alt="Statement flower arrangement"
+                            loading="lazy"
+                        >
+                        <div class="gallery-caption"><span>Statement Piece</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/my-flower-arranging-business-in-sadness/media/1773331007012-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg"
+                            alt="Bold floral bouquet"
+                            loading="lazy"
+                        >
+                        <div class="gallery-caption"><span>Bold Bouquet</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote strip -->
+        <section class="quote-strip">
+            <div class="quote-inner">
+                <blockquote>&ldquo;Flowers are the<br><span class="hl">loudest silence</span><br>in any room.&rdquo;</blockquote>
+                <cite>Bloom Studio &mdash; Sadness</cite>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <div class="services-inner">
+                <div class="services-header">
+                    <span class="section-tag">What We Do</span>
+                    <h2>Every <span class="hl">Occasion.</span></h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-num">01</div>
+                        <h3>Weddings &amp; Celebrations</h3>
+                        <p>From ceremony arches to table centrepieces, we design floral experiences that set the scene for your most important day.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">02</div>
+                        <h3>Events &amp; Corporate</h3>
+                        <p>Make your event unforgettable with bold, expressive floral installations and stunning arrangements tailored to your vision.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">03</div>
+                        <h3>Gifts &amp; Bouquets</h3>
+                        <p>Bespoke bouquets crafted with care for birthdays, anniversaries, condolences, or simply to say something beautiful.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta" id="order">
+            <div class="cta-inner">
+                <div class="cta-text">
+                    <h2>Ready to<br><span class="hl">bloom?</span></h2>
+                    <p>Tell us about your occasion and we&rsquo;ll create something extraordinary. Every order starts with a conversation &mdash; let&rsquo;s talk flowers.</p>
+                    <a href="contact.html" class="btn-primary">Book a Consultation</a>
+                </div>
+                <div class="cta-aside">
+                    <h3>How it works</h3>
+                    <ul class="cta-list">
+                        <li>Get in touch to discuss your occasion and vision</li>
+                        <li>We&rsquo;ll propose a bespoke floral concept just for you</li>
+                        <li>Blooms sourced fresh for your date</li>
+                        <li>Hand-arranged and delivered or collected locally</li>
+                        <li>Full styling support for events and large installations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Bloom<span>Studio</span></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#services">Occasions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Bloom Studio, Sadness</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-flower-arranging-business-in-sadness"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-flower-arranging-business-in-sadness';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:0;text-align:center;font-weight:600;font-size:0.9rem;';
+if(d.ok){el.style.background='#1B4332';el.style.color='#F5E642';el.style.border='2px solid #F5E642';
+el.textContent=d.message||'Thank you \u2014 we will be in touch.';f.reset();}
+else{el.style.background='#1a0a14';el.style.color='#ff9ed8';el.style.border='2px solid #E91E8C';
+el.textContent=d.message||'Something went wrong. Please try again.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:0;text-align:center;font-weight:600;font-size:0.9rem;background:#1a0a14;color:#ff9ed8;border:2px solid #E91E8C;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
