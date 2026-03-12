@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our family bakery, specialising in celebration cakes with carrots on top. Handcrafted with love for your most cherished moments.">
+    <title>The Family Bakery &mdash; Celebration Cakes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #faf7f3;
+            --warm-cream: #f2ead9;
+            --parchment: #ede3ce;
+            --blush: #d4a898;
+            --blush-deep: #b07868;
+            --blush-pale: #f0ddd6;
+            --sage: #8a9e84;
+            --sage-pale: #d4dfd2;
+            --amber: #c8924a;
+            --amber-pale: #f0dfc2;
+            --ink: #2a2218;
+            --ink-mid: #4a3e34;
+            --ink-light: #7a6e64;
+            --border: #ddd5c4;
+            --surface: #f7f3ec;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Jost', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ── Navigation ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 247, 243, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: var(--ink);
+        }
+
+        .logo em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--blush-deep);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: var(--transition);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 92vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+        }
+
+        .hero-text-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 4rem 6rem 2rem;
+            max-width: 580px;
+            margin-left: auto;
+        }
+
+        .hero-kicker {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 1px;
+            background: var(--sage);
+        }
+
+        .hero-text-side h1 {
+            font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text-side h1 em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .hero-text-side p {
+            font-size: 1rem;
+            color: var(--ink-light);
+            line-height: 1.85;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 380px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink);
+            border-bottom: 1.5px solid var(--blush);
+            padding-bottom: 3px;
+        }
+
+        .hero-cta:hover {
+            color: var(--blush-deep);
+            border-color: var(--blush-deep);
+        }
+
+        .hero-image-side {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 2.5rem;
+            background: rgba(250, 247, 243, 0.88);
+            backdrop-filter: blur(6px);
+            padding: 1.25rem 1.75rem;
+            border-left: 2px solid var(--blush);
+        }
+
+        .hero-image-overlay span {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--ink-mid);
+        }
+
+        /* ── Divider ── */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            gap: 2rem;
+            background: var(--warm-cream);
+        }
+
+        .divider-line {
+            flex: 1;
+            max-width: 200px;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .divider-icon {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink-light);
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* ── About ── */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--cream);
+        }
+
+        .about-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 7rem;
+            align-items: start;
+        }
+
+        .about-heading {
+            position: sticky;
+            top: 100px;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--blush-deep);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .about-heading h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+
+        .about-heading h2 em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--ink-light);
+            line-height: 1.95;
+            margin-bottom: 1.75rem;
+            font-weight: 300;
+        }
+
+        .about-text p strong {
+            color: var(--ink-mid);
+            font-weight: 500;
+        }
+
+        .about-details {
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .detail-value {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--blush-deep);
+        }
+
+        .detail-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        /* ── Gallery ── */
+        .gallery {
+            padding: 8rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .gallery-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4.5rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .gallery-header h2 em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .gallery-header p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--parchment);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ── Video section ── */
+        .videos {
+            padding: 8rem 2rem;
+            background: var(--surface);
+        }
+
+        .videos-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .videos-header {
+            text-align: center;
+            margin-bottom: 4.5rem;
+        }
+
+        .videos-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .videos-header h2 em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .videos-header p {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        /* Feature row: 1 large landscape + 1 portrait */
+        .videos-feature {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Secondary row: 1 portrait + 1 landscape */
+        .videos-secondary {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 1.5rem;
+        }
+
+        .video-item {
+            position: relative;
+            background: var(--ink);
+            overflow: hidden;
+        }
+
+        .video-item video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .video-item.portrait video {
+            aspect-ratio: 9/16;
+            max-height: 520px;
+            object-fit: cover;
+        }
+
+        .video-item.landscape video {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        /* ── Quote/pull section ── */
+        .pull-quote {
+            padding: 8rem 2rem;
+            background: var(--blush-deep);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pull-quote::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(42,34,24,0.15) 0%, rgba(42,34,24,0) 60%);
+            pointer-events: none;
+        }
+
+        .pull-quote-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pull-quote .section-label {
+            color: var(--blush-pale);
+            opacity: 0.8;
+        }
+
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300;
+            color: #faf7f3;
+            line-height: 1.45;
+            margin-bottom: 2rem;
+        }
+
+        .pull-quote cite {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--blush-pale);
+            font-style: normal;
+        }
+
+        /* ── Order / CTA ── */
+        .order {
+            padding: 8rem 2rem;
+            background: var(--cream);
+        }
+
+        .order-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .order-text h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .order-text h2 em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .order-text p {
+            font-size: 1rem;
+            color: var(--ink-light);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .order-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink);
+            border-bottom: 1.5px solid var(--blush);
+            padding-bottom: 3px;
+        }
+
+        .order-link:hover {
+            color: var(--blush-deep);
+            border-color: var(--blush-deep);
+        }
+
+        .order-aside {
+            background: var(--warm-cream);
+            padding: 3.5rem;
+            border-left: 2px solid var(--blush-pale);
+        }
+
+        .order-aside h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .order-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .order-list li {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            font-weight: 300;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .order-list li::before {
+            content: '—';
+            color: var(--blush);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--warm-cream);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .footer-brand em {
+            font-style: italic;
+            color: var(--blush-deep);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .footer-nav a:hover {
+            color: var(--blush-deep);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: var(--ink-light);
+            letter-spacing: 0.04em;
+            font-weight: 300;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-text-side {
+                padding: 5rem 2rem 3rem;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text-side p {
+                max-width: none;
+            }
+
+            .hero-image-side {
+                min-height: 60vw;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-heading {
+                position: static;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .videos-feature,
+            .videos-secondary {
+                grid-template-columns: 1fr;
+            }
+
+            .order-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                z-index: 99;
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-details {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">The Family <em>Bakery</em></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#order">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text-side">
+                <p class="hero-kicker">Family Bakery &mdash; Celebration Cakes</p>
+                <h1>Cakes made with<br><em>love &amp; carrots</em></h1>
+                <p>Our family bakery has been crafting celebration cakes for the moments that matter most. Each cake is finished with our signature carrot crown &mdash; a detail as distinctive as the joy it brings.</p>
+                <a href="index.html#gallery" class="hero-cta">See our cakes</a>
+            </div>
+            <div class="hero-image-side">
+                <img
+                    src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660819-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg"
+                    alt="A celebration cake with carrots on top, beautifully crafted"
+                    loading="eager"
+                >
+                <div class="hero-image-overlay">
+                    <span>Handcrafted &amp; made to order</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-icon">Our family, your celebration</span>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-inner">
+                <div class="about-heading">
+                    <span class="section-label">Our Story</span>
+                    <h2>Baked with<br>family<br><em>tradition</em></h2>
+                </div>
+                <div class="about-text">
+                    <p><strong>Every cake that leaves our bakery</strong> carries the warmth of a family recipe and the care of hands that have perfected the craft across generations. We believe a celebration cake should be more than beautiful &mdash; it should taste of something true.</p>
+                    <p>Our signature is the carrot crown: delicately crafted marzipan or fondant carrots, nestled atop each creation as a mark of our identity and a symbol of good fortune. It began as a family whim and became our most beloved tradition.</p>
+                    <p>Whether you are celebrating a birthday, a wedding, an anniversary, or simply the pleasure of gathering together, we create cakes that honour the occasion. Each order is taken personally, baked freshly, and delivered with care.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-value">Made</span>
+                            <span class="detail-label">To Order</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-value">Family</span>
+                            <span class="detail-label">Recipe</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-value">Fresh</span>
+                            <span class="detail-label">Every time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-inner">
+                <div class="gallery-header">
+                    <span class="section-label">Our Work</span>
+                    <h2>Celebration cakes<br><em>crafted for you</em></h2>
+                    <p>Each creation is unique &mdash; baked, decorated, and finished by hand.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660819-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg"
+                            alt="Celebration cake with carrot decoration"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660827-WhatsApp_Image_2026-02-05_at_20.33.52.jpeg"
+                            alt="Handcrafted celebration cake"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="gallery-item">
+                        <img
+                            src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660838-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg"
+                            alt="Bespoke cake with carrot crown"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos -->
+        <section class="videos" id="videos">
+            <div class="videos-inner">
+                <div class="videos-header">
+                    <span class="section-label">Behind the Scenes</span>
+                    <h2>The art of<br><em>cake making</em></h2>
+                    <p>A glimpse into our kitchen and the craft behind every celebration cake.</p>
+                </div>
+
+                <!-- Feature row: large landscape + portrait -->
+                <div class="videos-feature">
+                    <div class="video-item landscape">
+                        <video
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Celebration cake being decorated"
+                        >
+                            <source src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660903-WhatsApp_Video_2026-02-05_at_20.34.22.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item portrait">
+                        <video
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Carrot cake decoration detail"
+                        >
+                            <source src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329660851-WhatsApp_Video_2026-02-05_at_20.33.52.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Secondary row: portrait + landscape -->
+                <div class="videos-secondary">
+                    <div class="video-item portrait">
+                        <video
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Finished celebration cake"
+                        >
+                            <source src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329661173-WhatsApp_Video_2026-02-05_at_20.34.52.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item landscape">
+                        <video
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Bakery at work"
+                        >
+                            <source src="../../../staging/vsy3WvmsaQaFZa4T8ZHtrqiJ36R2/our-family-bakery-specialising-in-celebration-cakes-with-car/media/1773329661147-WhatsApp_Video_2026-02-05_at_20.34.45.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pull quote -->
+        <section class="pull-quote">
+            <div class="pull-quote-inner">
+                <span class="section-label">Our Philosophy</span>
+                <blockquote>"Every celebration deserves a cake as extraordinary as the moment itself &mdash; baked with love, finished with a carrot, and remembered always."</blockquote>
+                <cite>The Family Bakery</cite>
+            </div>
+        </section>
+
+        <!-- Order / CTA -->
+        <section class="order" id="order">
+            <div class="order-inner">
+                <div class="order-text">
+                    <span class="section-label">Bespoke Orders</span>
+                    <h2>Your celebration,<br><em>our craft</em></h2>
+                    <p>Every cake is made to order, tailored to your occasion, your tastes, and your vision. We welcome all celebrations &mdash; from intimate gatherings to grand occasions. Get in touch to discuss your bespoke cake.</p>
+                    <a href="contact.html" class="order-link">Enquire now</a>
+                </div>
+                <div class="order-aside">
+                    <h3>What to expect</h3>
+                    <ul class="order-list">
+                        <li>Personal consultation to discuss your requirements</li>
+                        <li>Handcrafted to order using family recipes</li>
+                        <li>Signature carrot decoration on every celebration cake</li>
+                        <li>Collection or local delivery available</li>
+                        <li>Dietary options including gluten-free on request</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">The Family <em>Bakery</em></span>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 The Family Bakery</span>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="our-family-bakery-specialising-in-celebration-cakes-with-car"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='our-family-bakery-specialising-in-celebration-cakes-with-car';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;';
+if(d.ok){el.style.background='#f5ede2';el.style.color='#7a4030';el.style.border='1px solid #d4a898';
+el.textContent=d.message||'Thank you — we will be in touch.';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:4px;text-align:center;font-weight:500;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
