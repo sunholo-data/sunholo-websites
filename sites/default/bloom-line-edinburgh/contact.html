@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Bloom & Line Edinburgh for bespoke modern floral design, weddings, and corporate installations.">
+    <title>Contact | Bloom & Line Edinburgh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        #menu-checkbox {
+            display: none;
+        }
+
+        /* Hero / Form Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: calc(100vh - 80px);
+        }
+
+        .contact-image {
+            flex: 1 1 50%;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .contact-form-side {
+            flex: 1 1 50%;
+            padding: 10% 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--background);
+        }
+
+        .contact-form-side h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-side p {
+            margin-bottom: 3rem;
+            max-width: 500px;
+            font-weight: 300;
+            color: #555;
+        }
+
+        form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 500px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            padding: 1rem 0;
+            border: none;
+            border-bottom: 1px solid var(--secondary);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+            width: fit-content;
+        }
+
+        button:hover {
+            background: var(--accent);
+        }
+
+        /* Info Grid Section */
+        .info-section {
+            padding: 5rem 5%;
+            background-color: var(--secondary);
+        }
+
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .info-item h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-top: 1px solid var(--secondary);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .contact-image {
+                flex: 1 1 100%;
+                height: 400px;
+            }
+            .contact-form-side {
+                flex: 1 1 100%;
+                padding: 4rem 5%;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                background: var(--background);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            }
+            #menu-checkbox:checked ~ .nav-links {
+                right: 0;
+            }
+            .contact-form-side h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BLOOM & LINE</div>
+            <input type="checkbox" id="menu-checkbox">
+            <label for="menu-checkbox" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html" style="font-weight: 600;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-container">
+            <div class="contact-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Modern minimalist floral arrangement in Edinburgh studio">
+            </div>
+            <div class="contact-form-side">
+                <h1>Let's Create Something</h1>
+                <p>Available for weddings, editorial styling, and corporate subscriptions across Edinburgh and the Lothians. Please fill out the form below and we will respond within 48 hours.</p>
+
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service">
+                            <option value="wedding">Wedding Floral Design</option>
+                            <option value="editorial">Editorial & Styling</option>
+                            <option value="corporate">Corporate Subscriptions</option>
+                            <option value="workshop">Workshop Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Vision</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit">Send Inquiry</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>The Studio</h3>
+                    <p>124 Princes Street,<br>Edinburgh, EH2 4AD</p>
+                </div>
+                <div class="info-item">
+                    <h3>Connect</h3>
+                    <p>hello@bloomandline.co.uk<br>@bloomandline_edinburgh</p>
+                </div>
+                <div class="info-item">
+                    <h3>Hours</h3>
+                    <p>By Appointment Only<br>Mon — Sat</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bloom & Line Edinburgh. Modern Floral Architecture.</p>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

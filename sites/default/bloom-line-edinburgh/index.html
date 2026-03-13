@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom & Line Edinburgh | Modern Floral Design</title>
+    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings in the heart of Scotland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        img, video {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-toggle-label span {
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--primary);
+        }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #FFFFFF;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 80vh;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .split-image, .split-text {
+            flex: 1 1 500px;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .split-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 10vw, 6rem);
+            background: var(--background);
+        }
+
+        .split-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .split-text p {
+            font-size: 1rem;
+            color: var(--text);
+            max-width: 450px;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: var(--secondary);
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            position: relative;
+            border: 1px solid var(--primary);
+            padding: 10px;
+            background: var(--background);
+        }
+
+        .video-container video {
+            width: 100%;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 6rem 2rem;
+            background: var(--accent);
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #FFFFFF;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                border-bottom: 1px solid var(--secondary);
+            }
+
+            .nav-toggle:checked ~ .nav-menu {
+                transform: translateY(0);
+            }
+
+            .split-section {
+                flex-direction: column-reverse;
+            }
+
+            .split-text {
+                padding: 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">BLOOM & LINE</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="workshops.html">Workshops</a>
+                <a href="about.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="WhatsApp Image 2026-02-05 at 20.25.31 (1).jpeg" alt="Minimalist floral architecture">
+            <div class="hero-content">
+                <h1>Floral Architecture for Modern Spaces</h1>
+                <p>Bespoke floral design in Edinburgh, where every stem is placed with intention and every arrangement tells a story of modern elegance.</p>
+            </div>
+        </section>
+
+        <section class="split-section">
+            <div class="split-text">
+                <h2>The Edinburgh Studio</h2>
+                <p>Located in the historic heart of Edinburgh, our studio blends traditional Scottish charm with a sharp, contemporary design philosophy. We believe in the power of minimalism to highlight the natural beauty of the season.</p>
+            </div>
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="The Edinburgh Studio Interior">
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2>The Process</h2>
+            <p>Rhythm, balance, and the geometry of nature.</p>
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Watch our lead designer bring a conceptual piece to life, focusing on rhythm, balance, and the geometry of nature.
+            </p>
+        </section>
+
+        <section class="cta-banner">
+            <h2>Transform Your Space</h2>
+            <p style="margin-bottom: 2.5rem;">Inquire about our weekly corporate installations and private event styling.</p>
+            <a href="contact.html" class="cta-btn">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">BLOOM & LINE</div>
+        <div class="footer-info">
+            Edinburgh, Scotland &bull; Established 2024 &bull; Modern Floristry
+        </div>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
