@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with our family bakery to discuss your bespoke celebration cake. We love helping make your special moments even sweeter.">
+    <title>Contact &mdash; The Family Bakery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">The Family <span class="logo-accent">Bakery</span></a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#order">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-hero">
+            <span class="section-label">Say Hello</span>
+            <h1>Let&rsquo;s talk about<br>your <em>celebration</em></h1>
+            <p>We&rsquo;d love to hear about your occasion. Fill in the form below or drop us a message and we&rsquo;ll get back to you as soon as we can.</p>
+        </div>
+
+        <section class="contact-section">
+            <div class="contact-inner">
+
+                <div class="contact-info">
+                    <h2>Get in touch</h2>
+                    <p>Whether you have a clear vision or just a vague idea of what you&rsquo;d like, we&rsquo;re here to help bring it to life. No question is too small &mdash; every great cake starts with a conversation.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">&#9993;</div>
+                            <div class="contact-item-text">
+                                <strong>Email us</strong>
+                                <span>We&rsquo;ll reply within one working day</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#128197;</div>
+                            <div class="contact-item-text">
+                                <strong>Order lead time</strong>
+                                <span>Please allow at least 2 weeks&rsquo; notice for orders</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">&#127968;</div>
+                            <div class="contact-item-text">
+                                <strong>Collection &amp; delivery</strong>
+                                <span>Local delivery available; collection always welcome</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <h2>Enquire about your cake</h2>
+                    <form method="post" action="#">
+                        <!-- Honeypot -->
+                        <input type="text" name="_hp" tabindex="-1" autocomplete="off">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your name</label>
+                                <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="occasion">Occasion</label>
+                                <select id="occasion" name="occasion">
+                                    <option value="">Select occasion&hellip;</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="wedding">Wedding</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="christening">Christening</option>
+                                    <option value="graduation">Graduation</option>
+                                    <option value="corporate">Corporate event</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Celebration date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">Approximate number of guests</label>
+                            <input type="text" id="guests" name="guests" placeholder="e.g. 20&ndash;30 people">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your cake</label>
+                            <textarea id="message" name="message" placeholder="Any flavours, themes, colours, or ideas you have in mind&hellip;" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send enquiry</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-brand">The Family <em>Bakery</em></div>
+                    <div class="footer-tagline">Celebration cakes, made with love</div>
+                </div>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">Our Story</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#order">Order</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">&copy; 2026 The Family Bakery. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="our-family-bakery-specialising-in-celebration-cakes-8ia7r"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='our-family-bakery-specialising-in-celebration-cakes-8ia7r';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;font-size:0.9rem;';
+if(d.ok){el.style.background='#f5ede0';el.style.color='#7a3a28';el.style.border='1px solid #d4944a';
+el.textContent=d.message||'Thank you — we will be in touch soon!';f.reset();}
+else{el.style.background='#fdf2ee';el.style.color='#7a3a28';el.style.border='1px solid #e8c4b0';
+el.textContent=d.message||'Something went wrong. Please try again.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;font-size:0.9rem;background:#fdf2ee;color:#7a3a28;border:1px solid #e8c4b0;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not send. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
