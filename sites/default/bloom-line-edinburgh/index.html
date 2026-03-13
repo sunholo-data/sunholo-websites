@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom & Line Edinburgh | Modern Floral Design</title>
-    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings in the heart of Scotland.">
+    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings across Spain.">
+    <title>Bloom & Line Spain | Floral Architecture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #000000;
@@ -15,8 +15,7 @@
             --accent: #737D6B;
             --background: #FFFFFF;
             --text: #1A1A1A;
-            --heading-font: 'Montserrat', sans-serif;
-            --body-font: 'Inter', sans-serif;
+            --spacing: 4rem;
         }
 
         * {
@@ -26,268 +25,270 @@
         }
 
         body {
-            font-family: var(--body-font);
+            font-family: 'Inter', sans-serif;
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: var(--heading-font);
-            font-weight: 500;
+        h1, h2, h3, .logo {
+            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.3s ease;
+            letter-spacing: 0.1em;
+            font-weight: 500;
         }
 
         img, video {
-            display: block;
             max-width: 100%;
-            height: auto;
+            display: block;
             object-fit: cover;
         }
 
-        /* Navigation */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Navigation --- */
         header {
             position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             border-bottom: 1px solid var(--secondary);
         }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-family: var(--heading-font);
-            font-weight: 700;
             font-size: 1.2rem;
-            letter-spacing: 0.2em;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .nav-menu a {
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
         }
 
-        .nav-menu a:hover {
+        .nav-links a:hover {
             color: var(--accent);
         }
 
-        /* Mobile Menu Toggle */
-        .nav-toggle {
+        /* Hamburger Logic */
+        .menu-toggle {
             display: none;
         }
 
-        .nav-toggle-label {
+        .hamburger {
             display: none;
             cursor: pointer;
             flex-direction: column;
             gap: 5px;
         }
 
-        .nav-toggle-label span {
+        .hamburger span {
             width: 25px;
             height: 1px;
-            background: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
             background-color: var(--primary);
         }
 
-        .hero img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.7;
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            background-color: var(--secondary);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: #FFFFFF;
-            max-width: 800px;
-            padding: 2rem;
+            padding: 4rem;
         }
 
-        .hero h1 {
+        .hero-content h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-image {
+            height: 100%;
+            width: 100%;
         }
 
-        /* Split Section */
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Split Section --- */
         .split-section {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             min-height: 80vh;
             border-bottom: 1px solid var(--secondary);
         }
 
-        .split-image, .split-text {
-            flex: 1 1 500px;
+        .split-image {
+            background-color: #f9f9f9;
         }
 
         .split-image img {
             width: 100%;
             height: 100%;
-            min-height: 400px;
         }
 
         .split-text {
+            padding: 10% 15%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: clamp(2rem, 10vw, 6rem);
-            background: var(--background);
         }
 
         .split-text h2 {
+            margin-bottom: 1.5rem;
             font-size: 2rem;
-            color: var(--primary);
         }
 
-        .split-text p {
-            font-size: 1rem;
-            color: var(--text);
-            max-width: 450px;
-        }
-
-        /* Video Section */
-        .video-section {
-            padding: 8rem 2rem;
+        /* --- Video Section --- */
+        .video-feature {
+            padding: var(--spacing) 0;
+            background: var(--primary);
+            color: var(--background);
             text-align: center;
-            background: var(--secondary);
         }
 
         .video-container {
             max-width: 1000px;
-            margin: 3rem auto 0;
-            position: relative;
-            border: 1px solid var(--primary);
-            padding: 10px;
-            background: var(--background);
+            margin: 3rem auto;
+            padding: 0 2rem;
         }
 
         .video-container video {
             width: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* CTA Banner */
+        /* --- CTA Banner --- */
         .cta-banner {
             padding: 6rem 2rem;
-            background: var(--accent);
-            color: #FFFFFF;
             text-align: center;
+            background-color: var(--accent);
+            color: white;
         }
 
         .cta-banner h2 {
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .cta-btn {
+        .cta-button {
             display: inline-block;
-            padding: 1rem 3rem;
-            border: 1px solid #FFFFFF;
-            color: #FFFFFF;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
             font-size: 0.8rem;
-            transition: all 0.3s ease;
+            letter-spacing: 0.2em;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .cta-btn:hover {
-            background: #FFFFFF;
+        .cta-button:hover {
+            background: white;
             color: var(--accent);
         }
 
-        /* Footer */
+        /* --- Footer --- */
         footer {
             padding: 4rem 2rem;
-            background: var(--primary);
-            color: var(--secondary);
+            background: var(--background);
+            border-top: 1px solid var(--secondary);
             text-align: center;
         }
 
         .footer-logo {
-            font-family: var(--heading-font);
             font-size: 1.5rem;
-            letter-spacing: 0.3em;
             margin-bottom: 1rem;
+            display: block;
         }
 
-        .footer-info {
-            font-size: 0.75rem;
+        .copyright {
+            font-size: 0.7rem;
+            color: #666;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            opacity: 0.6;
+            margin-top: 2rem;
         }
 
-        /* Responsive Design */
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .nav-toggle-label {
+            .hamburger {
                 display: flex;
             }
 
-            .nav-menu {
-                position: fixed;
-                top: 70px;
+            .nav-links {
+                position: absolute;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--background);
+                background: white;
                 flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
+                padding: 2rem;
                 gap: 1.5rem;
-                transform: translateY(-150%);
-                transition: transform 0.4s ease;
+                text-align: center;
+                display: none;
                 border-bottom: 1px solid var(--secondary);
             }
 
-            .nav-toggle:checked ~ .nav-menu {
-                transform: translateY(0);
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
             }
 
-            .split-section {
-                flex-direction: column-reverse;
+            .hero, .split-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: auto;
+            }
+
+            .hero-content {
+                order: 2;
+                padding: 3rem 2rem;
+            }
+
+            .hero-image {
+                height: 50vh;
+                order: 1;
+            }
+
+            .split-image {
+                height: 400px;
             }
 
             .split-text {
@@ -299,70 +300,72 @@
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">BLOOM & LINE</a>
-            
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <label for="nav-toggle" class="nav-toggle-label">
+        <nav>
+            <a href="index.html" class="logo">Bloom & Line</a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-
-            <nav class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="workshops.html">Workshops</a>
-                <a href="about.html">Our Story</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section class="hero">
-            <img src="WhatsApp Image 2026-02-05 at 20.25.31 (1).jpeg" alt="Minimalist floral architecture">
             <div class="hero-content">
                 <h1>Floral Architecture for Modern Spaces</h1>
-                <p>Bespoke floral design in Edinburgh, where every stem is placed with intention and every arrangement tells a story of modern elegance.</p>
+                <p>Bespoke floral design in Spain, where every stem is placed with intention. This image captures a festive holiday event, showcasing our signature modern elegance.</p>
+            </div>
+            <div class="hero-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.34.52.jpeg" alt="Festive holiday floral arrangement with architectural lines">
             </div>
         </section>
 
         <section class="split-section">
-            <div class="split-text">
-                <h2>The Edinburgh Studio</h2>
-                <p>Located in the historic heart of Edinburgh, our studio blends traditional Scottish charm with a sharp, contemporary design philosophy. We believe in the power of minimalism to highlight the natural beauty of the season.</p>
-            </div>
             <div class="split-image">
-                <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="The Edinburgh Studio Interior">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="Inside the Spanish Bloom and Line studio">
+            </div>
+            <div class="split-text">
+                <h2>The Spanish Studio</h2>
+                <p>Located in the heart of Spain, our studio blends Mediterranean inspiration with a sharp, contemporary design philosophy. We believe in the power of minimalism to highlight the natural beauty of the season.</p>
             </div>
         </section>
 
-        <section class="video-section">
-            <h2>The Process</h2>
-            <p>Rhythm, balance, and the geometry of nature.</p>
-            <div class="video-container">
-                <video autoplay muted loop playsinline>
-                    <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+        <section class="video-feature">
+            <div class="container">
+                <h2>The Process</h2>
+                <p>Watch our lead designer bring a conceptual piece to life, focusing on rhythm, balance, and the geometry of nature.</p>
+                <div class="video-container">
+                    <video controls poster="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg">
+                        <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
-            <p style="margin-top: 2rem; font-size: 0.9rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Watch our lead designer bring a conceptual piece to life, focusing on rhythm, balance, and the geometry of nature.
-            </p>
         </section>
 
         <section class="cta-banner">
-            <h2>Transform Your Space</h2>
-            <p style="margin-bottom: 2.5rem;">Inquire about our weekly corporate installations and private event styling.</p>
-            <a href="contact.html" class="cta-btn">Get in Touch</a>
+            <div class="container">
+                <h2>Transform Your Space</h2>
+                <p>Inquire about our weekly corporate installations and private event styling across Spain.</p>
+                <a href="contact.html" class="cta-button">Get in Touch</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-logo">BLOOM & LINE</div>
-        <div class="footer-info">
-            Edinburgh, Scotland &bull; Established 2024 &bull; Modern Floristry
+        <div class="container">
+            <span class="logo footer-logo">Bloom & Line Spain</span>
+            <p>Madrid | Barcelona | Seville</p>
+            <p class="copyright">&copy; 2024 Bloom & Line. All Rights Reserved.</p>
         </div>
     </footer>
 

@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Bloom & Line Edinburgh, a modern floral design studio focused on architectural minimalism and community roots.">
-    <title>Our Story | Bloom & Line Edinburgh</title>
+    <meta name="description" content="Learn about the origins and the team behind Bloom & Line Spain, a minimalist floral design studio.">
+    <title>Our Story | Bloom & Line Spain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #000000;
             --secondary: #E5E5E5;
             --accent: #737D6B;
-            --bg: #FFFFFF;
+            --background: #FFFFFF;
             --text: #1A1A1A;
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --spacing: 2rem;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
         }
 
         * {
@@ -27,18 +26,18 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg);
+            font-family: var(--body-font);
+            background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         h1, h2, h3 {
-            font-family: var(--font-heading);
-            font-weight: 300;
+            font-family: var(--heading-font);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
+            font-weight: 600;
         }
 
         a {
@@ -47,19 +46,13 @@
             transition: opacity 0.3s ease;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* --- Navigation --- */
-        .header {
+        /* Navigation */
+        header {
             position: sticky;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             z-index: 1000;
             border-bottom: 1px solid var(--secondary);
         }
@@ -67,36 +60,37 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.5rem 2rem;
         }
 
         .logo {
-            font-family: var(--font-heading);
-            font-weight: 600;
+            font-family: var(--heading-font);
+            font-weight: 700;
             font-size: 1.2rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.2rem;
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
+            list-style: none;
             gap: 2.5rem;
         }
 
-        .nav-links a {
-            font-size: 0.8rem;
+        nav ul li a {
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.1rem;
         }
 
-        .nav-links a:hover {
+        nav ul li a:hover {
             color: var(--accent);
         }
 
-        /* Mobile Menu */
-        .menu-toggle {
+        /* Mobile Menu Toggle */
+        #menu-toggle {
             display: none;
         }
 
@@ -110,81 +104,90 @@
         .hamburger span {
             display: block;
             width: 25px;
-            height: 1px;
+            height: 2px;
             background: var(--primary);
         }
 
-        /* --- Page Layout --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing);
-        }
-
-        .section-padding {
-            padding: 6rem 0;
-        }
-
+        /* Hero Section */
         .page-header {
-            padding: 4rem 0 2rem;
+            padding: 8rem 2rem 4rem;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .page-header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        /* --- Story Block --- */
-        .story-block {
+        /* Story Block - Split Layout */
+        .story-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
             align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
         }
 
         .story-image-wrapper {
             position: relative;
-            padding-top: 125%; /* 4:5 aspect ratio */
-            overflow: hidden;
         }
 
         .story-image-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .story-content {
+            padding: 2rem;
         }
 
         .story-content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .story-content h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin-top: 1rem;
         }
 
         .story-content p {
             font-size: 1.1rem;
-            font-weight: 300;
-            color: var(--text);
+            color: #444;
+            max-width: 500px;
         }
 
-        /* --- Team Grid --- */
+        /* Team Grid */
         .team-section {
-            background-color: #FAFAFA;
+            background-color: var(--secondary);
+            padding: 8rem 2rem;
         }
 
-        .team-intro {
-            text-align: center;
-            max-width: 700px;
+        .team-header {
+            max-width: 1400px;
             margin: 0 auto 4rem;
-        }
-
-        .team-intro h2 {
-            margin-bottom: 1rem;
+            text-align: left;
         }
 
         .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
@@ -196,28 +199,32 @@
 
         .team-member img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            filter: grayscale(100%);
+            height: 600px;
+            object-fit: cover;
+            filter: grayscale(20%);
             transition: filter 0.5s ease;
         }
 
-        .team-member:hover img {
+        .team-member img:hover {
             filter: grayscale(0%);
         }
 
-        /* --- Footer --- */
+        .team-description {
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+
+        /* Footer */
         footer {
-            background: var(--primary);
-            color: #FFFFFF;
-            padding: 4rem 0;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--secondary);
             text-align: center;
         }
 
         .footer-logo {
-            font-family: var(--font-heading);
-            letter-spacing: 0.3em;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 1rem;
             display: block;
         }
 
@@ -226,153 +233,133 @@
             justify-content: center;
             gap: 2rem;
             margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            opacity: 0.7;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
+        /* Responsive */
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .story-image-wrapper {
+                order: 2;
+            }
+            .story-content {
+                order: 1;
+                padding: 0;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-member img {
+                height: 450px;
+            }
         }
 
-        .copyright {
-            font-size: 0.7rem;
-            opacity: 0.4;
-            letter-spacing: 0.05em;
-        }
-
-        /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                text-align: center;
-                border-bottom: 1px solid var(--secondary);
-            }
-
-            .menu-toggle:checked ~ .nav-links {
-                display: flex;
-            }
-
             .hamburger {
                 display: flex;
             }
 
-            .story-block {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
             }
 
-            .story-content {
-                order: 2;
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
             }
 
-            .story-image-wrapper {
-                order: 1;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
+            #menu-toggle:checked ~ nav {
+                max-height: 400px;
             }
 
             .page-header h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <nav class="nav-container">
+    <header>
+        <div class="nav-container">
             <a href="index.html" class="logo">BLOOM & LINE</a>
             
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="workshops.html">Workshops</a>
-                <a href="about.html" style="color: var(--accent)">Our Story</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="page-header">
-            <div class="container">
-                <h1>Our Story</h1>
-                <p>Minimalism. Geometry. Nature.</p>
-            </div>
+            <h1>Our Story</h1>
+            <p>A modern art gallery for flowers, rooted in the landscapes of Spain.</p>
         </section>
 
-        <!-- Story Block Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="story-block">
-                    <div class="story-content">
-                        <h2>Rooted in Community</h2>
-                        <p>
-                            Bloom & Line began as a small project focused on bringing joy to the community. 
-                            Today, we maintain those roots through our volunteer programs and local sourcing initiatives. 
-                            Our design philosophy is anchored in the belief that flowers are more than just decoration; 
-                            they are sculptural elements that define a space.
-                        </p>
-                    </div>
-                    <div class="story-image-wrapper">
-                        <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="Close up of a minimalist floral arrangement in our Edinburgh studio">
-                    </div>
+        <section class="story-section">
+            <div class="story-grid">
+                <div class="story-image-wrapper">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="Floral installation highlighting community and local sourcing">
+                </div>
+                <div class="story-content">
+                    <h2>Rooted in Community</h2>
+                    <p>Bloom & Line began as a small project focused on bringing joy to the community. Today, we maintain those roots through our volunteer programs and local sourcing initiatives throughout Spain. We believe that true luxury lies in the connection between the earth, the artisan, and the final arrangement.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Team Grid Section -->
-        <section class="team-section section-padding">
-            <div class="container">
-                <div class="team-intro">
-                    <h2>The Hands Behind the Blooms</h2>
-                    <p>Our team is a small collective of artists and horticulturalists dedicated to the craft of modern floristry. We blend technical precision with an intuitive understanding of seasonal rhythms.</p>
+        <section class="team-section">
+            <div class="team-header">
+                <h2>The Hands Behind the Blooms</h2>
+                <div class="team-description">
+                    <p>Our team is a small collective of artists and horticulturalists dedicated to the craft of modern floristry. We prioritize rhythm, balance, and the architectural integrity of every stem.</p>
                 </div>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Floral designer at work in the studio">
-                    </div>
-                    <div class="team-member">
-                        <img src="WhatsApp Image 2026-02-05 at 20.25.20.jpeg" alt="Detail of hands arranging a sculptural stem">
-                    </div>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Team member working on a minimalist arrangement">
+                </div>
+                <div class="team-member">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.20.jpeg" alt="Lead designer selecting seasonal stems">
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <span class="footer-logo">BLOOM & LINE</span>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="workshops.html">Workshops</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">&copy; 2024 Bloom & Line Edinburgh. All rights reserved.</p>
+        <span class="footer-logo">BLOOM & LINE SPAIN</span>
+        <div class="footer-links">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <p style="font-size: 0.7rem; color: #888;">&copy; 2024 Bloom & Line. Madrid, Spain.</p>
     </footer>
 
 <meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>

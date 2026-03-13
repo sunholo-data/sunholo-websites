@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Bloom & Line Edinburgh for bespoke modern floral design, weddings, and corporate installations.">
-    <title>Contact | Bloom & Line Edinburgh</title>
+    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings across Spain.">
+    <title>Contact | Bloom & Line Spain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #000000;
@@ -15,7 +15,8 @@
             --accent: #737D6B;
             --background: #FFFFFF;
             --text: #1A1A1A;
-            --spacing: 2rem;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
         }
 
         * {
@@ -25,29 +26,18 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
             background-color: var(--background);
             color: var(--text);
+            font-family: var(--body-font);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.3s ease;
-        }
-
-        a:hover {
-            opacity: 0.7;
+            letter-spacing: 0.1em;
+            font-weight: 400;
         }
 
         /* Navigation */
@@ -58,222 +48,245 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             border-bottom: 1px solid var(--secondary);
+            padding: 1.5rem 5%;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--heading-font);
+            font-size: 1.25rem;
             font-weight: 600;
-            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--primary);
             letter-spacing: 0.2em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
             list-style: none;
+            gap: 2rem;
         }
 
         .nav-links a {
+            text-decoration: none;
+            color: var(--text);
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            transition: color 0.3s ease;
         }
 
-        /* Mobile Menu Toggle */
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hamburger Menu */
         .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
             display: none;
             cursor: pointer;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
-        .menu-toggle span {
-            display: block;
+        .hamburger span {
             width: 25px;
             height: 1px;
-            background: var(--primary);
+            background-color: var(--primary);
         }
 
-        #menu-checkbox {
-            display: none;
+        /* Page Hero */
+        .page-header {
+            padding: 6rem 5% 3rem;
+            text-align: center;
         }
 
-        /* Hero / Form Section */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            min-height: calc(100vh - 80px);
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            border: 1px solid var(--secondary);
         }
 
         .contact-image {
-            flex: 1 1 50%;
-            min-height: 400px;
             position: relative;
             overflow: hidden;
+            background-color: var(--secondary);
         }
 
         .contact-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(20%);
+            display: block;
         }
 
-        .contact-form-side {
-            flex: 1 1 50%;
-            padding: 10% 5%;
+        .contact-content {
+            padding: 4rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: var(--background);
         }
 
-        .contact-form-side h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form-side p {
-            margin-bottom: 3rem;
-            max-width: 500px;
-            font-weight: 300;
-            color: #555;
+        .contact-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: var(--accent);
+            max-width: 400px;
         }
 
         form {
             display: grid;
             gap: 1.5rem;
-            max-width: 500px;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
         }
 
-        label {
+        .form-group label {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         input, textarea, select {
-            padding: 1rem 0;
-            border: none;
-            border-bottom: 1px solid var(--secondary);
-            font-family: inherit;
-            font-size: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--secondary);
+            font-family: var(--body-font);
+            font-size: 0.9rem;
             outline: none;
-            background: transparent;
             transition: border-color 0.3s ease;
         }
 
         input:focus, textarea:focus {
-            border-bottom-color: var(--accent);
+            border-color: var(--primary);
         }
 
         button {
-            margin-top: 1rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--primary);
-            color: white;
+            background-color: var(--primary);
+            color: #fff;
             border: none;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
+            padding: 1.25rem;
+            font-family: var(--heading-font);
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            font-size: 0.8rem;
-            transition: background 0.3s ease;
-            width: fit-content;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
         }
 
         button:hover {
-            background: var(--accent);
+            background-color: var(--accent);
         }
 
         /* Info Grid Section */
-        .info-section {
-            padding: 5rem 5%;
-            background-color: var(--secondary);
-        }
-
         .info-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-        }
-
-        .info-item h3 {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .info-item p {
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        footer {
-            padding: 3rem 5%;
+            background-color: var(--secondary);
+            padding: 6rem 5%;
             text-align: center;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-top: 1px solid var(--secondary);
         }
 
-        /* Responsive Adjustments */
+        .info-grid h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .info-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .info-item {
+            padding: 0 1rem;
+        }
+
+        .info-item:not(:last-child) {
+            border-right: 1px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
         @media (max-width: 992px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
             .contact-image {
-                flex: 1 1 100%;
                 height: 400px;
             }
-            .contact-form-side {
-                flex: 1 1 100%;
-                padding: 4rem 5%;
+            .contact-content {
+                padding: 3rem 1.5rem;
             }
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .info-item:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--primary);
+                padding-bottom: 1rem;
+                width: 100%;
+            }
+            .info-details {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
+            .hamburger {
                 display: flex;
-                z-index: 1001;
             }
+
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 80%;
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
                 background: var(--background);
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: right 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+                padding: 2rem;
+                text-align: center;
+                border-bottom: 1px solid var(--secondary);
             }
-            #menu-checkbox:checked ~ .nav-links {
-                right: 0;
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
             }
-            .contact-form-side h1 {
+
+            .page-header h1 {
                 font-size: 1.8rem;
             }
         }
@@ -283,9 +296,9 @@
 
     <header>
         <nav>
-            <div class="logo">BLOOM & LINE</div>
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox" class="menu-toggle">
+            <a href="index.html" class="logo">BLOOM & LINE</a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -295,47 +308,49 @@
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="workshops.html">Workshops</a></li>
                 <li><a href="about.html">Our Story</a></li>
-                <li><a href="contact.html" style="font-weight: 600;">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="contact-container">
-            <div class="contact-image">
-                <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Modern minimalist floral arrangement in Edinburgh studio">
-            </div>
-            <div class="contact-form-side">
-                <h1>Let's Create Something</h1>
-                <p>Available for weddings, editorial styling, and corporate subscriptions across Edinburgh and the Lothians. Please fill out the form below and we will respond within 48 hours.</p>
+        <section class="page-header">
+            <h1>Let's Create Something</h1>
+        </section>
 
+        <section class="contact-section">
+            <div class="contact-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Minimalist floral installation in a Spanish studio">
+            </div>
+            <div class="contact-content">
+                <p>Available for weddings, editorial styling, and corporate subscriptions across Spain.</p>
+                
                 <form action="#" method="POST">
                     <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
                     
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="hello@example.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="service">Service Type</label>
-                        <select id="service" name="service">
-                            <option value="wedding">Wedding Floral Design</option>
-                            <option value="editorial">Editorial & Styling</option>
-                            <option value="corporate">Corporate Subscriptions</option>
+                        <label for="interest">Project Type</label>
+                        <select id="interest" name="interest">
+                            <option value="wedding">Wedding</option>
+                            <option value="editorial">Editorial / Shoot</option>
+                            <option value="corporate">Corporate Subscription</option>
                             <option value="workshop">Workshop Inquiry</option>
-                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Your Vision</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <label for="message">The Vision</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your event or space..."></textarea>
                     </div>
 
                     <button type="submit">Send Inquiry</button>
@@ -343,26 +358,18 @@
             </div>
         </section>
 
-        <section class="info-section">
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>The Studio</h3>
-                    <p>124 Princes Street,<br>Edinburgh, EH2 4AD</p>
-                </div>
-                <div class="info-item">
-                    <h3>Connect</h3>
-                    <p>hello@bloomandline.co.uk<br>@bloomandline_edinburgh</p>
-                </div>
-                <div class="info-item">
-                    <h3>Hours</h3>
-                    <p>By Appointment Only<br>Mon — Sat</p>
-                </div>
+        <section class="info-grid">
+            <h2>The Studio</h2>
+            <div class="info-details">
+                <div class="info-item">Madrid, Spain</div>
+                <div class="info-item">hello@bloomandline.es</div>
+                <div class="info-item">@bloomandline_spain</div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Bloom & Line Edinburgh. Modern Floral Architecture.</p>
+        <p>&copy; 2024 Bloom & Line Spain. All rights reserved. Minimalist Floral Design.</p>
     </footer>
 
 <meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
