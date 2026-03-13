@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Bloom & Line Spain for minimalist floral design workshops. Master the art of modern, architectural arrangements in our Spanish studio.">
+    <title>Workshops | Bloom & Line Spain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --bg: #FFFFFF;
+            --text: #1A1A1A;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 400;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--secondary);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        #nav-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* --- Geometric Grid Section --- */
+        .geometric-section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        .grid-text {
+            grid-column: 1 / span 5;
+            padding-right: 40px;
+        }
+
+        .grid-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .grid-text p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 450px;
+        }
+
+        .grid-image-1 {
+            grid-column: 6 / span 4;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            width: 100%;
+            filter: grayscale(20%);
+        }
+
+        .grid-image-2 {
+            grid-column: 10 / span 3;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        /* --- Features Grid Section --- */
+        .features-section {
+            background-color: var(--secondary);
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            margin-bottom: 4rem;
+            font-size: 1.8rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 40px 20px;
+            background: var(--bg);
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 80px 5%;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-info {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .grid-text { grid-column: 1 / span 6; }
+            .grid-image-1 { grid-column: 7 / span 6; }
+            .grid-image-2 { display: none; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                transition: height 0.4s ease;
+                gap: 2rem;
+            }
+
+            #nav-toggle:checked ~ .nav-links {
+                height: calc(100vh - 80px);
+            }
+
+            .grid-container {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .grid-text {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .grid-text h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .geometric-section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BLOOM & LINE</a>
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="workshops.html" class="active">Workshops</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="geometric-section">
+            <div class="grid-container">
+                <div class="grid-text">
+                    <h1>Floral Mastery Series</h1>
+                    <p>Join us in the studio to learn the principles of minimalist floral design. Our workshops focus on structural integrity and the art of 'less is more'.</p>
+                </div>
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09 (2).jpeg" alt="Close up of architectural floral arrangement" class="grid-image-1">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09.jpeg" alt="Minimalist studio workspace" class="grid-image-2">
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>What You'll Learn</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>01</h3>
+                    <p>Structural Foundation</p>
+                </div>
+                <div class="feature-card">
+                    <h3>02</h3>
+                    <p>Color Theory</p>
+                </div>
+                <div class="feature-card">
+                    <h3>03</h3>
+                    <p>Seasonal Selection</p>
+                </div>
+                <div class="feature-card">
+                    <h3>04</h3>
+                    <p>Sustainable Mechanics</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">BLOOM & LINE</span>
+        <p class="footer-info">Madrid &bull; Barcelona &bull; Seville</p>
+        <p class="footer-info" style="margin-top: 20px; font-size: 0.65rem;">&copy; 2025 Bloom & Line Spain. All Rights Reserved.</p>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

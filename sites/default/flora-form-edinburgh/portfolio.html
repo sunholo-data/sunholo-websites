@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Flora & Form Edinburgh</title>
+    <meta name="description" content="A collection of botanical installations and editorial collaborations by Flora & Form, Edinburgh.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F4F4F4;
+            --accent: #7D846C;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --heading-font: 'Prata', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 400;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background-color: var(--primary);
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--background);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                transition: height 0.4s ease-in-out;
+                gap: 30px;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                height: calc(100vh - 80px);
+            }
+        }
+
+        /* --- Page Header --- */
+        .page-intro {
+            padding: 120px 0 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .page-intro h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .page-intro p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-intro h1 { font-size: 2.2rem; }
+            .page-intro { padding: 80px 0 40px 0; }
+        }
+
+        /* --- Masonry Gallery --- */
+        .gallery-section {
+            padding: 80px 0;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--secondary);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(2n) {
+            grid-row: span 2;
+        }
+
+        @media (max-width: 992px) {
+            .masonry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .masonry-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item:nth-child(2n) {
+                grid-row: span 1;
+            }
+        }
+
+        /* --- Video Highlight --- */
+        .video-section {
+            background: var(--secondary);
+            padding: 100px 0;
+            margin-bottom: 80px;
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .video-container p {
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: var(--primary);
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: var(--background);
+            padding: 80px 0 40px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-col h4 {
+            font-family: var(--body-font);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">FLORA & FORM</a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Intro Section -->
+        <section class="page-intro">
+            <div class="container">
+                <h1>Selected Works</h1>
+                <p>A collection of our recent botanical installations and editorial collaborations.</p>
+            </div>
+        </section>
+
+        <!-- Masonry Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="masonry-grid">
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.20.jpeg" alt="Structural floral installation with clean lines">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Seasonal textures in botanical styling">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.09 (2).jpeg" alt="Minimalist floral architecture detail">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="High-end editorial floral composition">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Bespoke botanical installation for Edinburgh gallery">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Contemporary floral arrangement with negative space">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Highlight Section -->
+        <section class="video-section">
+            <div class="container">
+                <div class="video-container">
+                    <h2>The Creative Process</h2>
+                    <p>Watch our lead designer at work on a recent installation, focusing on the movement of stems and structural integrity.</p>
+                    <div class="video-wrapper">
+                        <video controls muted loop poster="">
+                            <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-logo">FLORA & FORM</span>
+                    <p style="opacity: 0.7; max-width: 300px;">Contemporary floral architecture and bespoke botanical styling based in the heart of Edinburgh.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <ul>
+                        <li>The Shore, Leith</li>
+                        <li>Edinburgh, EH6</li>
+                        <li>By Appointment Only</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Flora & Form Edinburgh. All rights reserved.</p>
+                <p>Sustainable Sourcing | Botanical Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="flora-form-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='flora-form-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

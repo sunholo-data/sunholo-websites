@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora & Form Edinburgh | Botanical Architecture</title>
+    <meta name="description" content="Contemporary floral architecture and bespoke botanical styling based in the heart of Edinburgh.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F4F4F4;
+            --accent: #7D846C;
+            --bg: #FFFFFF;
+            --text: #2D2D2D;
+            --heading-font: 'Prata', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            color: var(--primary);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background-color: var(--primary);
+            transition: 0.3s;
+        }
+
+        #menu-checkbox {
+            display: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 0;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 4rem;
+            z-index: 2;
+            background: var(--bg);
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--secondary);
+            padding: 3rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Split Image Text */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .split-image {
+            position: relative;
+        }
+
+        .split-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent);
+            z-index: -1;
+        }
+
+        .split-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .split-text p {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 500px;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .cta-banner img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            filter: brightness(0.6);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .cta-content h2 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+            }
+            .hero-content {
+                max-width: 100%;
+                padding: 4rem 2rem;
+            }
+            .hero-image {
+                position: relative;
+                width: 100%;
+                height: 500px;
+            }
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .split-image {
+                order: 2;
+            }
+            .split-text {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 4rem;
+                transition: 0.4s ease-in-out;
+            }
+            #menu-checkbox:checked ~ .nav-links {
+                left: 0;
+            }
+            #menu-checkbox:checked ~ .menu-toggle span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            #menu-checkbox:checked ~ .menu-toggle span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-checkbox:checked ~ .menu-toggle span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+            .stats-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Flora & Form</a>
+                <input type="checkbox" id="menu-checkbox">
+                <label for="menu-checkbox" class="menu-toggle" aria-label="Toggle Navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Botanical Architecture for Modern Spaces</h1>
+                <p>Elevating the art of floral design in Edinburgh through clean lines and seasonal textures.</p>
+                <a href="portfolio.html" class="btn">View Selected Works</a>
+            </div>
+            <div class="hero-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Modern architectural floral arrangement">
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">10+ Years in Bloom</div>
+                    <div class="stat-item">500+ Events Styled</div>
+                    <div class="stat-item">100% Sustainable Sourcing</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Image Text Section -->
+        <section class="container">
+            <div class="split-section">
+                <div class="split-image">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="The Flora Philosophy arrangement">
+                </div>
+                <div class="split-text">
+                    <h2>The Flora Philosophy</h2>
+                    <p>We believe flowers should complement the space they inhabit. Our designs focus on negative space, structural integrity, and the natural movement of stems. Every arrangement is a conversation between the organic and the architectural.</p>
+                    <a href="services.html" class="btn" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <img src="WhatsApp Image 2026-02-05 at 20.33.27 (2).jpeg" alt="Corporate floral subscription display">
+            <div class="cta-content">
+                <h2>Transform Your Space</h2>
+                <p>Inquire about our weekly corporate subscriptions and private event styling.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Flora & Form</div>
+            <p>Edinburgh & Beyond</p>
+            <ul class="footer-links">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="copyright">
+                &copy; 2024 Flora & Form Edinburgh. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="flora-form-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='flora-form-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

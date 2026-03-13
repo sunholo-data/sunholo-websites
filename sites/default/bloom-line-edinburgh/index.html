@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom & Line Spain | Modern Floral Design</title>
+    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings across Spain.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            .nav-toggle-label span {
+                display: block;
+                width: 25px;
+                height: 1px;
+                background: var(--primary);
+                margin: 6px 0;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.5s ease-in-out;
+            }
+            #nav-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            z-index: 2;
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.85);
+            padding: 3rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 80vh;
+            align-items: center;
+        }
+
+        .split-image {
+            flex: 1 1 500px;
+            height: 80vh;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .split-text {
+            flex: 1 1 500px;
+            padding: 10%;
+        }
+
+        .split-text h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            color: var(--background);
+            max-width: 400px;
+        }
+
+        /* CTA Section */
+        .cta-banner {
+            padding: 15vh 5%;
+            text-align: center;
+            background-color: var(--secondary);
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: var(--background);
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-img:last-of-type {
+                display: none;
+            }
+            .split-image {
+                height: 50vh;
+            }
+            footer {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BLOOM & LINE</div>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <img src="WhatsApp Image 2026-02-05 at 20.34.52.jpeg" alt="Minimalist floral arrangement" class="hero-img">
+        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Modern Spanish floral design" class="hero-img">
+        <div class="hero-content">
+            <h1>Floral Architecture for Modern Spaces</h1>
+            <p>Bespoke floral design in Spain, where every stem is placed with intention. This immersive hero gallery captures our signature modern elegance and architectural precision.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="split-section">
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="Inside the Spanish floral studio">
+            </div>
+            <div class="split-text">
+                <h2>The Spanish Studio</h2>
+                <p>Located in the heart of Spain, our studio blends Mediterranean inspiration with a sharp, contemporary design philosophy. We believe in the power of minimalism to highlight the natural beauty of the season.</p>
+            </div>
+        </section>
+
+        <section class="video-feature">
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <h3>The Process</h3>
+                    <p>Watch our lead designer bring a conceptual piece to life, focusing on rhythm, balance, and the geometry of nature.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <h2>Transform Your Space</h2>
+            <p>Inquire about our weekly corporate installations and private event styling across Spain.</p>
+            <a href="contact.html" class="btn">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2024 Bloom & Line Spain</div>
+        <div>Madrid | Barcelona | Seville</div>
+        <div>@bloomandline_spain</div>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about the origins and the team behind Bloom & Line Spain, a minimalist floral design studio.">
+    <title>Our Story | Bloom & Line Spain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav ul li a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Hero Section */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Story Block - Split Layout */
+        .story-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .story-image-wrapper {
+            position: relative;
+        }
+
+        .story-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .story-content {
+            padding: 2rem;
+        }
+
+        .story-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .story-content h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            color: #444;
+            max-width: 500px;
+        }
+
+        /* Team Grid */
+        .team-section {
+            background-color: var(--secondary);
+            padding: 8rem 2rem;
+        }
+
+        .team-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            text-align: left;
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            position: relative;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.5s ease;
+        }
+
+        .team-member img:hover {
+            filter: grayscale(0%);
+        }
+
+        .team-description {
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .story-image-wrapper {
+                order: 2;
+            }
+            .story-content {
+                order: 1;
+                padding: 0;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-member img {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            #menu-toggle:checked ~ nav {
+                max-height: 400px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">BLOOM & LINE</a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Our Story</h1>
+            <p>A modern art gallery for flowers, rooted in the landscapes of Spain.</p>
+        </section>
+
+        <section class="story-section">
+            <div class="story-grid">
+                <div class="story-image-wrapper">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="Floral installation highlighting community and local sourcing">
+                </div>
+                <div class="story-content">
+                    <h2>Rooted in Community</h2>
+                    <p>Bloom & Line began as a small project focused on bringing joy to the community. Today, we maintain those roots through our volunteer programs and local sourcing initiatives throughout Spain. We believe that true luxury lies in the connection between the earth, the artisan, and the final arrangement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="team-header">
+                <h2>The Hands Behind the Blooms</h2>
+                <div class="team-description">
+                    <p>Our team is a small collective of artists and horticulturalists dedicated to the craft of modern floristry. We prioritize rhythm, balance, and the architectural integrity of every stem.</p>
+                </div>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Team member working on a minimalist arrangement">
+                </div>
+                <div class="team-member">
+                    <img src="WhatsApp Image 2026-02-05 at 20.25.20.jpeg" alt="Lead designer selecting seasonal stems">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">BLOOM & LINE SPAIN</span>
+        <div class="footer-links">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p style="font-size: 0.7rem; color: #888;">&copy; 2024 Bloom & Line. Madrid, Spain.</p>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

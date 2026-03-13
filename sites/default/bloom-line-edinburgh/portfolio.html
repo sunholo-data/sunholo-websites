@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern floral design studio specializing in minimalist, high-end arrangements for events and weddings across Spain.">
+    <title>Portfolio | Bloom & Line Spain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #E5E5E5;
+            --accent: #737D6B;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--secondary);
+            padding: 1.5rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 1px;
+            background-color: var(--primary);
+        }
+
+        /* --- Hero / Header Section --- */
+        .portfolio-header {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-header p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* --- Masonry Gallery --- */
+        .gallery-container {
+            padding: 0 5% 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            background-color: var(--secondary);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+            filter: grayscale(0%);
+        }
+
+        /* Mimicking Masonry via Grid Spans */
+        .gallery-item:nth-child(2n) {
+            margin-top: 4rem;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .stats-bar h2 {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .stats-content {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .stats-item {
+            white-space: nowrap;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                border-bottom: 1px solid var(--secondary);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .portfolio-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .masonry-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-item:nth-child(2n) {
+                margin-top: 0;
+            }
+
+            .stats-content {
+                font-size: 1.1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BLOOM & LINE</div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portfolio-header">
+            <h1>Selected Works</h1>
+            <p>A curated collection of our recent installations, from intimate elopements to large-scale editorial shoots across Spain.</p>
+        </section>
+
+        <section class="gallery-container">
+            <div class="masonry-grid">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Minimalist floral installation in a bright gallery space">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.27 (2).jpeg" alt="Architectural arrangement featuring native Spanish stems">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Modern bridal bouquet with clean lines and negative space">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="High-end corporate floral design for a Madrid event">
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-bar">
+            <h2>By the Numbers</h2>
+            <div class="stats-content">
+                <div class="stats-item">150+ Events Styled</div>
+                <div class="stats-item">|</div>
+                <div class="stats-item">12 Local Growers</div>
+                <div class="stats-item">|</div>
+                <div class="stats-item">1 Signature Style</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bloom & Line Spain. All Rights Reserved.</p>
+        <p>Madrid | Barcelona | Seville</p>
+    </footer>
+
+<meta name="wb-site" content="bloom-line-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='bloom-line-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Services | Flora & Form Edinburgh</title>
+    <meta name='description' content='Contemporary floral architecture and bespoke botanical styling in Edinburgh.'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Prata&display=swap' rel='stylesheet'>
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F4F4F4;
+            --accent: #7D846C;
+            --bg: #FFFFFF;
+            --text: #2D2D2D;
+            --font-heading: 'Prata', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Services Intro */
+        .services-intro {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            background-color: var(--secondary);
+        }
+
+        .services-intro h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .services-intro p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Service Grid Section */
+        .service-list-container {
+            padding: 8rem 0;
+        }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .service-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-row:nth-child(even) .service-content {
+            direction: ltr;
+        }
+
+        .service-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            filter: grayscale(20%);
+            transition: transform 0.8s ease;
+        }
+
+        .service-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .service-content p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--primary);
+            background: transparent;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #fff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .service-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 5rem;
+            }
+            .service-row:nth-child(even) {
+                direction: ltr;
+            }
+            .service-content {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                transition: 0.5s ease;
+                gap: 2rem;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                height: calc(100vh - 80px);
+            }
+
+            .services-intro {
+                padding: 8rem 1rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class='container'>
+            <nav>
+                <a href="index.html" class='logo'>FLORA & FORM</a>
+                <input type='checkbox' id='menu-toggle'>
+                <label for='menu-toggle' class='hamburger'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class='nav-links'>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" style='color: var(--accent); font-weight: 600;'>Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class='services-intro'>
+            <div class='container'>
+                <h1>Our Expertise</h1>
+                <p>From intimate gatherings to large-scale installations, we provide premium floral services across Scotland, blending botanical beauty with modern architectural precision.</p>
+            </div>
+        </section>
+
+        <section class='service-list-container'>
+            <div class='container'>
+                
+                <!-- Service 1 -->
+                <div class='service-row'>
+                    <div class='service-image'>
+                        <img src='WhatsApp Image 2026-02-05 at 20.25.31 (1).jpeg' alt='Floral arrangement for subscription'>
+                    </div>
+                    <div class='service-content'>
+                        <h3>Floral Subscriptions</h3>
+                        <p>Weekly curated arrangements for galleries, hotels, and private residences in Edinburgh. Our subscriptions are designed to evolve with the seasons, ensuring your space always feels fresh and inspired.</p>
+                        <a href="contact.html" class='btn'>Enquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class='service-row'>
+                    <div class='service-image'>
+                        <img src='WhatsApp Image 2026-02-05 at 20.33.27.jpeg' alt='Large scale event installation'>
+                    </div>
+                    <div class='service-content'>
+                        <h3>Event Installations</h3>
+                        <p>Structural floral art for weddings, launches, and corporate events. We specialize in transforming venues through large-scale botanical architecture that challenges traditional floristry norms.</p>
+                        <a href="contact.html" class='btn'>View Gallery</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class='service-row'>
+                    <div class='service-image'>
+                        <img src='WhatsApp Image 2026-02-05 at 20.33.09.jpeg' alt='Floral workshop in progress'>
+                    </div>
+                    <div class='service-content'>
+                        <h3>Workshops</h3>
+                        <p>Learn the art of minimal arrangement in our Leith-based studio. Our sessions focus on the principles of design, color theory, and the sculptural potential of seasonal stems.</p>
+                        <a href="contact.html" class='btn'>Book a Class</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class='container'>
+            <span class='footer-logo'>FLORA & FORM</span>
+            <p class='footer-info'>EDINBURGH | LEITH STUDIO</p>
+            <p class='footer-info' style='margin-top: 2rem; font-size: 0.7rem;'>&copy; 2024 Flora & Form. All rights reserved.</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="flora-form-edinburgh"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='flora-form-edinburgh';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
