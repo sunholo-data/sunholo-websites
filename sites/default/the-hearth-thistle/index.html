@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hearth & Thistle | A Timeless Village Sanctuary</title>
+    <meta name="description" content="An elegant village pub offering seasonal dining, live acoustic music, and a tranquil garden sanctuary.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D342D;
+            --secondary: #C5B358;
+            --accent: #8B7E66;
+            --background: #F9F7F2;
+            --text: #1A1A1A;
+            --white: #ffffff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img, video {
+            max-width: 100%;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .header.scrolled .logo {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .header.scrolled .nav-links a {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-toggle-label span,
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            display: block;
+            background: var(--white);
+            height: 2px;
+            width: 25px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .nav-toggle-label span,
+        .header.scrolled .nav-toggle-label span::before,
+        .header.scrolled .nav-toggle-label span::after {
+            background: var(--primary);
+        }
+
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            content: '';
+            position: absolute;
+        }
+
+        .nav-toggle-label span::before { bottom: 8px; }
+        .nav-toggle-label span::after { top: 8px; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        .section {
+            padding: 8rem 0;
+        }
+
+        .intro-section {
+            background: var(--background);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-content h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .text-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .split-feature {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .split-feature h2,
+        .split-feature p {
+            color: var(--white);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--background);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            opacity: 0.5;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .text-content {
+                order: 2;
+            }
+
+            .image-wrapper {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                background: var(--primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+
+            .nav-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            .nav-toggle:checked ~ .nav-toggle-label span {
+                background: transparent !important;
+            }
+
+            .nav-toggle:checked ~ .nav-toggle-label span::before {
+                transform: rotate(45deg);
+                top: 0;
+                background: var(--white);
+            }
+
+            .nav-toggle:checked ~ .nav-toggle-label span::after {
+                transform: rotate(-45deg);
+                top: 0;
+                background: var(--white);
+            }
+
+            .nav-links a {
+                font-size: 1.25rem;
+                color: var(--white) !important;
+            }
+
+            .logo {
+                color: var(--white) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="mainHeader">
+        <nav class="container">
+            <a href="index.html" class="logo">The Hearth & Thistle</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="rooms.html">The Chambers</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="B49F3710-933C-4A29-9448-C1D435EFA107 Copy.mov" type="video/mp4">
+                    <!-- Fallback if video fails -->
+                </video>
+            </div>
+            <div class="hero-content">
+                <h1>A Timeless Village Sanctuary</h1>
+                <p>Experience the perfect harmony of seasonal flavors, curated sounds, and the gentle rustle of our summer garden.</p>
+                <a href="dining.html" class="btn">Explore the Menu</a>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="section intro-section">
+            <div class="container">
+                <div class="grid-layout">
+                    <div class="text-content">
+                        <h2>Crafted with Care</h2>
+                        <p>Every corner of The Hearth & Thistle tells a story of heritage and hospitality. From our hand-picked ingredients to our bespoke interiors, we invite you to linger.</p>
+                        <p>Our commitment to artisanal quality ensures that every visit is more than just a meal—it's a moment of refined tranquility in the heart of the village.</p>
+                        <a href="rooms.html" class="btn">Stay With Us</a>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="IMG_2988.jpeg" alt="Artisanal interior details of The Hearth & Thistle">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Feature Section -->
+        <section class="section split-feature">
+            <div class="container">
+                <div class="grid-layout">
+                    <div class="image-wrapper">
+                        <img src="IMG_3006.jpeg" alt="The serene garden retreat at golden hour">
+                    </div>
+                    <div class="text-content">
+                        <h2>The Garden Retreat</h2>
+                        <p>Our south-facing garden offers a serene escape from the bustle, perfect for long afternoons and golden hour melodies.</p>
+                        <p>Whether you're looking for a quiet corner to read or a vibrant atmosphere to enjoy live acoustic performances, our sanctuary awaits.</p>
+                        <a href="events.html" class="btn">View Event Calendar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">The Hearth & Thistle</span>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="dining.html">Dining</a>
+                <a href="rooms.html">The Chambers</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2023 The Hearth & Thistle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+<meta name="wb-site" content="the-hearth-thistle"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='the-hearth-thistle';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Hearth & Thistle: An elegant village pub offering seasonal dining, live acoustic music, and a tranquil garden sanctuary.">
+    <title>Dining | The Hearth & Thistle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D342D;
+            --secondary: #C5B358;
+            --accent: #8B7E66;
+            --bg: #F9F7F2;
+            --text: #1A1A1A;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(45, 52, 45, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* --- Menu Header --- */
+        .menu-header {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .menu-header-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-header-content p {
+            font-size: 1.1rem;
+            color: var(--accent);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .menu-header-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 120px 8px 120px 8px;
+        }
+
+        /* --- Menu Grid --- */
+        .menu-grid-section {
+            background-color: var(--white);
+            padding: 100px 5%;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-items {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid rgba(139, 126, 102, 0.2);
+            padding-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .menu-item-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .menu-item p {
+            color: var(--accent);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Reservation CTA --- */
+        .reservation-cta {
+            padding: 100px 5%;
+            background-color: var(--primary);
+            color: var(--bg);
+            text-align: center;
+        }
+
+        .reservation-cta h2 {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reservation-cta p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .booking-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--text);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            width: 100%;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 992px) {
+            .menu-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .menu-header-content p {
+                margin: 0 auto 2rem;
+            }
+            .menu-header-image img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 40px 5%;
+                gap: 1.5rem;
+                text-align: center;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                transform: translateY(0);
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">The Hearth & Thistle</a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dining.html" class="active">Dining</a>
+                <a href="rooms.html">The Chambers</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-header">
+            <div class="menu-header-content">
+                <h1>The Seasonal Ledger</h1>
+                <p>Our menu evolves with the local harvest, presented in our signature leather-bound collection of culinary heritage.</p>
+                <div style="height: 2px; width: 60px; background: var(--secondary); margin: 2rem 0;"></div>
+            </div>
+            <div class="menu-header-image">
+                <img src="IMG_3007.jpeg" alt="Leather-bound menu on a rustic wooden table">
+            </div>
+        </section>
+
+        <section class="menu-grid-section">
+            <div class="section-intro">
+                <h2>Signature Offerings</h2>
+                <p>A selection of our current favorites, crafted daily by our kitchen team using ingredients from the surrounding valley.</p>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Heritage Ribeye</h3>
+                    </div>
+                    <p>Grass-fed beef, smoked bone marrow butter, triple-cooked chips.</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Garden Risotto</h3>
+                    </div>
+                    <p>Wild garlic, pea shoots, and aged parmesan.</p>
+                </div>
+
+                <!-- Additional placeholders to fill the grid aesthetic -->
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Pan-Seared Trout</h3>
+                    </div>
+                    <p>Watercress emulsion, pickled radish, and lemon-crushed new potatoes.</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Roasted Celeriac</h3>
+                    </div>
+                    <p>Truffle hazelnut crumble, burnt apple purée, and bitter leaves.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reservation-cta">
+            <h2>Join Our Table</h2>
+            <p>Reservations are recommended for our dining room to ensure the most refined experience. Walk-ins are always welcome in the garden and bar area.</p>
+            
+            <div class="booking-form">
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="res-date">Preferred Date</label>
+                        <input type="date" id="res-date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="res-guests">Number of Guests</label>
+                        <select id="res-guests" name="guests">
+                            <option>2 Guests</option>
+                            <option>4 Guests</option>
+                            <option>6 Guests</option>
+                            <option>Large Party (8+)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="res-email">Email Address</label>
+                        <input type="email" id="res-email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Request Table</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 The Hearth & Thistle. All rights reserved.</p>
+        <p style="margin-top: 10px; font-style: italic;">Village Warmth &bull; Artisanal Quality &bull; Curated Details</p>
+    </footer>
+
+<meta name="wb-site" content="the-hearth-thistle"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='the-hearth-thistle';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

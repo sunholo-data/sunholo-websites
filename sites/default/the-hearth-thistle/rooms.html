@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience restful nights at The Hearth & Thistle. Boutique guest suites where old-world charm meets modern indulgence.">
+    <title>The Chambers | The Hearth & Thistle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D342D;
+            --secondary: #C5B358;
+            --accent: #8B7E66;
+            --background: #F9F7F2;
+            --text: #1A1A1A;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* --- Navigation --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(45, 52, 45, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--secondary);
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* --- Hero Section --- */
+        .room-hero {
+            padding: 160px 2rem 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--accent);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        /* --- Amenities Section --- */
+        .amenities {
+            background: var(--primary);
+            color: var(--background);
+            padding: 100px 2rem;
+        }
+
+        .amenities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .amenities h2 {
+            color: var(--secondary);
+            font-size: 2.5rem;
+        }
+
+        .amenities-content p {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            border-top: 1px solid rgba(197, 179, 88, 0.3);
+            padding-top: 3rem;
+        }
+
+        .amenity-item h4 {
+            color: var(--secondary);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .amenity-item p {
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+            opacity: 0.8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(45, 52, 45, 0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 992px) {
+            .room-hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding-top: 120px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image-container img {
+                height: 400px;
+            }
+
+            .amenities-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                gap: 0;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.4s ease-in-out;
+                border-bottom: 0 solid var(--primary);
+            }
+
+            .nav-links a {
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid rgba(45, 52, 45, 0.05);
+            }
+
+            .nav-toggle:checked ~ .nav-links {
+                height: auto;
+                border-bottom: 1px solid var(--primary);
+            }
+
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">H&T</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="rooms.html" class="active">The Chambers</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="room-hero">
+            <div class="hero-content">
+                <h1>Restful Nights</h1>
+                <p>Extend your visit in one of our five boutique guest suites, where old-world charm meets modern indulgence.</p>
+                <a href="contact.html" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--primary); color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em;">Check Availability</a>
+            </div>
+            <div class="hero-image-container">
+                <img src="IMG_3005.jpeg" alt="Boutique guest suite at The Hearth & Thistle showing refined rustic interiors">
+            </div>
+        </section>
+
+        <section class="amenities">
+            <div class="amenities-container">
+                <div class="amenities-title">
+                    <h2>Sophisticated Comforts</h2>
+                </div>
+                <div class="amenities-content">
+                    <p>Plush linens, organic bath products, and a curated breakfast basket delivered to your door.</p>
+                    
+                    <div class="amenities-grid">
+                        <div class="amenity-item">
+                            <h4>The Linens</h4>
+                            <p>800-thread count Egyptian cotton for the deepest slumber.</p>
+                        </div>
+                        <div class="amenity-item">
+                            <h4>The Pantry</h4>
+                            <p>Hand-picked local treats and artisanal coffees in every suite.</p>
+                        </div>
+                        <div class="amenity-item">
+                            <h4>The Bath</h4>
+                            <p>Bespoke botanical toiletries crafted in the valley.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">The Hearth & Thistle</span>
+        <p class="copyright">&copy; 2023 The Hearth & Thistle. A Village Sanctuary.</p>
+    </footer>
+
+    <script>
+        // Simple scroll effect for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            } else {
+                header.style.padding = '1.5rem 0';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+<meta name="wb-site" content="the-hearth-thistle"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='the-hearth-thistle';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
