@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A professional portfolio for a learning games designer and author, featuring interactive stories, roleplaying scenarios, and creative writing projects.">
+    <title>Blog | Sanne Harder | Learning Games Designer & Writer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #708090;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--background);
+            border-bottom: 1px solid #E0E0E0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Blog Styles */
+        .blog-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-intro {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-intro::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            border-left: 4px solid var(--secondary);
+            border-top: 4px solid var(--secondary);
+            z-index: -1;
+        }
+
+        .section-intro h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .section-intro p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: var(--accent);
+        }
+
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .post-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .post-meta {
+            font-family: var(--heading-font);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .post-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .post-item:hover h2 {
+            transform: translateX(10px);
+            color: var(--accent);
+        }
+
+        .post-excerpt {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .read-more::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .post-item:hover .read-more::after {
+            width: 50px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--background);
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: 1px solid #E0E0E0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .section-intro h1 {
+                font-size: 2.2rem;
+            }
+
+            .post-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <div class="logo">SANNE HARDER</div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">Games & RPGs</a>
+                <a href="writing.html">Books & Stories</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="blog-container">
+        <section class="section-intro">
+            <h1>Thoughts & Perspectives</h1>
+            <p>A regular old blog about the new world of game design and the timeless art of writing.</p>
+        </section>
+
+        <div class="post-list">
+            <article class="post-item">
+                <div class="post-meta">Oct 12, 2023 / Design</div>
+                <div class="post-content">
+                    <a href="#"><h2>The Geometry of Play</h2></a>
+                    <p class="post-excerpt">Exploring how structural constraints in game design actually foster greater player creativity. Why the rules we set are the playground for the mind.</p>
+                    <a href="#" class="read-more">Read Post</a>
+                </div>
+            </article>
+
+            <article class="post-item">
+                <div class="post-meta">Sep 28, 2023 / Writing</div>
+                <div class="post-content">
+                    <a href="#"><h2>Narrative Context in Learning</h2></a>
+                    <p class="post-excerpt">Turning passive recipients into active learners requires more than just facts; it requires a story that matters. Here is how I approach educational narrative.</p>
+                    <a href="#" class="read-more">Read Post</a>
+                </div>
+            </article>
+
+            <article class="post-item">
+                <div class="post-meta">Aug 15, 2023 / RPGs</div>
+                <div class="post-content">
+                    <a href="#"><h2>Facilitating Agency</h2></a>
+                    <p class="post-excerpt">Designing roleplaying scenarios that challenge players to think critically and act decisively in business simulations.</p>
+                    <a href="#" class="read-more">Read Post</a>
+                </div>
+            </article>
+
+            <article class="post-item">
+                <div class="post-meta">Jul 02, 2023 / Cozy Games</div>
+                <div class="post-content">
+                    <a href="#"><h2>The Aesthetic of Calm</h2></a>
+                    <p class="post-excerpt">What makes a game 'cozy'? A look into the visual and mechanical elements that define low-stress digital spaces.</p>
+                    <a href="#" class="read-more">Read Post</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SANNE HARDER</div>
+            <div class="copyright">&copy; 2023 Sanne Harder. All rights reserved.</div>
+            <div class="nav-links" style="display: flex; gap: 1rem; opacity: 0.8;">
+                <a href="contact.html" style="font-size: 0.75rem;">Inquiries</a>
+                <a href="#" style="font-size: 0.75rem;">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="sanne-harder-learning-games-designer-writer"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='sanne-harder-learning-games-designer-writer';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games & RPGs | Sanne Harder</title>
+    <meta name="description" content="Interactive storytelling and game design portfolio by Sanne Harder.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #708090;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Navigation */
+        header {
+            height: var(--header-height);
+            background: var(--background);
+            border-bottom: 1px solid var(--secondary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Mobile Nav Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        #nav-check {
+            display: none;
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* Split Image Text */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .split-image-wrapper {
+            position: relative;
+        }
+
+        .split-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            z-index: 2;
+            position: relative;
+            box-shadow: 20px 20px 0px var(--secondary);
+        }
+
+        .split-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            border-top: 5px solid var(--accent);
+            border-left: 5px solid var(--accent);
+            z-index: 1;
+        }
+
+        .split-content h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        /* Video Showcase */
+        .video-section {
+            background-color: var(--primary);
+            color: var(--secondary);
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid var(--accent);
+            padding: 10px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-desc {
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 3rem 2rem;
+            background: var(--secondary);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--accent);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .split-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--secondary);
+                display: none;
+            }
+
+            #nav-check:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .split-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">SANNE HARDER</a>
+            <input type="checkbox" id="nav-check">
+            <label for="nav-check" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html" class="active">Games & RPGs</a></li>
+                <li><a href="writing.html">Books & Stories</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="split-section">
+            <div class="split-container">
+                <div class="split-image-wrapper">
+                    <img src="IMG_9716.png" alt="A Vibe-Coded Cozy Game interface">
+                </div>
+                <div class="split-content">
+                    <h2>A Vibe-Coded Cozy Game</h2>
+                    <p>Creating digital spaces that prioritize atmosphere, relaxation, and gentle learning. My current project focuses on aesthetic storytelling and low-stress interaction, bridging the gap between digital art and interactive play.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="section-inner">
+                <h2>Interactive Storytelling in Action</h2>
+                <div class="video-wrapper">
+                    <video controls poster="Sanne Harder - foto Mikkel Bækgaard-10.jpeg">
+                        <source src="My Movie 4.mov" type="video/mp4">
+                        Your browser does not support the video tag. 
+                        <img src="Sanne Harder - foto Mikkel Bækgaard-10.jpeg" alt="Video Placeholder">
+                    </video>
+                </div>
+                <div class="video-desc">
+                    <p>A look at how I integrate narrative flow with game mechanics to create immersive educational experiences. By placing the user at the center of the story, we transform passive absorption into active discovery.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title">Roleplaying Scenarios</h2>
+            <p style="margin-bottom: 3rem; max-width: 800px;">I design and facilitate business simulations and entertainment-based RPGs that challenge players to think critically and act decisively.</p>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <h3>Narrative Context</h3>
+                    <p>Turning passive recipients into active learners through high-stakes storytelling and meaningful character choices.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Gamification</h3>
+                    <p>Applying game theory and psychological triggers to real-world educational goals for maximum retention.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Facilitation</h3>
+                    <p>Expert-led sessions for business and education that ensure the learning outcomes are met while maintaining playfulness.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">SANNE HARDER</span>
+        <p>&copy; 2023 Sanne Harder. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--accent);">Learning Games Designer & Writer</p>
+    </footer>
+
+<meta name="wb-site" content="sanne-harder-learning-games-designer-writer"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='sanne-harder-learning-games-designer-writer';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Books & Stories by Sanne Harder - Exploring fantasy for the modern woman and whimsical children's literature.">
+    <title>Books & Stories | Sanne Harder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #708090;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            height: var(--header-height);
+            border-bottom: 1px solid #E0E0E0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            position: relative;
+        }
+
+        .nav-toggle-label span::before, .nav-toggle-label span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+        }
+
+        .nav-toggle-label span::before { top: -8px; }
+        .nav-toggle-label span::after { bottom: -8px; }
+
+        /* Page Sections */
+        main {
+            margin-top: var(--header-height);
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid var(--secondary);
+            z-index: -1;
+        }
+
+        /* Book Feature Section */
+        .book-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .book-feature-image {
+            position: relative;
+            box-shadow: 30px 30px 0 var(--secondary);
+        }
+
+        .book-feature-image img {
+            width: 100%;
+            display: block;
+            filter: contrast(1.05);
+        }
+
+        .book-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .book-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text);
+            max-width: 500px;
+        }
+
+        /* Split Image Text Section */
+        .split-section {
+            background-color: var(--secondary);
+            padding: 120px 0;
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .split-grid.reversed {
+            direction: rtl;
+        }
+
+        .split-grid.reversed .text-block {
+            direction: ltr;
+        }
+
+        .split-image img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            border: 1px solid var(--primary);
+        }
+
+        .text-block h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .text-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .book-feature, .split-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .split-grid.reversed {
+                direction: ltr;
+            }
+            .book-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                border-bottom: 1px solid var(--secondary);
+                display: none;
+            }
+
+            .nav-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+            
+            .book-feature-image {
+                box-shadow: 15px 15px 0 var(--secondary);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Sanne Harder</a>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games & RPGs</a></li>
+                    <li><a href="writing.html" class="active">Books & Stories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Book Feature Section -->
+        <section>
+            <div class="container">
+                <div class="book-feature">
+                    <div class="book-feature-image">
+                        <img src="sunflower_mature.png" alt="Artwork representing Fantasy for the Modern Woman">
+                    </div>
+                    <div class="book-content">
+                        <h1>Fantasy for the Modern Woman</h1>
+                        <p>An upcoming novel blending epic fantasy elements with relatable themes for women readers. A story of power, agency, and magic, written with the precision of a game designer and the soul of a dreamer.</p>
+                        <div style="height: 1px; width: 100px; background: var(--primary); margin: 20px 0;"></div>
+                        <p style="font-style: italic; font-size: 0.9rem;">Currently in development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="geometric-accent" style="top: 20%; right: 5%;"></div>
+        </section>
+
+        <!-- Split Image Text Section (Reversed) -->
+        <section class="split-section">
+            <div class="container">
+                <div class="split-grid reversed">
+                    <div class="split-image">
+                        <img src="IMG_1308.jpeg" alt="Illustration for Whimsical Children's Stories">
+                    </div>
+                    <div class="text-block">
+                        <h2>Whimsical Children's Stories</h2>
+                        <p>I am currently developing a children's book that combines my love for hand-drawn aesthetics with engaging, pedagogical storytelling. Drawing from my 10+ years of teaching experience, these stories don't just entertain—they invite young minds into a world of active curiosity.</p>
+                        <p style="margin-top: 20px;">Every page is crafted to be a doorway into a narrative context where learning feels like play.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="geometric-accent" style="bottom: 10%; left: 5%; border-color: var(--accent);"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Sanne Harder</span>
+            <p>&copy; 2023 Sanne Harder. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">LINKEDIN</a>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TWITTER</a>
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="sanne-harder-learning-games-designer-writer"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='sanne-harder-learning-games-designer-writer';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
