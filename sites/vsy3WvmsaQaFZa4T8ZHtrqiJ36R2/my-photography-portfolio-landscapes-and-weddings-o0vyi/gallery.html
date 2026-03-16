@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Photography Portfolio</title>
+  <meta name="description" content="Full gallery — landscapes, weddings, and events photography portfolio." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .gallery-full-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-full-grid .gallery-item {
+      aspect-ratio: 3/4;
+    }
+
+    .gallery-full-grid .gallery-item img,
+    .gallery-full-grid .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-full-grid .landscape {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .page-hero {
+      height: 40vh;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero-content {
+      text-align: center;
+    }
+
+    .filter-bar {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.2rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--light);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-full-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-full-grid .landscape {
+        grid-column: span 1;
+        aspect-ratio: 3/4;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-full-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="nav" class="scrolled">
+    <a href="index.html" class="nav-logo">Studio Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-content" style="margin-top: 4rem;">
+      <p class="section-label">Portfolio</p>
+      <h1 class="section-title" style="font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300;">Full Gallery</h1>
+    </div>
+  </div>
+
+  <!-- ── Gallery ── -->
+  <section class="gallery-section">
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('events', this)">Events</button>
+      <button class="filter-btn" onclick="filterGallery('film', this)">Film</button>
+      <button class="filter-btn" onclick="filterGallery('portraits', this)">Portraits</button>
+      <button class="filter-btn" onclick="filterGallery('landscapes', this)">Landscapes</button>
+    </div>
+
+    <div class="gallery-full-grid" id="gallery">
+
+      <div class="gallery-item" data-category="events" onclick="openLightbox('img','media/1773694693310-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg')">
+        <img src="media/1773694693310-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg" alt="Equestrian event photography" loading="lazy" />
+        <div class="overlay"><span class="overlay-tag">Events</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="portraits" onclick="openLightbox('img','media/1773694693323-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg')">
+        <img src="media/1773694693323-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg" alt="Equestrian portrait" loading="lazy" />
+        <div class="overlay"><span class="overlay-tag">Portraits</span></div>
+      </div>
+
+      <div class="gallery-item film" data-category="film" onclick="openLightbox('video','media/1773694693391-WhatsApp_Video_2026-02-05_at_20.34.52.mp4')">
+        <video src="media/1773694693391-WhatsApp_Video_2026-02-05_at_20.34.52.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay"><span class="overlay-tag">Film</span></div>
+      </div>
+
+      <div class="gallery-item landscape" data-category="film" onclick="openLightbox('video','media/1773694693336-WhatsApp_Video_2026-02-05_at_20.34.45.mp4')">
+        <video src="media/1773694693336-WhatsApp_Video_2026-02-05_at_20.34.45.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay"><span class="overlay-tag">Film</span></div>
+      </div>
+
+      <div class="gallery-item landscape" data-category="landscapes" onclick="openLightbox('video','media/1773694693396-WhatsApp_Video_2026-02-05_at_20.35.04.mp4')">
+        <video src="media/1773694693396-WhatsApp_Video_2026-02-05_at_20.35.04.mp4" autoplay muted loop playsinline></video>
+        <div class="overlay"><span class="overlay-tag">Landscapes</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section style="background: var(--mid); padding: 5rem 2.5rem; text-align: center;">
+    <p class="section-label">Ready to begin?</p>
+    <h2 class="section-title" style="margin: 0.75rem auto 1.5rem; max-width: 500px;">Book Your Session Today</h2>
+    <a href="index.html#contact" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-logo">Studio Portfolio</div>
+    <p class="footer-copy">&copy; 2026 Photography Portfolio. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html#work">Portfolio</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-content" id="lightbox-content"></div>
+  </div>
+
+  <script>
+    // Nav always scrolled on gallery page
+    document.getElementById('nav').classList.add('scrolled');
+
+    function openLightbox(type, src) {
+      const lb = document.getElementById('lightbox');
+      const content = document.getElementById('lightbox-content');
+      content.innerHTML = '';
+      if (type === 'img') {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        content.appendChild(img);
+      } else {
+        const video = document.createElement('video');
+        video.src = src;
+        video.controls = true;
+        video.autoplay = true;
+        content.appendChild(video);
+      }
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('open');
+      document.getElementById('lightbox-content').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox({ target: document.getElementById('lightbox') });
+    });
+
+    function filterGallery(category, btn) {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter items
+      document.querySelectorAll('#gallery .gallery-item').forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

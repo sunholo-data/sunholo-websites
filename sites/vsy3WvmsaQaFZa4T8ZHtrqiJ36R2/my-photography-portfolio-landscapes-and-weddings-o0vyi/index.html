@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography Portfolio — Landscapes &amp; Weddings</title>
+  <meta name="description" content="A photography portfolio capturing the beauty of landscapes, weddings, and life's most memorable moments." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Studio Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <video
+      class="hero-video"
+      src="media/1773694693336-WhatsApp_Video_2026-02-05_at_20.34.45.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Photography Portfolio</p>
+      <h1 class="hero-title">Landscapes &amp; <em>Weddings</em></h1>
+      <p class="hero-sub">Capturing moments that last a lifetime</p>
+      <a href="#work" class="btn">View Portfolio</a>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- ── Intro / About ── -->
+  <section id="about">
+    <div class="intro">
+      <div class="intro-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Every frame<br />tells a story</h2>
+        <p>
+          I am a photographer with a passion for capturing the world at its most
+          authentic — wide open landscapes bathed in golden light, and the
+          intimate, joyful moments that make weddings unforgettable.
+        </p>
+        <p style="margin-top:1rem;">
+          From rolling countryside to carefully composed portraits, my work
+          blends a documentary eye with a painterly sensibility. Whether you
+          are planning a wedding or seeking fine-art prints, I would love to
+          create something beautiful together.
+        </p>
+      </div>
+      <div class="intro-stats">
+        <div class="stat">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Weddings Photographed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Locations Explored</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Stories to Tell</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery ── -->
+  <section id="work" class="gallery-section">
+    <div class="gallery-header">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Selected Works</h2>
+      </div>
+      <a href="gallery.html" class="btn">View All</a>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- Image 1 — portrait, tall -->
+      <div class="gallery-item tall" onclick="openLightbox('img', 'media/1773694693310-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg')">
+        <div class="square-wrapper" style="height:100%">
+          <img
+            src="media/1773694693310-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg"
+            alt="Event photography — equestrian occasion"
+            loading="lazy"
+            style="height:100%; width:100%; object-fit:cover;"
+          />
+        </div>
+        <div class="overlay"><span class="overlay-tag">Events</span></div>
+      </div>
+
+      <!-- Video 2 — portrait, short -->
+      <div class="gallery-item portrait-wrapper" onclick="openLightbox('video', 'media/1773694693391-WhatsApp_Video_2026-02-05_at_20.34.52.mp4')">
+        <video
+          src="media/1773694693391-WhatsApp_Video_2026-02-05_at_20.34.52.mp4"
+          autoplay muted loop playsinline
+          style="width:100%; height:100%; object-fit:cover;"
+        ></video>
+        <div class="overlay"><span class="overlay-tag">Film</span></div>
+      </div>
+
+      <!-- Image 2 — portrait -->
+      <div class="gallery-item" onclick="openLightbox('img', 'media/1773694693323-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg')">
+        <div class="square-wrapper">
+          <img
+            src="media/1773694693323-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg"
+            alt="Event photography — equestrian portrait"
+            loading="lazy"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+          />
+        </div>
+        <div class="overlay"><span class="overlay-tag">Portraits</span></div>
+      </div>
+
+      <!-- Video 3 — landscape, wide -->
+      <div class="gallery-item wide landscape-wrapper" onclick="openLightbox('video', 'media/1773694693396-WhatsApp_Video_2026-02-05_at_20.35.04.mp4')">
+        <video
+          src="media/1773694693396-WhatsApp_Video_2026-02-05_at_20.35.04.mp4"
+          autoplay muted loop playsinline
+          style="width:100%; height:100%; object-fit:cover;"
+        ></video>
+        <div class="overlay"><span class="overlay-tag">Landscapes</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section id="services">
+    <div class="services">
+      <div>
+        <p class="section-label">Services</p>
+        <h2 class="section-title">What I Offer</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◇</div>
+          <h3 class="service-name">Wedding Photography</h3>
+          <p class="service-desc">
+            Full-day documentary coverage with a fine-art approach. From the
+            quiet moments of preparation to the last dance, I capture the
+            emotion and atmosphere of your day with a light, natural touch.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◇</div>
+          <h3 class="service-name">Landscape &amp; Nature</h3>
+          <p class="service-desc">
+            Limited-edition fine-art prints of the British countryside and
+            beyond. Whether for home or office, each landscape is carefully
+            composed and printed to archival standards.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◇</div>
+          <h3 class="service-name">Events &amp; Occasions</h3>
+          <p class="service-desc">
+            From equestrian events to family celebrations, I provide
+            warm, candid coverage that preserves the spirit and character
+            of your special occasion for generations to come.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Video Feature ── -->
+  <div class="video-feature">
+    <div class="video-feature-inner">
+      <div class="video-feature-media">
+        <video
+          src="media/1773694693396-WhatsApp_Video_2026-02-05_at_20.35.04.mp4"
+          autoplay muted loop playsinline
+        ></video>
+      </div>
+      <div class="video-feature-text">
+        <p class="section-label">Behind the Lens</p>
+        <h2 class="section-title">Film &amp; Photography<br />in Motion</h2>
+        <p>
+          Alongside still photography, I offer cinematic short-film coverage —
+          beautifully edited highlight films that let you relive your most
+          treasured moments exactly as they felt.
+        </p>
+        <a href="#contact" class="btn">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Testimonial ── -->
+  <section class="testimonial">
+    <blockquote>
+      <span class="quote-mark">&ldquo;</span>
+      The photographs were absolutely breathtaking — she captured
+      every emotion, every tiny detail we would have missed. We will
+      treasure them forever.
+      <cite>— Emma &amp; James, Cotswolds Wedding 2025</cite>
+    </blockquote>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let&rsquo;s Create<br />Something Beautiful</h2>
+      <p>
+        Whether you are planning a wedding, looking for a landscape print, or
+        would like to discuss a bespoke project — I would love to hear from you.
+      </p>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <select name="service">
+          <option value="" disabled selected>Type of Enquiry</option>
+          <option value="wedding">Wedding Photography</option>
+          <option value="landscape">Landscape / Fine Art Print</option>
+          <option value="event">Event Photography</option>
+          <option value="film">Photography Film</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" name="date" placeholder="Event Date (if applicable)" />
+        <textarea name="message" placeholder="Tell me about your vision…"></textarea>
+        <button type="submit">Send Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-logo">Studio Portfolio</div>
+    <p class="footer-copy">&copy; 2026 Photography Portfolio. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#work">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-content" id="lightbox-content"></div>
+  </div>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Lightbox
+    function openLightbox(type, src) {
+      const lb = document.getElementById('lightbox');
+      const content = document.getElementById('lightbox-content');
+      content.innerHTML = '';
+      if (type === 'img') {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        content.appendChild(img);
+      } else {
+        const video = document.createElement('video');
+        video.src = src;
+        video.controls = true;
+        video.autoplay = true;
+        content.appendChild(video);
+      }
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('open');
+      document.getElementById('lightbox-content').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox')});
+    });
+
+    // Contact form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Message Sent — Thank you!';
+      btn.style.background = '#4a7c59';
+      btn.disabled = true;
+      e.target.reset();
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
