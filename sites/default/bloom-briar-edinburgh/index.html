@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom & Briar Edinburgh | Bespoke Floristry</title>
-    <meta name="description" content="Bespoke floral arrangements and community-focused floristry in the heart of Scotland's capital.">
+    <title>Bloom & Briar Wiltshire | Wildly Beautiful Blooms</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -15,8 +14,9 @@
             --accent: #606c38;
             --background: #fefae0;
             --text: #283618;
-            --white: #ffffff;
-            --glass: rgba(254, 250, 224, 0.85);
+            --glass: rgba(254, 250, 224, 0.8);
+            --shadow: 0 8px 32px 0 rgba(40, 54, 24, 0.15);
+            --radius: 24px;
         }
 
         * {
@@ -33,23 +33,16 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
+            font-weight: 700;
             color: var(--text);
-            line-height: 1.2;
         }
 
         a {
             text-decoration: none;
             color: inherit;
             transition: 0.3s ease;
-        }
-
-        img, video {
-            max-width: 100%;
-            display: block;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(40, 54, 24, 0.1);
         }
 
         .container {
@@ -66,26 +59,27 @@
             background: var(--glass);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(188, 108, 37, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 1rem 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -93,264 +87,310 @@
             color: var(--primary);
         }
 
-        .nav-toggle {
+        /* Mobile Menu Hack */
+        .menu-toggle {
             display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
-            height: 90vh;
+            height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             overflow: hidden;
-            margin-bottom: 80px;
+            margin-bottom: 4rem;
         }
 
-        .hero-video {
+        .hero-video-bg {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            filter: brightness(0.7);
+            z-index: -1;
+            filter: brightness(0.75);
         }
 
         .hero-content {
             max-width: 800px;
-            padding: 40px;
-            background: rgba(254, 250, 224, 0.2);
-            backdrop-filter: blur(4px);
-            border-radius: 30px;
+            padding: 2rem;
             color: #fff;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 20px;
+            font-size: 3.5rem;
             color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
         .hero-content p {
             font-size: 1.25rem;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             font-weight: 400;
-        }
-
-        /* Split Section */
-        .split-section {
-            padding: 80px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .split-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .split-content p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            background-color: var(--accent);
-            color: var(--background);
-            padding: 100px 20px;
-            text-align: center;
-            border-radius: 40px;
-            margin: 80px 20px;
-        }
-
-        .cta-banner h2 {
-            color: var(--background);
-            font-size: 3rem;
-            margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--primary);
+            padding: 1rem 2.5rem;
+            background: var(--primary);
             color: #fff;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--secondary);
+            background: var(--accent);
             transform: translateY(-3px);
+        }
+
+        /* Split Image Text Section */
+        .split-section {
+            padding: 5rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .split-image {
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        .split-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--accent);
+            color: var(--background);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-radius: var(--radius);
+            margin: 4rem 20px;
+        }
+
+        .cta-banner h2 {
+            color: var(--background);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-light {
+            background: var(--background);
+            color: var(--accent);
+        }
+
+        .btn-light:hover {
+            background: var(--secondary);
+            color: #fff;
         }
 
         /* Footer */
         footer {
-            background-color: var(--text);
+            background: var(--text);
             color: var(--background);
-            padding: 60px 0 20px;
-            margin-top: 80px;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-bottom {
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 2rem;
             border-top: 1px solid rgba(254, 250, 224, 0.1);
             font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        /* Mobile Responsiveness */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
                 background: var(--background);
-                flex-direction: column;
-                padding: 20px;
+                padding: 2rem;
                 text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
             }
 
-            #menu-toggle:checked ~ .nav-links {
+            .hamburger {
                 display: flex;
             }
 
-            .nav-toggle {
-                display: block;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: var(--primary);
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
             .split-section {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 2rem;
             }
 
-            .split-section.reverse .split-image {
+            .split-section.reverse {
+                direction: ltr;
+            }
+
+            .split-image {
+                order: 1;
+            }
+
+            .split-text {
                 order: 2;
-            }
-
-            .hero {
-                height: 70vh;
-            }
-
-            .cta-banner h2 {
-                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Bloom & Briar</a>
-                
-                <input type="checkbox" id="menu-toggle" class="nav-toggle" style="display:none;">
-                <label for="menu-toggle" class="nav-toggle">&#9776;</label>
+<header>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">Bloom & Briar</a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="our-story.html">Our Story</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Wildly Beautiful Blooms from the Heart of Wiltshire</h1>
+            <p>We craft seasonal, hand-tied arrangements that capture the rugged beauty of the Wiltshire landscape and the warmth of human connection.</p>
+            <a href="gallery.html" class="btn">Explore the Garden</a>
+        </div>
+    </section>
+
+    <!-- Split Content Section -->
+    <div class="container">
+        <section class="split-section">
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Bespoke Wiltshire floral arrangement on a rustic table">
+            </div>
+            <div class="split-text">
+                <h2>More Than Just Flowers</h2>
+                <p>At Bloom & Briar, we believe every bouquet tells a story. From tender moments of connection to grand celebrations, our flowers are grown and arranged to bring joy to the Wiltshire community.</p>
+                <br>
+                <p>Inspired by the rolling hills and wild hedgerows of our home, each stem is selected for its character, scent, and seasonal significance.</p>
+                <br>
+                <a href="our-story.html" class="btn" style="background: var(--accent);">Our Heritage</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Banner -->
+    <section class="container">
+        <div class="cta-banner">
+            <h2>Send a Little Sunshine</h2>
+            <p>Browse our seasonal collection and brighten someone's day with a touch of nature. Freshly picked and delivered across the county.</p>
+            <a href="contact.html" class="btn btn-light">Order a Bouquet</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <span class="footer-logo">Bloom & Briar</span>
+                <p>Bespoke floristry rooted in the heart of Wiltshire. Sustainable, seasonal, and community-focused.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;"><a href="services.html">Our Services</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="gallery.html">Gallery</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html">Get in Touch</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
-                <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Wildly Beautiful Blooms from the Heart of Edinburgh</h1>
-                    <p>We craft seasonal, hand-tied arrangements that capture the rugged beauty of the Scottish landscape and the warmth of human connection.</p>
-                    <a href="services.html" class="btn">Explore Our Work</a>
-                </div>
             </div>
-        </section>
-
-        <!-- Split Image Text Section -->
-        <section class="container">
-            <div class="split-section">
-                <div class="split-image">
-                    <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Artisan floral arrangement in our Edinburgh studio">
-                </div>
-                <div class="split-content">
-                    <h2>More Than Just Flowers</h2>
-                    <p>At Bloom & Briar, we believe every bouquet tells a story. From tender moments of connection to grand celebrations, our flowers are grown and arranged to bring joy to the Edinburgh community.</p>
-                    <a href="our-story.html" class="btn">Our Story</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Banner -->
-        <section class="container">
-            <div class="cta-banner">
-                <h2>Send a Little Sunshine</h2>
-                <p style="margin-bottom: 30px; font-size: 1.2rem;">Browse our seasonal collection and brighten someone's day with a touch of nature.</p>
-                <a href="contact.html" class="btn" style="background-color: var(--background); color: var(--accent);">Get in Touch</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 20px;">Bloom & Briar</h3>
-                    <p>Bespoke floristry rooted in the heart of Edinburgh. Supporting local community through every stem.</p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 15px;">Quick Links</h4>
-                    <ul style="list-style: none;">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="our-story.html">Our Story</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 15px;">Visit Us</h4>
-                    <p>Edinburgh, Scotland<br>
-                    Tuesday — Saturday<br>
-                    10:00 AM — 5:30 PM</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Bloom & Briar Edinburgh. All rights reserved. Handcrafted with love.</p>
+            <div>
+                <h3>Connect</h3>
+                <p style="margin-top: 1rem;">Follow our floral journey on social media for daily inspiration from the studio.</p>
+                <p style="margin-top: 1rem; font-weight: bold;">Wiltshire, United Kingdom</p>
             </div>
         </div>
-    </footer>
+        <div class="copyright">
+            &copy; 2024 Bloom & Briar Wiltshire. Handcrafted with love.
+        </div>
+    </div>
+</footer>
 
 <meta name="wb-site" content="bloom-briar-edinburgh"><script data-wb-form>
 (function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
