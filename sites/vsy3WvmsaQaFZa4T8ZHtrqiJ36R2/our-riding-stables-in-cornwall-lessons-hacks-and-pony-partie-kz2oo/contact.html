@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Booking — Trevean Stables, Cornwall</title>
+  <meta name="description" content="Book a riding lesson, hack, or pony party at Trevean Stables in Cornwall. Get in touch with our friendly team today." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Trevean<span> Stables</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="hacks.html">Hacks</a></li>
+        <li><a href="pony-parties.html">Pony Parties</a></li>
+        <li><a href="contact.html" class="nav-cta active">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <img
+      class="page-hero-bg"
+      src="media/1773689569859-WhatsApp_Image_2026-02-05_at_20.35.13.jpeg"
+      alt="Trevean Stables Cornwall"
+    />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <span class="eyebrow">Get in Touch</span>
+      <h1>Contact &amp; Booking</h1>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="grid-2" style="gap:4rem; align-items:start;">
+
+        <!-- Contact Info -->
+        <div>
+          <span class="eyebrow">We'd Love to Hear from You</span>
+          <h2>Let's Make Your Visit Happen</h2>
+          <div class="divider"><span>&#10022;</span></div>
+          <p style="color:var(--brown-mid);">Whether you're booking a first lesson, planning a birthday party, or looking to arrange a hack for friends and family, our team is here to help you every step of the way. We'll match you with the perfect experience and ensure everything is in place for a wonderful visit.</p>
+
+          <ul class="info-list" style="margin-top:2rem;">
+            <li>
+              <span class="icon">&#9670;</span>
+              <div><strong>Location</strong> Trevean Stables, Cornwall, UK<br><span style="color:var(--brown-mid); font-size:0.95rem;">Exact address provided upon booking</span></div>
+            </li>
+            <li>
+              <span class="icon">&#9670;</span>
+              <div><strong>Opening Hours</strong>
+                Monday – Friday: 9am – 5pm<br>
+                Saturday: 9am – 4pm<br>
+                Sunday: 10am – 3pm
+              </div>
+            </li>
+            <li>
+              <span class="icon">&#9670;</span>
+              <div><strong>Response Time</strong> We aim to respond to all enquiries within one working day.</div>
+            </li>
+          </ul>
+
+          <div style="margin-top:2.5rem; padding:2rem; background:var(--white); border:1px solid var(--border);">
+            <span class="eyebrow">Quick Enquiry</span>
+            <h3 style="margin-bottom:0.8rem;">What to Include</h3>
+            <p style="font-size:0.95rem; color:var(--brown-mid);">To help us respond quickly, please include in your message:</p>
+            <ul style="color:var(--brown-mid); font-size:0.95rem; margin-left:1rem; margin-top:0.5rem;">
+              <li style="margin-bottom:0.4rem; list-style: disc;">The type of experience (lesson / hack / party)</li>
+              <li style="margin-bottom:0.4rem; list-style: disc;">Number of riders / guests</li>
+              <li style="margin-bottom:0.4rem; list-style: disc;">Ages and approximate experience levels</li>
+              <li style="margin-bottom:0.4rem; list-style: disc;">Preferred dates / flexibility</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div>
+          <div class="contact-form">
+            <span class="eyebrow">Book Online</span>
+            <h3 style="margin-bottom:1.5rem;">Send an Enquiry</h3>
+            <form action="#" method="post">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">First Name *</label>
+                  <input type="text" id="fname" name="first_name" required placeholder="Your first name" />
+                </div>
+                <div class="form-group">
+                  <label for="lname">Last Name *</label>
+                  <input type="text" id="lname" name="last_name" required placeholder="Your last name" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" />
+              </div>
+              <div class="form-group">
+                <label for="experience">Type of Experience *</label>
+                <select id="experience" name="experience" required>
+                  <option value="" disabled selected>Please select&hellip;</option>
+                  <option value="beginner-lesson">Beginner Riding Lesson</option>
+                  <option value="intermediate-lesson">Intermediate Riding Lesson</option>
+                  <option value="advanced-lesson">Advanced Riding Lesson</option>
+                  <option value="countryside-hack">Countryside Hack (90 min)</option>
+                  <option value="half-day-hack">Half-Day Hack</option>
+                  <option value="full-day-hack">Full-Day Hack</option>
+                  <option value="pony-cuddles">Pony Cuddles Party</option>
+                  <option value="pony-party">Pony Party</option>
+                  <option value="stable-stars">Stable Stars Party</option>
+                  <option value="other">Other / Not Sure Yet</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guests">Number of Guests *</label>
+                  <input type="number" id="guests" name="guests" min="1" max="20" required placeholder="e.g. 2" />
+                </div>
+                <div class="form-group">
+                  <label for="preferred-date">Preferred Date</label>
+                  <input type="date" id="preferred-date" name="preferred_date" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" placeholder="Tell us about ages, experience levels, any special requirements, or questions you have…"></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Send Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Quick Links -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span class="eyebrow">Explore Our Experiences</span>
+        <h2>Not Sure What to Book?</h2>
+      </div>
+      <div class="grid-3">
+        <div class="service-card">
+          <img src="media/1773689569843-WhatsApp_Image_2026-03-04_at_11.29.47.jpeg" alt="Riding lessons Cornwall" loading="lazy" />
+          <div class="service-card-body">
+            <span class="eyebrow">All Abilities</span>
+            <h3>Riding Lessons</h3>
+            <p>From first timers to advanced riders. Structured, qualified instruction in a safe environment.</p>
+            <a href="lessons.html">Learn More &rarr;</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="media/1773689569849-WhatsApp_Image_2026-02-05_at_20.35.13__1_.jpeg" alt="Hacks Cornwall" loading="lazy" />
+          <div class="service-card-body">
+            <span class="eyebrow">Explore Cornwall</span>
+            <h3>Countryside Hacks</h3>
+            <p>Guided trail rides through Cornwall's most beautiful bridle paths and open countryside.</p>
+            <a href="hacks.html">Learn More &rarr;</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="media/1773689569865-WhatsApp_Image_2026-03-04_at_11.29.47__3_.jpeg" alt="Pony parties Cornwall" loading="lazy" />
+          <div class="service-card-body">
+            <span class="eyebrow">Children's Parties</span>
+            <h3>Pony Parties</h3>
+            <p>Magical birthday celebrations with our gentle, friendly ponies. Ages 3–12.</p>
+            <a href="pony-parties.html">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <div class="testimonial-block">
+    <blockquote>"From the first enquiry email to waving goodbye after the most wonderful afternoon, the Trevean team were simply superb. We can't wait to come back."</blockquote>
+    <cite>— The Henderson Family, visiting from Bristol</cite>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Trevean<span style="color:var(--gold-light); font-style:italic;"> Stables</span></a>
+        <p>A family-run equestrian centre in the heart of Cornwall, offering lessons, hacks, and pony parties for all ages and abilities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="lessons.html">Riding Lessons</a></li>
+          <li><a href="hacks.html">Countryside Hacks</a></li>
+          <li><a href="pony-parties.html">Pony Parties</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <ul>
+          <li><a href="lessons.html">Beginner Lessons</a></li>
+          <li><a href="hacks.html">Half-Day Hacks</a></li>
+          <li><a href="pony-parties.html">Birthday Parties</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Book Online</a></li>
+          <li>Cornwall, UK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Trevean Stables, Cornwall. All rights reserved.</p>
+      <p>Crafted with care in Cornwall</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
+
+</body>
+</html>
