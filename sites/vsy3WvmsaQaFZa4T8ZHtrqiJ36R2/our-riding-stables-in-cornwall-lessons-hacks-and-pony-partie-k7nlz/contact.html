@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Old Mill Stables, Cornwall</title>
+  <meta name="description" content="Get in touch with Old Mill Stables in Lelant Downs, Cornwall. Enquire about RDA riding sessions, hacks, pony parties, Tea with a Pony visits, or volunteering.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .enquiry-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .enquiry-type {
+      background: var(--green-pale);
+      border: 1.5px solid #c0d4b0;
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .enquiry-type__icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .enquiry-type h4 { color: var(--green-dark); font-size: 0.95rem; margin-bottom: 0.3em; }
+    .enquiry-type p  { font-size: 0.82rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__brand" aria-label="Old Mill Stables home">
+        <span class="nav__brand-name">Old Mill Stables</span>
+        <span class="nav__brand-tagline">Lelant Downs, Cornwall</span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="rda.html">Riding for the Disabled</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page hero -->
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:0.4rem;">We'd love to hear from you</p>
+      <h1>Contact Us</h1>
+      <p>Whether you want to enquire about sessions, arrange a Tea with a Pony visit, volunteer, or simply find out more — get in touch and we will get back to you as soon as we can.</p>
+    </div>
+  </header>
+
+  <!-- Enquiry types -->
+  <section class="section" aria-labelledby="enquiry-types-heading">
+    <div class="container">
+      <h2 id="enquiry-types-heading" style="text-align:center; margin-bottom:0.3em;">How can we help?</h2>
+      <p style="text-align:center; max-width:580px; margin:0 auto 0.5rem;">Use the form below and let us know what you are interested in — we will do our best to help.</p>
+
+      <div class="enquiry-types" role="list" aria-label="Types of enquiry">
+        <div class="enquiry-type" role="listitem">
+          <div class="enquiry-type__icon" aria-hidden="true">&#x1F40E;</div>
+          <h4>RDA Riding Sessions</h4>
+          <p>Enquire about joining as a disabled rider or on behalf of a child or adult.</p>
+        </div>
+        <div class="enquiry-type" role="listitem">
+          <div class="enquiry-type__icon" aria-hidden="true">&#x1F33F;</div>
+          <h4>Hacks &amp; Lessons</h4>
+          <p>Book a hack or enquire about riding lessons for varying abilities.</p>
+        </div>
+        <div class="enquiry-type" role="listitem">
+          <div class="enquiry-type__icon" aria-hidden="true">&#x1F382;</div>
+          <h4>Pony Parties</h4>
+          <p>Arrange a birthday party or group celebration at the stables.</p>
+        </div>
+        <div class="enquiry-type" role="listitem">
+          <div class="enquiry-type__icon" aria-hidden="true">&#x1F375;</div>
+          <h4>Tea with a Pony</h4>
+          <p>Arrange a community outreach visit for a care home or supported group.</p>
+        </div>
+        <div class="enquiry-type" role="listitem">
+          <div class="enquiry-type__icon" aria-hidden="true">&#x1F91D;</div>
+          <h4>Volunteering</h4>
+          <p>Express interest in volunteering as a side-walker, leader or events helper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact layout -->
+  <section class="section section--alt" aria-labelledby="contact-form-heading">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info -->
+        <div>
+          <p class="section-label">Find us</p>
+          <h2 id="contact-form-heading" class="visually-hidden">Contact form and information</h2>
+          <h2 style="font-size:1.4rem;">Old Mill Stables</h2>
+
+          <dl class="contact-info">
+            <dt>Address</dt>
+            <dd>Old Mill Stables<br>Lelant Downs<br>St Ives<br>Cornwall</dd>
+
+            <dt>Our group</dt>
+            <dd>Riding for the Disabled<br>South West Cornwall Group</dd>
+
+            <dt>Sessions</dt>
+            <dd>Sessions run throughout the week in our indoor arena. Please get in touch to find out current availability.</dd>
+
+            <dt>Accessibility</dt>
+            <dd>Our indoor arena is accessible and we have facilities to support disabled visitors. Please contact us with any specific requirements and we will do our best to accommodate you.</dd>
+          </dl>
+
+          <div class="map-placeholder" role="complementary" aria-label="Location information">
+            <div style="font-size:2rem;" aria-hidden="true">&#x1F4CD;</div>
+            <strong style="color: var(--green-dark);">Lelant Downs, St Ives, Cornwall</strong>
+            <p style="font-size:0.85rem; margin:0;">Use a map application and search for &ldquo;Old Mill Stables Lelant Downs&rdquo; for directions.</p>
+          </div>
+
+          <div style="margin-top:2rem;">
+            <img
+              src="media/1773688290770-WhatsApp_Image_2026-02-05_at_20.33.09.jpeg"
+              alt="A snapshot from life at Old Mill Stables — our welcoming environment in Cornwall"
+              width="1024" height="1536" loading="lazy"
+              style="border-radius:8px; box-shadow:0 4px 20px var(--shadow); width:100%; max-height:280px; object-fit:cover;">
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div>
+          <p class="section-label">Send us a message</p>
+          <h3 style="margin-bottom:1.2rem;">Get in touch</h3>
+          <form class="contact-form" method="POST" action="#" aria-label="Contact enquiry form">
+            <div class="form-group">
+              <label for="name">Your name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="e.g. Jane Smith">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="e.g. jane@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number (optional)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 01736 xxxxxx">
+            </div>
+
+            <div class="form-group">
+              <label for="enquiry-type">Type of enquiry <span aria-hidden="true">*</span></label>
+              <select id="enquiry-type" name="enquiry_type" required>
+                <option value="" disabled selected>Please select...</option>
+                <option value="rda-riding">RDA Riding Sessions</option>
+                <option value="hacks">Hacks &amp; Riding Lessons</option>
+                <option value="pony-party">Pony Party or Event</option>
+                <option value="tea-with-pony">Tea with a Pony Visit</option>
+                <option value="volunteering">Volunteering</option>
+                <option value="fundraising">Fundraising &amp; Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us a bit about what you are looking for, including any relevant details such as age, disability or number of people in your group..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label style="flex-direction:row; align-items:flex-start; gap:0.6rem; display:flex; cursor:pointer;">
+                <input type="checkbox" name="consent" required style="margin-top:0.25rem; flex-shrink:0; width:auto;">
+                <span style="font-size:0.85rem; font-weight:normal; color:var(--mid-grey);">I am happy for Old Mill Stables to contact me in response to this enquiry.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width:100%; text-align:center; font-size:1rem; padding:0.85em;">Send enquiry</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer CTA -->
+  <section class="section section--dark" aria-labelledby="volunteer-cta-heading">
+    <div class="container" style="text-align:center; max-width:680px;">
+      <div style="font-size:2.5rem; margin-bottom:0.8rem;" aria-hidden="true">&#x1F91D;</div>
+      <p class="section-label" style="color:var(--amber);">Volunteer</p>
+      <h2 id="volunteer-cta-heading">Could you give a little time?</h2>
+      <p class="section-intro" style="margin:0.8rem auto 1.5rem; color:#b8ceaa;">Our RDA group is only possible because of the generosity of our volunteers. Whether you can spare a few hours a week or would like to help at events, every bit of help is enormously valued.</p>
+      <a href="rda.html#volunteer" class="btn btn--amber">Find out about volunteering</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand-name">Old Mill Stables</div>
+        <p style="font-size:0.9rem; color:#888; margin-top:0.3rem;">Lelant Downs, St Ives, Cornwall</p>
+        <p style="font-size:0.9rem; color:#888; margin-top:0.8rem;">Proud home of the Riding for the Disabled South West Cornwall Group.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="rda.html">Riding for the Disabled</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Activities</h4>
+        <ul>
+          <li><a href="activities.html#lessons">RDA Riding Lessons</a></li>
+          <li><a href="activities.html#hacks">Hacks</a></li>
+          <li><a href="activities.html#parties">Pony Parties</a></li>
+          <li><a href="activities.html#tea">Tea with a Pony</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Old Mill Stables, Lelant Downs, Cornwall. All rights reserved.</span>
+      <span>RDA Affiliated Group &mdash; South West Cornwall</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav(btn) {
+      const links = document.getElementById('navLinks');
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    }
+  </script>
+
+</body>
+</html>
