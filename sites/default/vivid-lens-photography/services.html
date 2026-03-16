@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Vivid Lens Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF0055;
+            --secondary: #00F0FF;
+            --accent: #FFFF00;
+            --background: #0A0A0A;
+            --text: #FFFFFF;
+            --glass: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            font-weight: 800;
+            line-height: 0.9;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-label {
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-label span {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero-mini {
+            padding: 10rem 5% 4rem;
+            background: linear-gradient(to bottom, #111, var(--background));
+        }
+
+        .hero-mini h1 {
+            font-size: clamp(3rem, 10vw, 8rem);
+            margin-bottom: 2rem;
+            color: var(--text);
+            position: relative;
+        }
+
+        .hero-mini h1 span {
+            color: var(--primary);
+            display: block;
+        }
+
+        /* Pricing Grid */
+        .pricing-section {
+            padding: 4rem 5% 8rem;
+        }
+
+        .section-intro {
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+
+        .section-intro h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .price-card {
+            border: 2px solid var(--text);
+            padding: 3rem 2rem;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+            background: #111;
+        }
+
+        .price-card:nth-child(even) {
+            margin-top: 3rem;
+            border-color: var(--primary);
+        }
+
+        .price-card:nth-child(odd) {
+            border-color: var(--secondary);
+        }
+
+        .price-card:hover {
+            transform: scale(1.02);
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '→';
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--background);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .cta-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) saturate(1.5);
+            z-index: -1;
+        }
+
+        .cta-content {
+            padding: 5%;
+            max-width: 800px;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .cta-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        footer {
+            padding: 4rem 5%;
+            background: #000;
+            border-top: 5px solid var(--primary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-label {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                height: 0;
+                overflow: hidden;
+                transition: 0.3s ease-in-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .nav-toggle:checked ~ nav {
+                height: calc(100vh - 70px);
+            }
+
+            .price-card:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .hero-mini h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">VIVID LENS</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Experience</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-mini">
+            <h1>YOUR <span>STORY</span> AMPLIFIED.</h1>
+        </section>
+
+        <section class="pricing-section">
+            <div class="section-intro">
+                <h2>Investment</h2>
+                <p>Choose the package that fits your story. Every project is handled with high-saturation energy and meticulous attention to the raw emotion of the moment.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <article class="price-card">
+                    <h3>Landscape Prints</h3>
+                    <span class="price-tag">$250+</span>
+                    <ul class="features">
+                        <li>Limited edition series</li>
+                        <li>Signed & Numbered</li>
+                        <li>Museum grade archival paper</li>
+                        <li>Custom framing available</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Order Print</a>
+                </article>
+
+                <article class="price-card">
+                    <h3>Wedding Day</h3>
+                    <span class="price-tag">$3500+</span>
+                    <ul class="features">
+                        <li>8 Hours coverage</li>
+                        <li>Two professional shooters</li>
+                        <li>Full digital gallery</li>
+                        <li>4K Highlight film</li>
+                        <li>Engagement session included</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Book Your Date</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Vibrant celebration moment" class="cta-image">
+            <div class="cta-content">
+                <h2>Ready to bring the color?</h2>
+                <p>Let's create something unforgettable together. Whether it's the peak of a mountain or the peak of your reception.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">VIVID LENS</span>
+        <p>&copy; 2024 Vivid Lens Photography. All rights reserved.</p>
+    </footer>
+
+<meta name="wb-site" content="vivid-lens-photography"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='vivid-lens-photography';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Vivid Lens Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF0055;
+            --secondary: #00F0FF;
+            --accent: #FFFF00;
+            --background: #0A0A0A;
+            --text: #FFFFFF;
+            --glass: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* --- Hero Section / Story --- */
+        .story-section {
+            padding: 150px 5% 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image-container {
+            position: relative;
+        }
+
+        .story-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 2px solid var(--secondary);
+            filter: saturate(1.2) contrast(1.1);
+        }
+
+        .story-image-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            z-index: -1;
+        }
+
+        .story-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            border-left: 4px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background: var(--primary);
+            padding: 4rem 5%;
+            margin-top: 4rem;
+            transform: skewY(-2deg);
+            width: 110%;
+            margin-left: -5%;
+        }
+
+        .stats-inner {
+            transform: skewY(2deg);
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: var(--background);
+        }
+
+        .stat-value {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Decorative Elements --- */
+        .accent-box {
+            position: absolute;
+            background: var(--accent);
+            width: 100px;
+            height: 100px;
+            z-index: -1;
+            bottom: -30px;
+            right: -30px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 968px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+            }
+
+            .story-content h1 {
+                font-size: 4rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle-label {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: var(--secondary);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                padding: 2rem;
+                border-bottom: 2px solid var(--primary);
+            }
+        }
+
+        footer {
+            padding: 4rem 5%;
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">VIVID LENS</a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="services.html">Experience</a>
+                <a href="about.html" class="active">About Me</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="story-section">
+            <div class="story-image-container">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Alex, the photographer behind Vivid Lens">
+                <div class="accent-box"></div>
+            </div>
+            <div class="story-content">
+                <h1>Behind<br>The Lens</h1>
+                <p>
+                    My name is Alex, and I chase light. Whether I'm hiking 10 miles for a sunrise shot or navigating a crowded ballroom, my goal is to find the most vibrant version of reality. I believe in photography that hits you like a wall of sound—saturated, emotional, and undeniably alive.
+                </p>
+            </div>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <span class="stat-value">150+</span>
+                    <span class="stat-label">Weddings Shot</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">24</span>
+                    <span class="stat-label">Countries Visited</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">10k+</span>
+                    <span class="stat-label">Galleries Delivered</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Vivid Lens Photography. Saturated Beauty Over Traditional Minimalism.
+    </footer>
+
+<meta name="wb-site" content="vivid-lens-photography"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='vivid-lens-photography';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

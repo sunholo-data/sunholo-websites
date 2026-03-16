@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Vivid Lens Photography</title>
+    <meta name="description" content="Get in touch with Vivid Lens Photography for inquiries about weddings, landscapes, and custom prints.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF0055;
+            --secondary: #00F0FF;
+            --accent: #FFFF00;
+            --background: #0A0A0A;
+            --text: #FFFFFF;
+            --glass: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* Sticky Glassmorphism Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-shadow: 2px 2px var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+        }
+
+        /* Sections Layout */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin-bottom: 2rem;
+            color: var(--text);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 10px;
+            background: var(--accent);
+        }
+
+        /* Contact Form Styles - Asymmetric */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        input, textarea {
+            background: transparent;
+            border: 2px solid var(--text);
+            padding: 1rem;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.25rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.3s transform, 0.3s background;
+            box-shadow: 8px 8px 0px var(--secondary);
+        }
+
+        button:hover {
+            transform: translate(-4px, -4px);
+            background: var(--secondary);
+            color: var(--background);
+            box-shadow: 12px 12px 0px var(--primary);
+        }
+
+        /* Social Grid - Punchy & Sharp */
+        .social-section {
+            background: var(--primary);
+            color: var(--background);
+            margin-top: 5rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            padding: 8rem 5%;
+        }
+
+        .social-section h2 {
+            color: var(--background);
+        }
+
+        .social-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .social-image-wrapper {
+            position: relative;
+        }
+
+        .social-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(1) contrast(1.2);
+            transition: 0.5s filter;
+            border: 5px solid var(--background);
+        }
+
+        .social-image-wrapper:hover img {
+            filter: grayscale(0) contrast(1);
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            border-bottom: 4px solid var(--background);
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .social-link:hover {
+            color: var(--text);
+            padding-left: 20px;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid, .social-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--background);
+                transition: 0.4s ease-in-out;
+                padding: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 2rem;
+            }
+
+            #menu-toggle:checked ~ nav {
+                left: 0;
+            }
+
+            .social-section {
+                clip-path: none;
+                padding: 4rem 5%;
+            }
+
+            .social-image-wrapper img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">VIVID LENS</a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Experience</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-form">
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <h1 class="section-title">Let's<br>Connect</h1>
+                    <p>Inquire about availability for your date or request a custom print quote. I respond to all sparks within 24 hours.</p>
+                    <div style="margin-top: 2rem; border-left: 5px solid var(--secondary); padding-left: 1.5rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">Direct Mail</p>
+                        <p>hello@vividlens.photography</p>
+                    </div>
+                </div>
+                
+                <form action="#" method="POST">
+                    <input type='text' name='_hp' style='display:none' tabindex='-1' autocomplete='off'>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Inquiry Type</label>
+                        <input type="text" id="subject" name="subject" placeholder="Wedding, Landscape Print, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Vision</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Tell me about the magic you're planning..."></textarea>
+                    </div>
+
+                    <button type="submit">Send Transmission</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <div class="social-container">
+                <div>
+                    <h2 class="section-title">Follow the<br>Journey</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">Catch daily updates and behind-the-scenes content on Instagram and TikTok. Raw energy, daily.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">INSTAGRAM</a>
+                        <a href="#" class="social-link">TIKTOK</a>
+                        <a href="#" class="social-link">BEHANCE</a>
+                    </div>
+                </div>
+                <div class="social-image-wrapper">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.52.jpeg" alt="Dramatic photography behind the scenes">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VIVID LENS PHOTOGRAPHY. BOLDLY CAPTURED.</p>
+    </footer>
+
+<meta name="wb-site" content="vivid-lens-photography"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='vivid-lens-photography';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
