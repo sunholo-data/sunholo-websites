@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about the story behind Cornish Coast Riding Stables, a community-focused horse riding school in the heart of Cornwall.">
+    <title>Our Story - Cornish Coast Riding Stables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8D6E63;
+            --secondary: #A5D6A7;
+            --accent: #FFB74D;
+            --background: #FFFAF0;
+            --text: #4E342E;
+            --white: #ffffff;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        /* --- Main Content --- */
+        main {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Story Block */
+        .story-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-content {
+            padding-right: 20px;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .rounded-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: block;
+            object-fit: cover;
+        }
+
+        /* News Feature */
+        .news-feature {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 60px;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .news-feature .section-title {
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .news-img {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Image Text Card (Farm Shop) */
+        .farm-shop-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: var(--shadow);
+        }
+
+        .card-image-container {
+            height: 400px;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-text h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--white);
+                width: 200px;
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .story-block, .farm-shop-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .story-content {
+                order: 2;
+                padding-right: 0;
+            }
+
+            .story-image {
+                order: 1;
+            }
+
+            .card-image-container {
+                height: 300px;
+            }
+
+            .news-feature {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card-text {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="index.html" class="logo">Cornish Coast Riding Stables</a>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons-and-hacks.html">Lessons & Hacks</a></li>
+                <li><a href="pony-parties.html">Pony Parties</a></li>
+                <li><a href="about.html" class="active">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Story Block Section -->
+        <section class="story-block">
+            <div class="story-content">
+                <h1 class="section-title" style="text-align: left;">More Than Just a Stable</h1>
+                <p>We are a community-focused stable dedicated to the well-being of our horses and the growth of our riders. We pride ourselves on being inclusive and welcoming to everyone.</p>
+                <p>Nestled in the rolling hills of Cornwall, our mission has always been to create a sanctuary where the bond between horse and human can truly flourish. Whether you're here for your first trot or a regular hack, you're part of the family.</p>
+            </div>
+            <div class="story-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="A peaceful view of our stables in Cornwall" class="rounded-img">
+            </div>
+        </section>
+
+        <!-- News Feature Section -->
+        <section class="news-feature">
+            <h2 class="section-title">In the Press</h2>
+            <p>Read about our latest community initiatives and how we're making a difference in Cornwall.</p>
+            <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="A newspaper clipping featuring the riding school" class="news-img">
+        </section>
+
+        <!-- Image Text Card Section -->
+        <section class="farm-shop-card">
+            <div class="card-image-container">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.31 (1).jpeg" alt="Inside our cozy farm shop">
+            </div>
+            <div class="card-text">
+                <h2>Visit Our Farm Shop</h2>
+                <p>Relax after your ride with a warm drink and browse our local Cornish treats. From handmade crafts to artisanal snacks, our shop celebrates the very best of our local community.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Cornish Coast Riding Stables</span>
+        <p style="margin-bottom: 10px;">Cornwall, UK &bull; 01234 567890</p>
+        <p class="copyright">&copy; 2024 Cornish Coast Riding Stables. All rights reserved.</p>
+    </footer>
+
+<meta name="wb-site" content="cornish-coast-riding-stables"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-coast-riding-stables';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
