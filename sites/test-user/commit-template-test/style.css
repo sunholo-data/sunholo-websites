@@ -1,0 +1,33 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+main {
+  max-width: 640px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #374151;
+}
