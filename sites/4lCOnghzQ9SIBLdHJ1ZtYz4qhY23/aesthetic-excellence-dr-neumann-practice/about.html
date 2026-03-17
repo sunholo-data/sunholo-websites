@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A high-end aesthetic medicine practice specializing in facial treatments and non-surgical rejuvenation.">
+    <title>The Doctor | Aesthetic Excellence | Dr. Neumann Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #C5A059;
+            --accent: #E5E5E5;
+            --background: #FFFFFF;
+            --text: #2D3436;
+            --spacing-lg: 100px;
+            --spacing-md: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: var(--spacing-lg) 0;
+            background: #FAFAFA;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-grid {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-year {
+            flex: 0 0 120px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .timeline-event {
+            padding-left: 40px;
+            border-left: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .team-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .team-info {
+            padding: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #AAA;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-card img {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 40px;
+                gap: 25px;
+                border-bottom: 1px solid var(--accent);
+                text-align: center;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .timeline-year {
+                flex: 0 0 80px;
+                font-size: 1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">NEUMANN</a>
+                
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">The Doctor</a>
+                    <a href="services.html">Treatments</a>
+                    <a href="journal.html">Journal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h1>Dr. Caroline Neumann</h1>
+                        <p>A leader in aesthetic medicine, Dr. Neumann combines surgical precision with an artistic eye. Her background in dermatology and facial anatomy ensures the highest safety standards and most natural results.</p>
+                        <p>With an architectural approach to facial rejuvenation, she focuses on structural integrity and long-term skin health rather than temporary trends.</p>
+                    </div>
+                    <div class="story-visual">
+                        <!-- Architectural space for content balance -->
+                        <div style="background: var(--accent); width: 100%; height: 400px; display: flex; align-items: center; justify-content: center;">
+                             <span style="font-family: 'Montserrat'; letter-spacing: 5px; color: #999;">EST. 2018</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Education & Expertise</h2>
+                    <p>A journey of excellence in medical aesthetics.</p>
+                </div>
+                
+                <div class="timeline-grid">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-event">Medical Degree, Excellence Honors</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-event">Specialization in Aesthetic Dermatology</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-event">Founding of the Private Practice</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-event">Global Speaker on Facial Rejuvenation</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Clinical Team</h2>
+                    <p>Meet the specialists dedicated to your care and comfort.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="media/team-member-1.jpg" alt="Clinical Specialist Team Member">
+                        <div class="team-info">
+                            <h3>Medical Assistant</h3>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="media/team-member-2.jpg" alt="Aesthetic Nurse Team Member">
+                        <div class="team-info">
+                            <h3>Patient Care Coordinator</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="logo footer-logo">NEUMANN</span>
+                    <p style="color: #888; max-width: 300px;">Dedicated to the art of subtle enhancement and clinical precision in the heart of the medical district.</p>
+                </div>
+                <div>
+                    <h3 style="color: white; font-size: 0.9rem; margin-bottom: 20px;">Practice</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">The Doctor</a></li>
+                        <li><a href="services.html">Treatments</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: white; font-size: 0.9rem; margin-bottom: 20px;">Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">+49 (0) 123 456 789</a></li>
+                        <li><a href="#">clinic@dr-neumann.com</a></li>
+                        <li><a href="#">123 Aesthetic Plaza</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Dr. Neumann Practice. All rights reserved. Designed for Aesthetic Excellence.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle header transition on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+<meta name="wb-site" content="aesthetic-excellence-dr-neumann-practice"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='aesthetic-excellence-dr-neumann-practice';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

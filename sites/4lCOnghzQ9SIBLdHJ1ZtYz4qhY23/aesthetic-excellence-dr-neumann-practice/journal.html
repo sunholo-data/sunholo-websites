@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A high-end aesthetic medicine practice specializing in facial treatments and non-surgical rejuvenation. Focused on natural results and modern medical precision.">
+    <title>Journal | Aesthetic Excellence | Dr. Neumann Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #C5A059;
+            --accent: #E5E5E5;
+            --bg: #FFFFFF;
+            --text: #2D3436;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Lato', sans-serif;
+            --spacing: 2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--accent);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 1px;
+            background-color: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section --- */
+        .hero-mini {
+            padding: 100px 5% 60px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+
+        .hero-mini h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-mini p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* --- Blog Grid --- */
+        .journal-section {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 5%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 4rem 2.5rem;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-card .date {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            width: max-content;
+        }
+
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .blog-card:hover .read-more::after {
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: #fff;
+            padding: 80px 5% 40px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column h4 {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease-in-out;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero-mini h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">DR. NEUMANN</div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">The Doctor</a></li>
+                <li><a href="services.html">Treatments</a></li>
+                <li><a href="journal.html" style="color: var(--secondary)">Journal</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-mini">
+            <h1>Journal</h1>
+            <p>Expert advice on skincare, longevity, and the latest trends in aesthetic medicine.</p>
+        </section>
+
+        <section class="journal-section">
+            <div class="grid-container">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <span class="date">Oct 12, 2023</span>
+                    <h3>The Science of Hyaluronic Acid</h3>
+                    <p style="margin-bottom: 2rem; font-size: 0.95rem; color: #555;">Explore the molecular structure of HA and how it revolutionized non-surgical hydration and facial sculpting.</p>
+                    <a href="#" class="read-more">Read Article</a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <span class="date">Nov 05, 2023</span>
+                    <h3>Winter Skincare Essentials</h3>
+                    <p style="margin-bottom: 2rem; font-size: 0.95rem; color: #555;">Protecting the skin barrier during colder months requires a shift in both clinical treatments and at-home routines.</p>
+                    <a href="#" class="read-more">Read Article</a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <span class="date">Dec 01, 2023</span>
+                    <h3>Understanding Preventative Botox</h3>
+                    <p style="margin-bottom: 2rem; font-size: 0.95rem; color: #555;">The shift toward 'pre-juvenation' and how micro-dosing neuromodulators can maintain youthful skin texture.</p>
+                    <a href="#" class="read-more">Read Article</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">DR. NEUMANN</div>
+                <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Precision-led aesthetic medicine for those who value natural elegance and clinical excellence.</p>
+            </div>
+            <div class="footer-column">
+                <h4>PRACTICE</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Treatments</a></li>
+                    <li><a href="journal.html">Journal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li>123 Aesthetic Plaza</li>
+                    <li>+49 (0) 123 456 789</li>
+                    <li>info@dr-neumann.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 DR. NEUMANN AESTHETIC EXCELLENCE. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+<meta name="wb-site" content="aesthetic-excellence-dr-neumann-practice"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='aesthetic-excellence-dr-neumann-practice';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatments | Aesthetic Excellence | Dr. Neumann Practice</title>
+    <meta name="description" content="Advanced aesthetic medicine for facial rejuvenation and skin health. Explore our curated selection of world-class procedures.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #C5A059;
+            --accent: #E5E5E5;
+            --bg: #FFFFFF;
+            --text: #2D3436;
+            --spacing: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            border-bottom: 1px solid var(--accent);
+            padding: 1.5rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .service-detail .image-box img {
+            width: 100%;
+            height: 600px;
+            box-shadow: 20px 20px 0px var(--accent);
+        }
+
+        .service-detail .content-box h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .service-detail .content-box p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        /* Masonry Gallery */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: #FAFAFA;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 450px;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--accent);
+            padding: 2rem 0;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-item p {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--bg);
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 3rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 0;
+            }
+            .service-detail .image-box img {
+                height: 400px;
+            }
+            .masonry-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--accent);
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .masonry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-detail .content-box h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">NEUMANN</a>
+                
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">The Doctor</a></li>
+                    <li><a href="services.html" class="active">Treatments</a></li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Service Detail -->
+        <section class="service-detail">
+            <div class="container" style="display: contents;">
+                <div class="image-box">
+                    <img src="media/face-treatment-detail.jpg" alt="Close up of professional facial treatment">
+                </div>
+                <div class="content-box">
+                    <h1>Face Treatments</h1>
+                    <p>Our face treatments are designed to restore volume, smooth fine lines, and enhance the structural integrity of the skin. We utilize a blend of medical precision and aesthetic artistry to achieve results that are both visible and remarkably natural.</p>
+                    <a href="contact.html" style="color: var(--secondary); font-weight: 700; border-bottom: 2px solid var(--secondary); padding-bottom: 5px;">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Masonry Gallery -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Results</h2>
+                    <p>A gallery showcasing the subtle, transformative power of our aesthetic interventions.</p>
+                </div>
+                <div class="masonry-grid">
+                    <div class="gallery-item">
+                        <img src="media/before-after-1.jpg" alt="Subtle facial rejuvenation result">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/before-after-2.jpg" alt="Dermal filler enhancement result">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="media/before-after-3.jpg" alt="Skin texture improvement result">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Patient Questions</h2>
+                    <p>Common inquiries about our procedures and recovery.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><span>01</span> What should I expect during my first consultation?</h3>
+                        <p>A comprehensive facial analysis and a bespoke treatment plan tailored to your unique anatomy and aesthetic goals. We prioritize education and safety above all else.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><span>02</span> Is there downtime after facial injectables?</h3>
+                        <p>Most patients return to normal activities immediately. While minimal swelling or bruising can occur, our advanced techniques are designed to minimize recovery time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">DR. NEUMANN</span>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Treatments</a>
+                <a href="journal.html">Journal</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2023 Dr. Neumann Aesthetic Practice. All rights reserved. Clinical excellence in aesthetic medicine.</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="aesthetic-excellence-dr-neumann-practice"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='aesthetic-excellence-dr-neumann-practice';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
