@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copenhagen Hygge: A Cafe Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D67D5C;
+            --secondary: #8A9A5B;
+            --accent: #C19A6B;
+            --background: #FDF9F3;
+            --text: #4A3728;
+            --white: #ffffff;
+            --radius-extra: 40px;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(74, 55, 40, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--radius-extra);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(74, 55, 40, 0.1);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: scale(1.05);
+            transition: var(--transition);
+        }
+
+        /* Intro Section */
+        .intro-text {
+            padding: 100px 0;
+            background: var(--white);
+            margin: 80px 0;
+            border-radius: 100px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .intro-text p {
+            font-size: 1.25rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 2rem;
+        }
+
+        /* Modern Spotlight */
+        .spotlight {
+            padding: 80px 0 140px;
+        }
+
+        .spotlight-card {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: #F7F1E9;
+            padding: 4rem;
+            border-radius: var(--radius-extra);
+            position: relative;
+        }
+
+        .spotlight-image {
+            flex: 1;
+            border-radius: var(--radius-extra);
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .spotlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spotlight-info {
+            flex: 1;
+        }
+
+        .spotlight-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .spotlight-info p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(214, 125, 92, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(214, 125, 92, 0.3);
+        }
+
+        footer {
+            background: var(--text);
+            color: var(--background);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .intro-grid, .spotlight-card {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 2.5rem;
+                padding: 2.5rem;
+            }
+            .spotlight-image {
+                height: 350px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                border-radius: 30px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                display: none;
+                text-align: center;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .hero {
+                padding: 120px 0 40px;
+            }
+
+            .intro-text {
+                padding: 60px 0;
+                margin: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">CPH Hygge</a>
+        
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="the-guide.html">The Guide</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find Your New Favorite Nook</h1>
+                    <p>Copenhagen is more than a city; it is a collection of cozy corners. Discover the warmth of Danish cafe culture through our hand-picked selections.</p>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="media/image.jpg" alt="A cozy Copenhagen cafe interior with soft lighting">
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Text Section -->
+        <section class="intro-text">
+            <div class="container">
+                <div class="intro-grid">
+                    <h2>The Art of Hygge</h2>
+                    <p>In the heart of the Nordics, coffee isn't just a drink—it's an experience. We guide you to the spots where the lighting is soft, the seats are plush, and the latte art is made with love.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Spotlight Section -->
+        <section class="spotlight">
+            <div class="container">
+                <div class="spotlight-card">
+                    <div class="spotlight-image">
+                        <img src="media/IMG_2850.jpeg" alt="Minimalist modern cafe interior with sunlight">
+                    </div>
+                    <div class="spotlight-info">
+                        <h2>Modern Minimalism Meets Comfort</h2>
+                        <p>Explore the sleek, sun-drenched interiors of the city's newest roasteries. These spaces redefine how we think about comfort, blending sharp design with the timeless warmth of a perfect brew.</p>
+                        <a href="the-guide.html" class="btn">Explore the Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Copenhagen Hygge</span>
+            <p>&copy; 2023 A Curated Journey. Skål!</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="copenhagen-hygge-a-cafe-guide"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='copenhagen-hygge-a-cafe-guide';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

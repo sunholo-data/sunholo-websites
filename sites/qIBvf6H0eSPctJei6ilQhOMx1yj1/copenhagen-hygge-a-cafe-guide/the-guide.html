@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copenhagen Hygge | The Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D67D5C;
+            --secondary: #8A9A5B;
+            --accent: #C19A6B;
+            --background: #FDF9F3;
+            --text: #4A3728;
+            --radius-extra: 4rem;
+            --radius-soft: 2rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 1.5rem;
+            z-index: 1000;
+            padding: 0 1rem;
+        }
+
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(253, 249, 243, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(74, 55, 40, 0.08);
+            border: 1px solid rgba(193, 154, 107, 0.2);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        #menu-toggle, .menu-icon {
+            display: none;
+        }
+
+        /* Hero Section */
+        .page-header {
+            padding: 8rem 1rem 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        /* Neighborhood Grid */
+        .neighborhood-section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .neighborhood-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius-extra);
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(193, 154, 107, 0.1);
+            box-shadow: 0 15px 40px rgba(74, 55, 40, 0.03);
+        }
+
+        .neighborhood-card:nth-child(even) {
+            border-radius: 6rem 2rem 6rem 2rem;
+            background-color: #F8F1EB;
+        }
+
+        .neighborhood-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(74, 55, 40, 0.08);
+        }
+
+        .neighborhood-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Illustration Feature */
+        .illustration-feature {
+            padding: 6rem 1rem;
+            background-color: #F3F6F0;
+            margin: 4rem 0;
+            border-radius: 0 10rem 0 10rem;
+        }
+
+        .feature-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-extra);
+            box-shadow: 20px 20px 0 var(--accent);
+        }
+
+        .feature-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text p {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* Cafe List */
+        .cafe-list-section {
+            padding: 6rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cafe-list {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .cafe-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: var(--radius-soft);
+            transition: all 0.3s ease;
+            border-left: 8px solid var(--primary);
+        }
+
+        .cafe-item:hover {
+            transform: scale(1.02);
+            background-color: var(--background);
+        }
+
+        .cafe-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            opacity: 0.5;
+            font-weight: 900;
+            min-width: 50px;
+        }
+
+        .cafe-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: var(--text);
+            color: var(--background);
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--text);
+                cursor: pointer;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                gap: 1.5rem;
+                border-radius: 2rem;
+                margin-top: 1rem;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .feature-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .feature-image img {
+                box-shadow: 10px 10px 0 var(--accent);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Cph Hygge</a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="the-guide.html">The Guide</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>The Guide</h1>
+            <p>A curated journey through the most inviting coffee nooks and pastry havens in the heart of Denmark.</p>
+        </section>
+
+        <section class="neighborhood-section">
+            <h2 class="section-title">Neighborhood Gems</h2>
+            <div class="grid-container">
+                <div class="neighborhood-card">
+                    <h3>Vesterbro</h3>
+                    <p>From the bustling streets where the industrial meets the artisanal, explore the raw and cozy charm of the city's former meatpacking district.</p>
+                </div>
+                <div class="neighborhood-card">
+                    <h3>Christianshavn</h3>
+                    <p>Wander through the quiet canals and find peace in hidden roasteries that smell of fresh ground beans and sea salt.</p>
+                </div>
+                <div class="neighborhood-card">
+                    <h3>Nørrebro</h3>
+                    <p>The vibrant pulse of the city, where international flavors blend seamlessly with traditional Danish pastry excellence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="illustration-feature">
+            <div class="feature-content">
+                <div class="feature-image">
+                    <img src="media/IMG_2987.jpeg" alt="Whimsical illustration of Copenhagen coffee culture">
+                </div>
+                <div class="feature-text">
+                    <h2>The Spirit of the City</h2>
+                    <p>Our guide is infused with whimsical charm, capturing the playful side of Copenhagen's coffee scene. We believe that a great cafe is defined as much by its character as its brew.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cafe-list-section">
+            <h2 class="section-title">Top Rated This Month</h2>
+            <ul class="cafe-list">
+                <li class="cafe-item">
+                    <span class="cafe-number">01</span>
+                    <span class="cafe-name">Prolog Coffee Bar</span>
+                </li>
+                <li class="cafe-item">
+                    <span class="cafe-number">02</span>
+                    <span class="cafe-name">Democratic Coffee</span>
+                </li>
+                <li class="cafe-item">
+                    <span class="cafe-number">03</span>
+                    <span class="cafe-name">Coffee Collective Jægersborggade</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Copenhagen Hygge</span>
+        <p>&copy; 2023 Copenhagen Hygge Guide. Stay warm, drink coffee.</p>
+    </footer>
+
+<meta name="wb-site" content="copenhagen-hygge-a-cafe-guide"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='copenhagen-hygge-a-cafe-guide';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
