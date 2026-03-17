@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Films — Captured &amp; Kept Photography</title>
+  <meta name="description" content="Wedding films and landscape videography — cinematic short films that bring your memories to life.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card-lg {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .video-card-lg:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .video-card-lg .video-wrap {
+      background: var(--dark-brown);
+      position: relative;
+    }
+    .video-card-lg video {
+      width: 100%;
+      display: block;
+    }
+
+    .video-card-lg .video-info {
+      padding: 1.5rem 1.75rem;
+      border-top: 1px solid var(--beige);
+    }
+    .video-card-lg .video-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark-brown);
+    }
+    .video-card-lg .video-info p {
+      font-size: 0.9rem;
+      color: var(--mid-brown);
+      font-family: 'Arial', sans-serif;
+    }
+    .video-duration {
+      display: inline-block;
+      margin-top: 0.6rem;
+      background: var(--sand);
+      color: var(--mid-brown);
+      font-size: 0.75rem;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 50px;
+    }
+
+    /* Feature video (full width) */
+    .feature-video {
+      grid-column: 1 / -1;
+    }
+    .feature-video video {
+      max-height: 480px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 680px) {
+      .videos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Captured <span>&amp;</span> Kept</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html" class="active">Films</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="section-eyebrow">Videography</span>
+    <h1>Short Films &amp; Reels</h1>
+    <p>Beyond the still image — cinematic films that capture the movement, sound, and feeling of your most meaningful moments.</p>
+  </div>
+
+  <!-- Videos -->
+  <section class="section">
+    <div class="section-inner">
+
+      <div class="videos-grid">
+
+        <!-- Feature video — landscape orientation -->
+        <div class="video-card-lg feature-video">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748880619-WhatsApp_Video_2026-02-05_at_20.34.22.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>Landscape Reel</h3>
+            <p>A cinematic outdoor session — natural light, open spaces, and the quiet beauty of the world around us.</p>
+            <span class="video-duration">0:21 &nbsp;&bull;&nbsp; Landscape</span>
+          </div>
+        </div>
+
+        <!-- Portrait video -->
+        <div class="video-card-lg">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748880353-WhatsApp_Video_2026-02-05_at_20.33.52.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>A Quiet Moment</h3>
+            <p>Intimate and close — a short portrait film capturing real emotion with natural warmth.</p>
+            <span class="video-duration">0:18 &nbsp;&bull;&nbsp; Portrait</span>
+          </div>
+        </div>
+
+        <!-- Landscape video -->
+        <div class="video-card-lg">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748880866-WhatsApp_Video_2026-02-05_at_20.34.45.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>Outdoor Film</h3>
+            <p>Wide angles and sweeping vistas — nature in its most open and expressive form.</p>
+            <span class="video-duration">0:14 &nbsp;&bull;&nbsp; Landscape</span>
+          </div>
+        </div>
+
+        <!-- Short portrait clip -->
+        <div class="video-card-lg">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748881001-WhatsApp_Video_2026-02-05_at_20.34.52.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>Candid Clip</h3>
+            <p>A brief, candid reel — the kind of honest moment that reminds you why you hired a photographer.</p>
+            <span class="video-duration">0:04 &nbsp;&bull;&nbsp; Candid</span>
+          </div>
+        </div>
+
+        <!-- Landscape short -->
+        <div class="video-card-lg">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748881178-WhatsApp_Video_2026-02-05_at_20.35.04.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>Scene Study</h3>
+            <p>A short study of light and environment — the kind of footage that pairs beautifully into a longer wedding film.</p>
+            <span class="video-duration">0:08 &nbsp;&bull;&nbsp; Scene</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-center" style="margin-top:3.5rem;">
+        <p style="color:var(--mid-brown); margin-bottom:1.25rem; font-size:1rem;">Interested in a wedding film or landscape reel for your own occasion?</p>
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="testimonial-section">
+    <blockquote>
+      "The film she made of our wedding day made us cry all over again — in the best possible way. It's like reliving the whole day."
+      <cite>— Emily &amp; Tom, Summer 2025</cite>
+    </blockquote>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Captured <span style="color:var(--terracotta)">&amp;</span> Kept</a>
+          <p>Photography for the moments that matter most — weddings, landscapes, and everything beautiful in between.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="videos.html">Films</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Specialities</h4>
+          <ul>
+            <li><a href="gallery.html">Wedding Photography</a></li>
+            <li><a href="gallery.html">Landscapes</a></li>
+            <li><a href="videos.html">Wedding Films</a></li>
+            <li><a href="contact.html">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Captured &amp; Kept Photography. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Pinterest">PT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

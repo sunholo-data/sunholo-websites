@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Portfolio — Landscapes &amp; Weddings</title>
+  <meta name="description" content="Beautiful photography capturing the timeless moments of weddings and the breathtaking beauty of landscapes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Captured <span>&amp;</span> Kept</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Films</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Landscapes &amp; Weddings</span>
+      <h1>Moments Worth<br>Remembering Forever</h1>
+      <p>Photography that tells your story — with warmth, honesty, and a gentle eye for beauty in every frame.</p>
+      <div class="hero-buttons">
+        <a href="gallery.html" class="btn btn-primary">View Portfolio</a>
+        <a href="contact.html" class="btn btn-outline">Book a Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about-section">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <img src="media/1773748879361-WhatsApp_Image_2026-02-05_at_20.33.27__2_.jpeg" alt="Portrait photography sample" loading="lazy">
+          <div class="about-badge">
+            <strong>10+</strong>
+            <span>Years of stories</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-eyebrow">About the Work</span>
+          <h2>Photography is How I See the World</h2>
+          <p>Every wedding is a world of its own — full of laughter, quiet moments, and people who mean everything to each other. Every landscape holds a mood that passes in an instant. My job is simply to be present, and ready.</p>
+          <p>Whether it's the golden light spilling across mountains at dusk or a couple sharing a tearful first dance, I look for the real, unguarded beauty that makes each story worth telling.</p>
+          <div class="about-tags">
+            <span class="tag">Wedding Photography</span>
+            <span class="tag">Landscape Photography</span>
+            <span class="tag">Portrait Sessions</span>
+            <span class="tag">Natural Light</span>
+            <span class="tag">Destination Shoots</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Gallery -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Recent Work</span>
+        <h2>A Glimpse of the Portfolio</h2>
+        <p>A small selection of recent favourites — from intimate ceremonies to sweeping outdoor scenes.</p>
+      </div>
+      <div class="featured-grid">
+        <div class="featured-item" onclick="openLightbox(0)">
+          <img src="media/1773748878403-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg" alt="Photography sample 1" loading="lazy">
+          <div class="featured-item-overlay"><span>View</span></div>
+        </div>
+        <div class="featured-item" onclick="openLightbox(1)">
+          <img src="media/1773748879140-WhatsApp_Image_2026-02-05_at_20.33.27__3_.jpeg" alt="Photography sample 2" loading="lazy">
+          <div class="featured-item-overlay"><span>View</span></div>
+        </div>
+        <div class="featured-item" onclick="openLightbox(2)">
+          <img src="media/1773748879747-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg" alt="Photography sample 3" loading="lazy">
+          <div class="featured-item-overlay"><span>View</span></div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a href="gallery.html" class="btn btn-dark">Explore Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section services-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">What I Offer</span>
+        <h2>Sessions Tailored to You</h2>
+        <p>Whether you're planning a wedding or dreaming of a landscape print for your wall, I'd love to help.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">&#9829;</span>
+          <h3>Wedding Photography</h3>
+          <p>Full-day or half-day coverage, from getting ready to the last dance. Delivered with care and attention to every emotion in between.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#9968;</span>
+          <h3>Landscape &amp; Nature</h3>
+          <p>Adventure sessions in the wild places — mountains, forests, coastlines. Available as prints or digital files for your home or office.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">&#9681;</span>
+          <h3>Short Films &amp; Reels</h3>
+          <p>Cinematic wedding films and landscape videography that bring your memories to life with sound, motion, and mood.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="testimonial-section">
+    <blockquote>
+      "The photos captured our day so perfectly — every laugh, every tear, every quiet moment. We keep coming back to look at them."
+      <cite>— Sarah &amp; James, Wedding 2025</cite>
+    </blockquote>
+  </section>
+
+  <!-- Films Preview -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Short Films</span>
+        <h2>Motion Brings Memories Alive</h2>
+        <p>Sometimes a moving image says what a still one cannot. Watch a short preview of recent work.</p>
+      </div>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls preload="metadata" poster="">
+              <source src="media/1773748880619-WhatsApp_Video_2026-02-05_at_20.34.22.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-info">
+            <h4>Outdoor Session</h4>
+            <span>Landscape Film</span>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="media/1773748880353-WhatsApp_Video_2026-02-05_at_20.33.52.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-info">
+            <h4>Special Moments</h4>
+            <span>Wedding Film</span>
+          </div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a href="videos.html" class="btn btn-dark">See All Films</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Captured <span style="color:var(--terracotta)">&amp;</span> Kept</a>
+          <p>Photography for the moments that matter most — weddings, landscapes, and everything beautiful in between.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="videos.html">Films</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Specialities</h4>
+          <ul>
+            <li><a href="gallery.html">Wedding Photography</a></li>
+            <li><a href="gallery.html">Landscapes</a></li>
+            <li><a href="videos.html">Wedding Films</a></li>
+            <li><a href="contact.html">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Captured &amp; Kept Photography. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Pinterest">PT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" onclick="changeLightbox(-1)" aria-label="Previous">&#8592;</button>
+    <img id="lightbox-img" src="" alt="Full size photo">
+    <button class="lightbox-next" onclick="changeLightbox(1)" aria-label="Next">&#8594;</button>
+  </div>
+
+  <script>
+    const featuredImages = [
+      'media/1773748878403-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg',
+      'media/1773748879140-WhatsApp_Image_2026-02-05_at_20.33.27__3_.jpeg',
+      'media/1773748879747-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg'
+    ];
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      document.getElementById('lightbox-img').src = featuredImages[idx];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function changeLightbox(dir) {
+      currentIdx = (currentIdx + dir + featuredImages.length) % featuredImages.length;
+      document.getElementById('lightbox-img').src = featuredImages[currentIdx];
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+  </script>
+
+</body>
+</html>

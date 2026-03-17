@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Captured &amp; Kept Photography</title>
+  <meta name="description" content="Browse the full photography portfolio — landscapes, weddings, and natural portraits.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Captured <span>&amp;</span> Kept</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="videos.html">Films</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="section-eyebrow">Portfolio</span>
+    <h1>The Gallery</h1>
+    <p>A collection of photographs from weddings, landscapes, and everything in between. Every image holds a story.</p>
+  </div>
+
+  <!-- Gallery -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="gallery-filters">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+        <button class="filter-btn" onclick="filterGallery('portrait', this)">Portraits &amp; Weddings</button>
+        <button class="filter-btn" onclick="filterGallery('landscape', this)">Landscapes</button>
+      </div>
+
+      <div class="masonry-grid" id="gallery-grid">
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(0)">
+          <img src="media/1773748878403-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg" alt="Portrait session" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(1)">
+          <img src="media/1773748878663-WhatsApp_Image_2026-02-05_at_20.33.09__1_.jpeg" alt="Wedding portrait" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="landscape" onclick="openLightbox(2)">
+          <img src="media/1773748878931-WhatsApp_Image_2026-02-05_at_20.33.09.jpeg" alt="Landscape photography" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(3)">
+          <img src="media/1773748879140-WhatsApp_Image_2026-02-05_at_20.33.27__3_.jpeg" alt="Wedding photography" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(4)">
+          <img src="media/1773748879361-WhatsApp_Image_2026-02-05_at_20.33.27__2_.jpeg" alt="Portrait session" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="landscape" onclick="openLightbox(5)">
+          <img src="media/1773748879610-WhatsApp_Image_2026-02-05_at_20.33.27__1_.jpeg" alt="Outdoor landscape" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(6)">
+          <img src="media/1773748879747-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg" alt="Wedding moment" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="landscape" onclick="openLightbox(7)">
+          <img src="media/1773748879947-WhatsApp_Image_2026-02-05_at_20.33.52.jpeg" alt="Natural scene" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="portrait" onclick="openLightbox(8)">
+          <img src="media/1773748880100-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg" alt="Portrait photography" loading="lazy">
+          <div class="masonry-item-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-center" style="margin-top:3rem;">
+        <a href="contact.html" class="btn btn-primary">Book Your Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Captured <span style="color:var(--terracotta)">&amp;</span> Kept</a>
+          <p>Photography for the moments that matter most — weddings, landscapes, and everything beautiful in between.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="videos.html">Films</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Specialities</h4>
+          <ul>
+            <li><a href="gallery.html">Wedding Photography</a></li>
+            <li><a href="gallery.html">Landscapes</a></li>
+            <li><a href="videos.html">Wedding Films</a></li>
+            <li><a href="contact.html">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Captured &amp; Kept Photography. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Pinterest">PT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" onclick="changeLightbox(-1)" aria-label="Previous">&#8592;</button>
+    <img id="lightbox-img" src="" alt="Full size photo">
+    <button class="lightbox-next" onclick="changeLightbox(1)" aria-label="Next">&#8594;</button>
+  </div>
+
+  <script>
+    const allImages = [
+      'media/1773748878403-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg',
+      'media/1773748878663-WhatsApp_Image_2026-02-05_at_20.33.09__1_.jpeg',
+      'media/1773748878931-WhatsApp_Image_2026-02-05_at_20.33.09.jpeg',
+      'media/1773748879140-WhatsApp_Image_2026-02-05_at_20.33.27__3_.jpeg',
+      'media/1773748879361-WhatsApp_Image_2026-02-05_at_20.33.27__2_.jpeg',
+      'media/1773748879610-WhatsApp_Image_2026-02-05_at_20.33.27__1_.jpeg',
+      'media/1773748879747-WhatsApp_Image_2026-02-05_at_20.33.27.jpeg',
+      'media/1773748879947-WhatsApp_Image_2026-02-05_at_20.33.52.jpeg',
+      'media/1773748880100-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg'
+    ];
+    let visibleImages = [...allImages];
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      const items = document.querySelectorAll('.masonry-item:not([style*="none"])');
+      const src = items[idx] ? items[idx].querySelector('img').src : allImages[idx];
+      currentIdx = idx;
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function changeLightbox(dir) {
+      const items = Array.from(document.querySelectorAll('.masonry-item')).filter(i => i.style.display !== 'none');
+      currentIdx = (currentIdx + dir + items.length) % items.length;
+      document.getElementById('lightbox-img').src = items[currentIdx].querySelector('img').src;
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('.masonry-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

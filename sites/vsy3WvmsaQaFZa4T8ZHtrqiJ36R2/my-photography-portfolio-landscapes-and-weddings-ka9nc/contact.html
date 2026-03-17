@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Captured &amp; Kept Photography</title>
+  <meta name="description" content="Book a wedding or landscape photography session. Get in touch to check availability and discuss your vision.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .availability-bar {
+      background: var(--sand);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .avail-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #6DBB7A;
+      flex-shrink: 0;
+    }
+    .availability-bar p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      color: var(--mid-brown);
+      margin: 0;
+    }
+    .availability-bar strong {
+      color: var(--dark-brown);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .process-step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .process-step h4 {
+      margin-bottom: 0.5rem;
+    }
+    .process-step p {
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 680px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Captured <span>&amp;</span> Kept</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Films</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="section-eyebrow">Let's Talk</span>
+    <h1>Get in Touch</h1>
+    <p>Whether you're planning a wedding or a landscape shoot — I'd love to hear about your vision and check availability for your date.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>I'd Love to Hear From You</h2>
+          <p>Every enquiry gets a personal reply within 48 hours. Don't hesitate to ask about packages, availability, or just to say hello.</p>
+
+          <div class="availability-bar">
+            <div class="avail-dot"></div>
+            <p><strong>Currently accepting bookings</strong> for weddings and landscape sessions in 2026.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9993;</div>
+              <div class="contact-detail-text">
+                <strong>Email</strong>
+                <span>hello@capturedandkept.com</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9742;</div>
+              <div class="contact-detail-text">
+                <strong>Phone</strong>
+                <span>Available on request</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9679;</div>
+              <div class="contact-detail-text">
+                <strong>Location</strong>
+                <span>Based in the UK &mdash; available for destination shoots worldwide</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9200;</div>
+              <div class="contact-detail-text">
+                <strong>Response Time</strong>
+                <span>Within 48 hours on weekdays</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h3 style="margin-bottom:1.5rem;">Send a Message</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Sarah" required>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Jones" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="sarah@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="session-type">I'm Interested In</label>
+              <select id="session-type" name="session_type">
+                <option value="">Please select...</option>
+                <option value="wedding-photography">Wedding Photography</option>
+                <option value="wedding-film">Wedding Film</option>
+                <option value="landscape-photography">Landscape Photography</option>
+                <option value="landscape-film">Landscape Videography</option>
+                <option value="portrait">Portrait Session</option>
+                <option value="other">Something Else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Your Date (if known)</label>
+              <input type="text" id="date" name="date" placeholder="e.g. June 2026, or TBD">
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Me More</label>
+              <textarea id="message" name="message" placeholder="Share a little about your event, location, or what you have in mind..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; font-size:0.9rem; padding:1rem;">Send Enquiry</button>
+          </form>
+          <div id="form-success" style="display:none; text-align:center; padding:2rem 0;">
+            <p style="color:var(--terracotta); font-size:1.15rem; margin-bottom:0.5rem;">Thank you for reaching out!</p>
+            <p>I'll be in touch within 48 hours.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Process -->
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h4>Send an Enquiry</h4>
+          <p>Fill in the form with a few details about your event, date, and what you're looking for.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h4>We Chat</h4>
+          <p>I'll get back to you personally to learn more, answer questions, and share packages and pricing.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h4>Book &amp; Create</h4>
+          <p>Once everything feels right, we lock in your date and start planning a session you'll cherish forever.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Closing image strip -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:260px; overflow:hidden;">
+    <img src="media/1773748878663-WhatsApp_Image_2026-02-05_at_20.33.09__1_.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <img src="media/1773748879610-WhatsApp_Image_2026-02-05_at_20.33.27__1_.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <img src="media/1773748880100-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Captured <span style="color:var(--terracotta)">&amp;</span> Kept</a>
+          <p>Photography for the moments that matter most — weddings, landscapes, and everything beautiful in between.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="videos.html">Films</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Specialities</h4>
+          <ul>
+            <li><a href="gallery.html">Wedding Photography</a></li>
+            <li><a href="gallery.html">Landscapes</a></li>
+            <li><a href="videos.html">Wedding Films</a></li>
+            <li><a href="contact.html">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Captured &amp; Kept Photography. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Pinterest">PT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      e.target.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
