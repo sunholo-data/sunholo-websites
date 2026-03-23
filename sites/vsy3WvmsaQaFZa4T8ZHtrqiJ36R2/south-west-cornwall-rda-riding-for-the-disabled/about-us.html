@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Policies | South West Cornwall RDA</title>
+    <meta name="description" content="Learn about the history and safety policies of the South West Cornwall Group of the Riding for the Disabled Association.">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b8e23;
+            --secondary: #fdf5e6;
+            --accent: #d2691e;
+            --background: #faf9f6;
+            --text: #2f2f2f;
+            --white: #ffffff;
+            --radius: 24px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sticky Header & Nav */
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero-banner {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+
+        .hero-banner h1 {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .text-block {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .text-block h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .text-block h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .text-block p {
+            font-size: 1.15rem;
+            color: #555;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .testimonial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-content blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-content cite {
+            font-weight: 700;
+            color: var(--accent);
+            font-style: normal;
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .features-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        .features-grid .content-box {
+            padding: 20px;
+        }
+
+        .features-grid h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-banner h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                order: 2;
+            }
+
+            .features-grid .content-box {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span style="color: var(--accent);">SW</span> Cornwall RDA
+                </a>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html" style="color: var(--primary);">About & Policies</a></li>
+                    <li><a href="riders.html">Riders</a></li>
+                    <li><a href="volunteers.html">Volunteers</a></li>
+                    <li><a href="our-horses.html">Our Horses</a></li>
+                    <li><a href="fundraising-competitions.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="container">
+            <h1>About & Policies</h1>
+            <p>Our history, our commitment, and our standards of care.</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Our Story Section -->
+        <section class="container">
+            <div class="text-block">
+                <h2>Our Story</h2>
+                <p>SW Cornwall Group was formed in 1976 to provide horse-riding for disabled children from Nancealverne Special School. Over the years, we have expanded to accommodate adults and riders with varied disabilities, including autism. Based at Old Mill Stables, we continue a legacy of nearly five decades, fostering a bond between horses and humans that transcends physical and cognitive barriers.</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="container">
+            <div class="testimonials">
+                <div class="testimonial-content">
+                    <h3>Trustee Perspective</h3>
+                    <blockquote>
+                        "I started volunteering 3 years ago as I was about to retire. Watching the enjoyment on the children’s faces and seeing them progress both physically and behaviorally makes it a worthwhile commitment."
+                    </blockquote>
+                    <cite>— Anthea Carr, Group Secretary & Trustee</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety & Policies Section -->
+        <section class="container">
+            <div class="features-grid">
+                <div class="image-box">
+                    <img src="media/139413317_3541379012625646_5402217553245693600_n.jpg" alt="RDA Volunteers and Safety Equipment">
+                </div>
+                <div class="content-box">
+                    <h2>Safety & Policies</h2>
+                    <p>We maintain the highest standards of safety for our participants and volunteers. Our 2025 Venue Risk Assessment is available for review, covering everything from mounting facilities to emergency procedures.</p>
+                    <p style="margin-top: 15px;">Our commitment to safety is absolute. Every session is supervised by qualified RDA coaches, and all equipment is regularly inspected to meet the rigorous standards of the national Riding for the Disabled Association.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">South West Cornwall RDA</div>
+                    <p>Providing therapy, fitness, and enjoyment since 1976.</p>
+                    <p>Registered Charity No. 1073713</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Location</h4>
+                    <p>Old Mill Stables, Lelant Down,<br>Hayle, Cornwall, TR27 4FF</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Contact</h4>
+                    <p>Email: SWCG-RDA-Secretary@outlook.com</p>
+                    <p>Phone: 07827 015176</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 South West Cornwall RDA. All rights reserved. | <a href="about-us.html">Privacy & Safety Policies</a>
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="south-west-cornwall-rda-riding-for-the-disabled"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='south-west-cornwall-rda-riding-for-the-disabled';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

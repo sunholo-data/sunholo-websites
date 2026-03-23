@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | South West Cornwall RDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b8e23;
+            --secondary: #fdf5e6;
+            --accent: #d2691e;
+            --background: #faf9f6;
+            --text: #2f2f2f;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hamburger Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background-color: var(--secondary);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 40px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary);
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-section {
+            background-color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .grid-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .grid-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .features-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .features-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                padding: 40px 0;
+                gap: 30px;
+            }
+
+            #menu-toggle:checked ~ .nav-menu {
+                left: 0;
+            }
+
+            .grid-images img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">SW Cornwall RDA</a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">☰</label>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About & Policies</a></li>
+                <li><a href="riders.html">Riders</a></li>
+                <li><a href="volunteers.html">Volunteers</a></li>
+                <li><a href="our-horses.html">Our Horses</a></li>
+                <li><a href="fundraising-competitions.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-content">
+                <h1>Competitions & Events</h1>
+                <p>Celebrating the achievements of our riders and the generosity of our local community.</p>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Competitions & Success</h3>
+                        <p>Our riders compete at County, Regional, and National levels with great success. These events provide a platform for our participants to showcase their skills, build confidence, and experience the thrill of achievement in a supportive environment.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Annual Celebrations</h3>
+                        <p>We host annual shows and festive holiday events to celebrate our community's achievements. From Christmas gatherings to summer showcases, these events bring together riders, families, and volunteers in a spirit of joy and friendship.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="features-container">
+                <div class="grid">
+                    <div class="grid-images">
+                        <img src="media/474381479_8863900300373464_7345706534944171474_n.jpg" alt="Community event supporting RDA">
+                        <img src="media/474510359_8863900240373470_5942024820032459923_n.jpg" alt="Fundraising activity">
+                    </div>
+                    <div class="features-text">
+                        <h2>Support Our Mission</h2>
+                        <p>From dog shows to country fairs, our fundraising events keep our arena open and our ponies fed. Every penny counts toward providing therapy for those who need it most. We rely on the dedication of our community to ensure our services remain accessible to all.</p>
+                        <a href="contact.html" class="cta-button">Get Involved Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>South West Cornwall RDA</h4>
+                <p>Providing horse riding therapy and community support since 1976.</p>
+                <p style="margin-top: 10px;">Registered Charity No. 1073713</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>Old Mill Stables, Lelant Down,<br>Hayle, Cornwall, TR27 4FF</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="riders.html">Riding Sessions</a></p>
+                <p><a href="volunteers.html">Volunteer With Us</a></p>
+                <p><a href="contact.html">Contact Info</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 South West Cornwall Group RDA. All rights reserved.</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="south-west-cornwall-rda-riding-for-the-disabled"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='south-west-cornwall-rda-riding-for-the-disabled';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

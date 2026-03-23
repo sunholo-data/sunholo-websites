@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Horses | South West Cornwall RDA</title>
+    <meta name="description" content="Meet the real heroes of South West Cornwall RDA—our horses and ponies who provide therapy and joy to our community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b8e23;
+            --secondary: #fdf5e6;
+            --accent: #d2691e;
+            --background: #faf9f6;
+            --text: #2f2f2f;
+            --white: #ffffff;
+            --radius: 24px;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5% 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        /* Masonry Gallery Section */
+        .gallery-section {
+            padding: 40px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .masonry-grid {
+            columns: 3 300px;
+            column-gap: 2rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .masonry-content {
+            padding: 1.5rem;
+        }
+
+        .masonry-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* Organic Layout Elements */
+        .intro-card {
+            background-color: var(--secondary);
+            padding: 3rem;
+            border-radius: 50px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 5% 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .intro-card {
+                padding: 2rem 1.5rem;
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span style="color: var(--accent);">✿</span> SW Cornwall RDA
+            </a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about-us.html">About & Policies</a>
+                <a href="riders.html">Riders</a>
+                <a href="volunteers.html">Volunteers</a>
+                <a href="our-horses.html" class="active">Our Horses</a>
+                <a href="fundraising-competitions.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>The Real Heroes</h1>
+            <p>Our horses are more than just animals; they are therapists, companions, and the heart of our community. Each one is chosen for their gentle nature and unique personality.</p>
+        </section>
+
+        <section class="gallery-section">
+            <div class="intro-card">
+                <p style="font-size: 1.25rem; font-style: italic; color: var(--text);">
+                    "Meet Jake, our 'round barrel naughty hedgerow nibbler,' and Max, a willful but clever lad who has been a grounding force for our riders for nearly a decade."
+                </p>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- Horse 1 -->
+                <div class="masonry-item">
+                    <img src="media/139796012_3541378979292316_7912328442688213794_n.jpg" alt="One of our RDA ponies standing calmly">
+                    <div class="masonry-content">
+                        <h3>Steady & Kind</h3>
+                        <p>Our ponies undergo rigorous training to ensure they are comfortable with mounting ramps, side-walkers, and the varied needs of our riders.</p>
+                    </div>
+                </div>
+
+                <!-- Horse 2 -->
+                <div class="masonry-item">
+                    <img src="media/129351048_3436480229782192_4018110119539361157_n.jpg" alt="RDA horse in the stable area">
+                    <div class="masonry-content">
+                        <h3>Patient Teachers</h3>
+                        <p>A horse's rhythmic movement helps improve core strength and coordination, but it is the bond between rider and horse that creates the most magic.</p>
+                    </div>
+                </div>
+
+                <!-- Horse 3 -->
+                <div class="masonry-item">
+                    <img src="media/474212299_8863900067040154_4963324729958799780_n.jpg" alt="Pony enjoying some attention">
+                    <div class="masonry-content">
+                        <h3>A Sensory Experience</h3>
+                        <p>Beyond riding, our horses provide vital sensory feedback during our 'Tea with a Pony' sessions, offering comfort through touch and presence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <h2 style="margin-bottom: 20px;">Caring for our Team</h2>
+                <p style="max-width: 800px; margin: 0 auto;">
+                    The welfare of our horses is our top priority. They live at Old Mill Stables where they receive expert care, regular veterinary check-ups, and plenty of time in the fields to just "be horses" when they aren't working with our participants.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">South West Cornwall RDA</div>
+                <p>Providing horse riding therapy, 'Tea with a Pony', and community support since 1976.</p>
+                <p style="margin-top: 15px;">Registered Charity No: 1073713</p>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1.5rem;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About & Policies</a></li>
+                    <li><a href="riders.html">Riders & Therapy</a></li>
+                    <li><a href="volunteers.html">Volunteer With Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1.5rem;">Contact Us</h3>
+                <p>Old Mill Stables, Lelant Down,<br>Hayle, Cornwall, TR27 4FF</p>
+                <p style="margin-top: 10px;">Email: SWCG-RDA-Secretary@outlook.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 South West Cornwall Group of the Riding for the Disabled Association. All Rights Reserved.
+        </div>
+    </footer>
+
+<meta name="wb-site" content="south-west-cornwall-rda-riding-for-the-disabled"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='south-west-cornwall-rda-riding-for-the-disabled';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
