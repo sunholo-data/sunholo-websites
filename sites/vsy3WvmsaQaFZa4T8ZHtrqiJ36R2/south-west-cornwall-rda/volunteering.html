@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteers | South West Cornwall RDA</title>
+    <meta name="description" content="Join our community of volunteers at South West Cornwall Riding for the Disabled. No horse experience necessary, just a desire to help.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5D745D;
+            --secondary: #D4A373;
+            --accent: #BC6C25;
+            --background: #FEFAE0;
+            --text: #283618;
+            --white: #ffffff;
+            --radius: 20px;
+            --shadow: 0 8px 24px rgba(40, 54, 24, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        #menu-checkbox {
+            display: none;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 80px 0;
+        }
+
+        .hero {
+            position: relative;
+            padding: 100px 0;
+            background-color: var(--primary);
+            color: var(--white);
+            overflow: hidden;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* --- Features Grid --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* --- Story Section --- */
+        .story-section {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 50px;
+            margin: 40px 20px;
+            padding: 60px 40px;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .story-content cite {
+            font-weight: 600;
+            font-style: normal;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        /* --- Contact Form --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--text);
+        }
+
+        footer {
+            background: var(--text);
+            color: var(--background);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                text-align: center;
+            }
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            #menu-checkbox:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .contact-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="nav-logo">
+                    <span>SW Cornwall RDA</span>
+                </a>
+                
+                <input type="checkbox" id="menu-checkbox">
+                <label for="menu-checkbox" class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about-us.html">About Us</a>
+                    <a href="riders-horses.html">Riders & Horses</a>
+                    <a href="volunteering.html" class="active">Volunteers</a>
+                    <a href="fundraising-events.html">Fundraising</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <h1>Volunteers are the Heart of RDA</h1>
+                        <p>Without our committed volunteers, we could not provide such a brilliant experience for our riders. Join our team today and make a real difference in your community.</p>
+                    </div>
+                    <div class="hero-img-box">
+                        <img src="media/WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="Volunteers smiling with a pony at South West Cornwall RDA" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ways to Help (Features Grid) -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Ways to Help</h2>
+                    <p>No horse experience? No problem. We provide full training for all our roles.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Sidewalking</h3>
+                        <p>Interacting with riders and ensuring their safety and confidence during sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Pony Leading</h3>
+                        <p>Focusing on the pony's movement and guidance to ensure a smooth ride.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Administration</h3>
+                        <p>Helping with registers, forms, and the vital organization that keeps the group running.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Fundraising</h3>
+                        <p>Assisting with coffee mornings, dog shows, and country fairs to raise essential funds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial (Story) -->
+        <section class="container">
+            <div class="story-section">
+                <div class="story-content">
+                    <blockquote>
+                        "I was amazed at the difference RDA made to SEN children. The joy was palpable. Many autistic children’s behaviour improves, with the horses bringing a calmness and stillness into their routine."
+                    </blockquote>
+                    <cite>— Sue Williams</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="apply">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Contact our Volunteer Coordinator</h2>
+                        <p>Interested in joining our team? We'd love to hear from you. You can reach out directly to <strong>Sandra Doggett</strong> at <a href="tel:07778269241">07778269241</a> or use the form below.</p>
+                        <p style="margin-top: 20px;">Our sessions are held at Old Mill Stables, Lelant Down.</p>
+                    </div>
+                    <div class="contact-form-box">
+                        <form action="#" method="POST">
+                            <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">How would you like to help?</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell us a little about yourself..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">South West Cornwall RDA</span>
+            <p>Registered Charity No. 1073713</p>
+            <p>Old Mill Stables, Lelant Down, Hayle, Cornwall, TR27 4FF</p>
+            <div class="copyright">
+                &copy; 2025 South West Cornwall Group RDA. Enriching lives through horses since 1976.
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="south-west-cornwall-rda"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='south-west-cornwall-rda';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
