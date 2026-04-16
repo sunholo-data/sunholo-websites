@@ -1188,11 +1188,11 @@ section:nth-child(even) {
         <p class="hero-subtitle">Riding for Disabled</p>
         <p class="hero-meta">Old Mill Stables, Lelant Downs, Cornwall</p>
         <p class="hero-meta" style="margin-top: 0;"><a href="mailto:SWCG-RDA-Secretary@outlook.com" style="color: var(--accent-light); text-decoration: underline;">SWCG-RDA-Secretary@outlook.com</a></p>
-        <p class="hero-motto">"It's what you can do that counts"</p>
         <div class="btn-group">
           <a class="btn btn-primary" href="#riders-join">Become a Rider</a>
           <a class="btn btn-secondary" href="#volunteers">Volunteer with Us</a>
           <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+          <a class="btn btn-secondary" href="#events">Upcoming Events</a>
         </div>
       </div>
     </section>
@@ -1200,7 +1200,7 @@ section:nth-child(even) {
     <!-- ============================================================
          UPCOMING EVENTS
          ============================================================ -->
-    <section style="padding: 2rem 0; background: var(--bg-alt);" aria-label="Upcoming events">
+    <section id="events" style="padding: 2rem 0; background: var(--bg-alt); scroll-margin-top: 80px;" aria-label="Upcoming events">
       <div class="container">
         <div class="event-banner" aria-label="Upcoming fundraising event">
           <div class="event-date" aria-label="16th April 2026">
@@ -1222,6 +1222,11 @@ section:nth-child(even) {
             <h3>Christmas Party</h3>
             <p>Our annual Christmas party — a festive celebration for riders, volunteers, families and friends. Everyone welcome!</p>
           </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem;" aria-label="Photos from previous Christmas parties">
+          <img src="media/christmas-one.jpeg" alt="Festive decorations and guests at a previous Christmas party" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius);">
+          <img src="media/christmas-two.jpeg" alt="Riders, volunteers and ponies celebrating at a previous Christmas party" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius);">
         </div>
       </div>
     </section>
@@ -1267,7 +1272,9 @@ section:nth-child(even) {
         </div>
         <div class="cards-grid">
           <div class="card">
-            <img class="card-img" src="media/1774271802899-481170117_9109338749162950_4141629981640801238_n.jpg" alt="Riders on horseback with volunteers in a bright sunny outdoor session" loading="lazy">
+            <video class="card-img" autoplay muted loop playsinline aria-label="Short video of a therapeutic riding session">
+              <source src="media/theraputic-riding.mp4" type="video/mp4">
+            </video>
             <div class="card-body">
               <h3>Therapeutic Riding</h3>
               <p>Our trained horses and experienced volunteers provide safe, supported riding sessions that build confidence, strength, balance, and wellbeing.</p>
@@ -1328,25 +1335,10 @@ section:nth-child(even) {
           </div>
         </div>
 
-        <!-- Small horse gallery -->
-        <div class="gallery-grid" style="margin-top: 3rem;" aria-label="Photos of our horses and arena">
+        <!-- Horses photo gallery -->
+        <div class="gallery-grid" style="margin-top: 3rem;" aria-label="Photos of our horses">
           <div class="gallery-item">
-            <img src="media/1774271800640-66832473_2245510705545823_447181317570822144_n.jpg" alt="The indoor arena at Lelant Downs — a large covered space with a sandy floor" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800799-72681630_2412982885465270_856552032285229056_n.jpg" alt="Rider on horseback with volunteer walking alongside in the arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800840-73059082_2412982905465268_4298624645336137728_n.jpg" alt="Close view of rider and horse during a session" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271801437-139459239_3541379202625627_8968531303972715990_n.jpg" alt="Colourful dressage letter signs with animal pictures to help riders learn the arena markers" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800872-74570228_2412983015465257_3224887146368204800_n.jpg" alt="Session in progress in the indoor arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800911-72362442_2412983075465251_6047356292555603968_n.jpg" alt="Rider enjoying their session with a side walker for support" loading="lazy">
+            <img src="media/1774271800375-WhatsApp_Image_2026-02-05_at_20.35.13__2_.jpeg" alt="One of our calm and patient RDA horses at Old Mill Stables" loading="lazy">
           </div>
         </div>
       </div>
@@ -1363,7 +1355,9 @@ section:nth-child(even) {
         </div>
         <div class="split-section reverse">
           <div class="split-image">
-            <img src="media/1774271799509-WhatsApp_Image_2026-02-05_at_20.33.09__2_.jpeg" alt="A rider on horseback enjoying a session in the arena with support from volunteers" loading="lazy">
+            <video autoplay muted loop playsinline controls aria-label="Video of Raffie riding with SWCG-RDA" style="width: 100%; height: 420px; object-fit: cover; display: block;">
+              <source src="media/1774271804708-WhatsApp_Video_2026-02-11_at_17.37.21.mp4" type="video/mp4">
+            </video>
           </div>
           <div>
             <p>
@@ -1377,11 +1371,11 @@ section:nth-child(even) {
             </p>
 
             <div class="highlight-box" style="margin-top: 1.5rem; text-align: left;">
-              <h3>Raffy's Story</h3>
+              <h3>Raffie's Story</h3>
               <p>"I wasn't always disabled but became disabled in childhood. You begin to understand the world is full of things you can't do. One of the many things I couldn't do was go horse riding. It was something I enjoyed up until I couldn't do it any more.</p>
               <p>At some point a friend asked why I wasn't riding with the RDA. I had never heard of Riding for the Disabled Association. Probably five days and one form later I was speaking to a member of my local RDA at Old Mill Stables. I was soon mounting the horse I was to relearn to ride on — Jake. Another round barrel boy who liked a treat. But with him I learned what I could do, having never thought I'd ride again.</p>
               <p>I was moved onto Max. A willful lad who mostly does whatever he likes. He's clever though and after a battle of wills we've been together for six of the nearly nine years I've been with Southwest RDA. Riding has helped my mobility and makes me feel strong and capable. Max is not my horse but he is a grounding and consistency. I have just turned 40 and while I can't continue my education, have steady employment or drive a car — I have Max and the RDA made that possible."</p>
-              <p style="opacity: 0.85; font-style: italic; margin-bottom: 0;">— Raffy, SWCG–RDA Rider</p>
+              <p style="opacity: 0.85; font-style: italic; margin-bottom: 0;">— Raffie, SWCG–RDA Rider</p>
             </div>
 
             <h3 id="riders-join" style="margin-top: 1.5rem;">How to Become a Rider</h3>
@@ -1404,22 +1398,13 @@ section:nth-child(even) {
         <!-- Riders photo gallery -->
         <div class="gallery-grid" style="margin-top: 3rem;" aria-label="Photos of our riders in sessions and at competitions">
           <div class="gallery-item">
-            <img src="media/1774271800950-72947557_2412983145465244_8169406557272932352_n.jpg" alt="Young person with horse at the stables" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800872-74570228_2412983015465257_3224887146368204800_n.jpg" alt="Rider during a session in the indoor arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802899-481170117_9109338749162950_4141629981640801238_n.jpg" alt="Riders on horseback in a sunny outdoor session" loading="lazy">
-          </div>
-          <div class="gallery-item">
             <img src="media/1774271800024-WhatsApp_Image_2026-02-05_at_20.34.52.jpeg" alt="Rider on a decorated pony with volunteers at the Christmas party" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="media/1774271800716-73150683_2412982818798610_7662839933786128384_n.jpg" alt="Young rider in smart competition clothing at the stables" loading="lazy">
+            <img src="media/1774271801437-139459239_3541379202625627_8968531303972715990_n.jpg" alt="Colourful dressage letter signs with animal pictures to help riders learn the arena markers" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="media/1774271801437-139459239_3541379202625627_8968531303972715990_n.jpg" alt="Colourful dressage letter signs with animal pictures to help riders learn the arena markers" loading="lazy">
+            <img src="media/1774271800302-WhatsApp_Image_2026-02-05_at_20.35.04.jpeg" alt="Rider enjoying a session at Old Mill Stables" loading="lazy">
           </div>
         </div>
       </div>
@@ -1469,27 +1454,6 @@ section:nth-child(even) {
           </div>
         </div>
 
-        <!-- Volunteer gallery -->
-        <div class="gallery-grid" style="margin-top: 3rem;" aria-label="Photos of our volunteers in action">
-          <div class="gallery-item">
-            <img src="media/1774271799588-WhatsApp_Image_2026-02-05_at_20.33.09__1_.jpeg" alt="Volunteers helping a rider mount using the ramp at the indoor arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802043-474108462_8863900103706817_7304641706683197697_n.jpg" alt="Volunteer grooming a horse in the outdoor arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800211-WhatsApp_Image_2026-02-05_at_20.35.04__1_.jpeg" alt="Volunteers and riders with decorated ponies at the Christmas party" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800302-WhatsApp_Image_2026-02-05_at_20.35.04.jpeg" alt="Group of volunteers with riders and ponies at the stables" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271800119-WhatsApp_Image_2026-02-05_at_20.35.04__2_.jpeg" alt="Volunteer leading a rider on a decorated pony" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271801473-139564412_3541379289292285_3670116425590207799_n.jpg" alt="Arena dressage letter C with cat picture — helping riders learn the markers" loading="lazy">
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1552,7 +1516,10 @@ section:nth-child(even) {
             <img src="media/1774271799111-WhatsApp_Image_2026-02-05_at_20.25.00.jpeg" alt="A guest at Tea with a Pony" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="media/1774271799672-WhatsApp_Image_2026-02-05_at_20.33.09.jpeg" alt="Tea with a Pony — guests and horses in the arena" loading="lazy">
+            <img src="media/tea-with-pony1.jpeg" alt="Tea with a Pony event" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/tea-with-pony2.jpeg" alt="Tea with a Pony event" loading="lazy">
           </div>
         </div>
       </div>
@@ -1569,7 +1536,7 @@ section:nth-child(even) {
         </div>
         <div class="split-section">
           <div class="split-image">
-            <img src="media/1774271800759-73079632_2412982842131941_3458602838366617600_n.jpg" alt="Rider in competition dress on horseback looking confident and proud" loading="lazy">
+            <img src="media/competitions.jpeg" alt="South West Cornwall Group riders at competition" loading="lazy">
           </div>
           <div>
             <p>
@@ -1589,6 +1556,9 @@ section:nth-child(even) {
 
         <!-- Competition gallery -->
         <div class="gallery-grid" style="margin-top: 3rem;" aria-label="Competition photos">
+          <div class="gallery-item">
+            <img src="media/1774271800680-72594041_2406182599478632_1578100400504963072_n.jpg" alt="Four young riders smiling proudly in front of the stables, each holding large red and white competition rosettes" loading="lazy">
+          </div>
           <div class="gallery-item">
             <img src="media/1774271800716-73150683_2412982818798610_7662839933786128384_n.jpg" alt="Young rider in full competition attire standing proudly in front of stables" loading="lazy">
           </div>
@@ -1702,6 +1672,31 @@ section:nth-child(even) {
             </div>
           </div>
         </div>
+
+        <!-- Fundraising photo gallery -->
+        <div class="gallery-grid" style="margin-top: 3rem;" aria-label="More photos from our fundraising events and sessions">
+          <div class="gallery-item">
+            <img src="media/1774271801840-474176345_8863900057040155_1625727215572138173_n.jpg" alt="Session in the outdoor arena, sunny day" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271802462-474001503_8863900210373473_3859812454244129541_n.jpg" alt="Volunteers and riders in the arena" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271801941-473805343_8863900070373487_8187263241397935835_n.jpg" alt="Group in the outdoor arena with horses" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271801990-474109328_8863900080373486_1237935258591445853_n.jpg" alt="Riders enjoying a sunny session" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271802043-474108462_8863900103706817_7304641706683197697_n.jpg" alt="Close view of rider and volunteer" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271802155-474137337_8863900263706801_8953396429884804405_n.jpg" alt="Group session in the outdoor arena" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="media/1774271802210-474209614_8863900467040114_8490855996142221939_n.jpg" alt="Rider with horse in arena" loading="lazy">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1774,33 +1769,6 @@ section:nth-child(even) {
           <p class="quote-attribution">— The Trustees, South West Cornwall Group – Riding for Disabled</p>
         </div>
 
-        <!-- Gallery of more group photos -->
-        <div class="gallery-grid" style="margin-top: 3rem;" aria-label="More photos from our sessions and events">
-          <div class="gallery-item">
-            <img src="media/1774271801840-474176345_8863900057040155_1625727215572138173_n.jpg" alt="Session in the outdoor arena, sunny day" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802462-474001503_8863900210373473_3859812454244129541_n.jpg" alt="Volunteers and riders in the arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271801941-473805343_8863900070373487_8187263241397935835_n.jpg" alt="Group in the outdoor arena with horses" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271801990-474109328_8863900080373486_1237935258591445853_n.jpg" alt="Riders enjoying a sunny session" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802043-474108462_8863900103706817_7304641706683197697_n.jpg" alt="Close view of rider and volunteer" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802100-474106898_8863900340373460_5402960515965392669_n.jpg" alt="Rider on horseback during session" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802155-474137337_8863900263706801_8953396429884804405_n.jpg" alt="Group session in the outdoor arena" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="media/1774271802210-474209614_8863900467040114_8490855996142221939_n.jpg" alt="Rider with horse in arena" loading="lazy">
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1828,6 +1796,16 @@ section:nth-child(even) {
               <p>
                 <strong>Email</strong><br>
                 <a href="mailto:SWCG-RDA-Secretary@outlook.com">SWCG-RDA-Secretary@outlook.com</a>
+              </p>
+            </div>
+
+            <div class="contact-detail">
+              <span class="icon" aria-hidden="true">&#9749;</span>
+              <p>
+                <strong>Tea with a Pony</strong><br>
+                Louise Ridge<br>
+                <a href="mailto:louiseridge@googlemail.com">louiseridge@googlemail.com</a><br>
+                <a href="tel:+447985745246">07985 745246</a>
               </p>
             </div>
 
