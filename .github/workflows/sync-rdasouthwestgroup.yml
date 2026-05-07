@@ -12,11 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Sync to rdasouthwestgroup repo
+      - name: Set up SSH deploy key
         env:
-          PAT: ${{ secrets.RDASOUTHWESTGROUP_DEPLOY_PAT }}
+          DEPLOY_KEY: ${{ secrets.RDASOUTHWESTGROUP_DEPLOY_KEY }}
         run: |
-          git clone https://x-access-token:${PAT}@github.com/sunholo-data/rdasouthwestgroup.git /tmp/rdarepo
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Sync to rdasouthwestgroup repo
+        run: |
+          git clone git@github.com:sunholo-data/rdasouthwestgroup.git /tmp/rdarepo
           rsync -av --delete \
             --exclude='.git' --exclude='CNAME' --exclude='README.md' \
             sites/ZO8wLHpvFcNFlorlcrlNeGmnuPE3/home-page-riding-for-disabled-south-west-group-established-i-7m9sk/ \
