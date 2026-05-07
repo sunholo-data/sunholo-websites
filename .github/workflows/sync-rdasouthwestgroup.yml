@@ -1,0 +1,31 @@
+name: Sync rdasouthwestgroup site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites/ZO8wLHpvFcNFlorlcrlNeGmnuPE3/home-page-riding-for-disabled-south-west-group-established-i-7m9sk/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync to rdasouthwestgroup repo
+        env:
+          PAT: ${{ secrets.RDASOUTHWESTGROUP_DEPLOY_PAT }}
+        run: |
+          git clone https://x-access-token:${PAT}@github.com/sunholo-data/rdasouthwestgroup.git /tmp/rdarepo
+          rsync -av --delete \
+            --exclude='.git' --exclude='CNAME' --exclude='README.md' \
+            sites/ZO8wLHpvFcNFlorlcrlNeGmnuPE3/home-page-riding-for-disabled-south-west-group-established-i-7m9sk/ \
+            /tmp/rdarepo/
+          cd /tmp/rdarepo
+          git config user.email "ailang-agent@sunholo.com"
+          git config user.name "AILANG Sync"
+          git add -A
+          git diff --staged --quiet && echo "No changes to sync" || (
+            git commit -m "Sync: portal update via Claudette" &&
+            git push
+          )
